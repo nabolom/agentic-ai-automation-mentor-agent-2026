@@ -148,6 +148,6 @@ Los participantes ya usan harnesses aunque no los llamen así:
 
 - **Un workflow de n8n es un harness determinista.** Tú fijas el orden. El modelo solo decide dentro de las cajas que le diste.
 - **LangGraph es un harness con estado durable.** Checkpointers, HIL, reintentos condicionales, grafos cíclicos.
-- **Claude Code + este repo es un harness.** `CLAUDE.md` es el prompt de sistema, `skills/` son capacidades bajo demanda, `referencias/` es el estado externalizado, `proyectos/` es el archivo de progreso.
+- **Claude Code + este repo es un harness.** `CLAUDE.md` es el prompt de sistema, `.claude/skills/` son capacidades bajo demanda, `referencias/` es el estado externalizado, `proyectos/` es el archivo de progreso.
 
 Cuando alguien pregunte "¿cómo hago mi agente más confiable?", la respuesta casi nunca es el modelo. Es una de estas tres: **acota el paso, verifica externamente, o pon el estado en disco.**

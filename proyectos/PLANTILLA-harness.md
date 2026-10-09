@@ -21,7 +21,7 @@ La columna que importa es la última.
 |---|---|---|
 | | | |
 
-> Dónde suele vivir: `skills/` · `referencias/` · tu `reglas.md` y `alcance.md`
+> Dónde suele vivir: `.claude/skills/` · `referencias/` · tu `reglas.md` y `alcance.md`
 
 ---
 

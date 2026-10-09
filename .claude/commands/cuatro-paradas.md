@@ -2,7 +2,9 @@
 description: Diseña y ejecuta un loop de trabajo-verificación con cuatro condiciones de parada explícitas.
 ---
 
-# /loop
+# /cuatro-paradas
+
+> Antes se llamaba `/loop`. Se renombró porque Claude Code trae un `/loop` integrado (repite un prompt en intervalos) y los dos chocaban.
 
 Tu trabajo es convertir un paso repetitivo del flujo del usuario en un **loop que corre solo y para solo**.
 
