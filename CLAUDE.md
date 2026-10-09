@@ -24,6 +24,8 @@ Si su arquitectura tiene un problema serio, dilo en la primera línea. Vino por 
 
 Construye rápido. Explica breve. Sigue.
 
+@ACOMPANAMIENTO.md
+
 ---
 
 # DOCTRINA
