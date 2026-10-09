@@ -4,17 +4,17 @@ title: n8n
 description: Nodos, versiones, trampas y los nodos de IA que casi nadie usa (Guardrails, Evaluation, MCP Server Trigger).
 resource: https://docs.n8n.io
 tags: [n8n, workflows, nodos, automatizacion]
-timestamp: 2026-07-13T00:00:00Z
+timestamp: 2026-10-09T00:00:00Z
 ---
 
 # n8n — hechos verificados
 
-> **Verificado: 13 julio 2026** contra https://docs.n8n.io
+> **Verificado: 9 octubre 2026** contra https://registry.npmjs.org/n8n (versión) y https://docs.n8n.io (nodos)
 > Re-verificar con `/verificar`.
 
 ## Versión
 
-Línea **2.x** (2.20.x al momento de verificar). n8n 2.0 fue un cambio mayor con breaking changes: si alguien viene de 1.x, mándalo a la guía de migración antes de nada.
+Línea **2.x** (estable **2.42.x** al 9 de octubre de 2026: `latest` = 2.42.6; el canal `next` ya va en 2.43.x). n8n 2.0 fue un cambio mayor con breaking changes: si alguien viene de 1.x, mándalo a la guía de migración antes de nada.
 
 ## Los nodos que importan (y que casi nadie usa)
 
@@ -32,8 +32,8 @@ Casi nunca necesitas el nodo AI Agent. Estos son más baratos, más rápidos y m
 
 ### Confiabilidad — los tres que cambian todo
 
-- **Guardrails** (`n8n-nodes-langchain.guardrails`) — nodo nativo de validación de entradas/salidas del LLM. Existe. Úsalo.
-- **Evaluation** y **Evaluation Trigger** (`n8n-nodes-base.evaluation`, `.evaluationtrigger`) — **evals nativos dentro de n8n**. Corres tu workflow contra un dataset de casos con salida esperada y mides. Esto es lo que separa "creo que funciona" de "funciona el 92%".
+- **Guardrails** (`n8n-nodes-langchain.guardrails`) — nodo nativo de validación de entradas/salidas del LLM. Dos operaciones: *Check Text for Violations* (keywords, jailbreak, NSFW, PII, llaves secretas, alineación de tema, regex; lo que viola va a la rama Fail) y *Sanitize Text* (reemplaza URLs, PII y llaves por placeholders). Existe. Úsalo. Doc: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.guardrails
+- **Evaluation** y **Evaluation Trigger** (`n8n-nodes-base.evaluation`, `.evaluationtrigger`) — **evals nativos dentro de n8n**. El trigger lee un dataset (Data Table o Google Sheets) y manda los casos uno por uno; el nodo Evaluation fija salidas, métricas y detecta si estás en modo evaluación. Corres tu workflow contra casos con salida esperada y mides. Esto es lo que separa "creo que funciona" de "funciona el 92%". Docs: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.evaluation/ y /n8n-nodes-base.evaluationtrigger/
 - **Structured Output Parser** (`n8n-nodes-langchain.outputparserstructured`) y **Auto-fixing Output Parser** (`.outputparserautofixing`) — el auto-fixing reintenta con el error cuando el modelo se sale del esquema. Es tu red de seguridad.
 
 ### Human-in-the-loop (nativo desde 2.5/2.6)
@@ -44,13 +44,13 @@ Casi nunca necesitas el nodo AI Agent. Estos son más baratos, más rápidos y m
 ### Modelos y memoria
 
 - **Anthropic Chat Model**: `n8n-nodes-langchain.lmchatanthropic`. También hay OpenAI, Gemini, Bedrock, Groq, OpenRouter, Ollama, DeepSeek, Mistral, xAI.
-- **Model Selector** (`n8n-nodes-langchain.modelselector`) — rutea a distintos modelos según condición. Así mandas lo fácil a Haiku y lo difícil a Opus dentro del mismo flujo.
+- **Model Selector** (`n8n-nodes-langchain.modelselector`) — rutea a distintos modelos según condición. Así mandas lo fácil a Haiku 5.5 y lo difícil a Sonnet 5.5 u Opus 5.5 dentro del mismo flujo.
 - Memoria: **Simple Memory** (en n8n, se pierde al reiniciar) o Postgres / Redis / MongoDB / Zep para memoria que sobrevive.
 
 ### MCP dentro de n8n
 
 - **MCP Client** (`n8n-nodes-langchain.mcpClient`) y **MCP Client Tool** (`.toolmcp`) — n8n consume herramientas de servidores MCP.
-- **MCP Server Trigger** (`n8n-nodes-langchain.mcptrigger`) — **tu workflow de n8n se expone como servidor MCP**. Cualquier agente (Claude, Cursor, lo que sea) puede llamarlo como herramienta. Esto es una puerta trasera enorme y poca gente la usa.
+- **MCP Server Trigger** (`n8n-nodes-langchain.mcptrigger`) — **tu workflow de n8n se expone como servidor MCP** por SSE o Streamable HTTP. Cualquier agente (Claude, Cursor, lo que sea) puede llamarlo como herramienta. Esto es una puerta trasera enorme y poca gente la usa. Doc: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/
 
 ### Vector stores (para RAG)
 

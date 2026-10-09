@@ -4,7 +4,7 @@
 
 ## Antes de construirlo: ¿de verdad necesitas RAG?
 
-Pregunta incómoda. Los modelos actuales tienen **contexto de 1M tokens sin sobreprecio** (Sonnet 5, Opus 4.x, Fable 5).
+Pregunta incómoda. Los modelos actuales tienen **contexto de 1M tokens sin sobreprecio** (Fable 5.1, Opus 5.5, Sonnet 5.5 y toda la línea 4.6+). La excepción es Haiku 5.5: arriba de 100k tokens de prompt cobra 5× más, así que para meter un corpus entero usa Sonnet 5.5.
 
 Si tu corpus completo cabe en el contexto —un manual de 200 páginas son unos 150k tokens— **métele el documento entero y cachéalo**. Cache hit = 10% del precio del input, y no cuenta para el rate limit.
 

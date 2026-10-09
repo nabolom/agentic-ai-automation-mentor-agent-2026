@@ -36,23 +36,28 @@ EJEMPLOS
 
 **`confianza`** — pídele al modelo que declare qué tan seguro está. Luego enruta: confianza baja → humano. Es la forma más barata de manejar el 5% raro sin construir lógica para cada caso.
 
+> **Sobre `confianza`:** la confianza que un modelo verbaliza tiende a sobreestimarse (Xiong et al., ICLR 2024, https://arxiv.org/abs/2306.13063), aunque es una señal utilizable y suele estar mejor calibrada que las probabilidades internas (Tian et al., EMNLP 2023, https://aclanthology.org/2023.emnlp-main.330/).
+> **Regla:** antes de enrutar con ella, calíbrala con tu suite: tasa de acierto por etiqueta (`alta`, `media`, `baja`). Si "alta" acierta el 70%, no es alta.
+
 **`razonamiento`** — cuando el agente decida mal, vas a querer saber *por qué*. Sin este campo estás depurando a ciegas.
 
 ## Salida estructurada, siempre
 
 Si el modelo devuelve prosa, el siguiente nodo no puede confiar en ella.
 
-- JSON con esquema
-- **Valida el esquema.** Si no valida, reintenta una vez metiéndole el error de validación al prompt. Si vuelve a fallar, escala.
-- Nunca dejes pasar una salida no validada al siguiente paso.
+- JSON con esquema.
+- **Primer camino: Structured Outputs** (GA en la API de Claude, verificado 9 oct 2026). `output_config.format` con `type: "json_schema"`, o `strict: true` en la herramienta. La API restringe la decodificación: la sintaxis sale bien por construcción. Detalle y límites en la skill `claude-api`.
+- **Tu validación pasa de sintaxis a contenido.** Escribe un checker: ¿el `rfc` existe en el padrón? ¿el `total` cuadra con la OC? ¿la `categoria` es coherente con el texto? ¿`confianza: alta` viene con `razonamiento` vacío? Eso la gramática no lo garantiza. Si el checker falla, reintenta una vez metiéndole el error al prompt; si vuelve a fallar, escala.
+- Sigue revisando `stop_reason`: `refusal` y `max_tokens` devuelven salida que puede no cumplir el esquema.
+- Nunca dejes pasar una salida que no pasó por el checker.
 
-En n8n: **Structured Output Parser** y **Auto-fixing Output Parser** (el segundo hace el reintento por ti). En la API de Claude: tool use con esquema, o pedir JSON y validarlo tú.
+En n8n: **Structured Output Parser** y **Auto-fixing Output Parser** (el segundo hace el reintento por ti). Si el nodo que usas no expone Structured Outputs, el camino viejo (pedir JSON y validar el esquema tú) sigue funcionando; es el segundo camino, no el primero.
 
 ## Descomponer
 
 Si el agente hace cinco cosas, son **cinco prompts encadenados**, no uno. Un prompt monolítico es imposible de depurar: falla y no sabes cuál de las cinco cosas se rompió.
 
-Y cada paso encadenado puede ir a un modelo distinto. Clasificar → Haiku. Redactar → Sonnet.
+Y cada paso encadenado puede ir a un modelo distinto. Clasificar → Haiku 5.5. Redactar → Sonnet 5.5.
 
 ## Errores frecuentes
 

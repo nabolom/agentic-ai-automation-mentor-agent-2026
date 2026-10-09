@@ -4,12 +4,12 @@ title: Agent Engineering — estado del arte 2026
 description: Hechos verificados sobre el estado del campo. Solo fuentes primarias. Lo no verificable está marcado como tal.
 resource: https://www.langchain.com/state-of-agent-engineering
 tags: [agent-engineering, estado-del-arte, verificado]
-timestamp: 2026-07-13T00:00:00Z
+timestamp: 2026-10-09T00:00:00Z
 ---
 
 # Agent Engineering — estado del arte
 
-> **Verificado: 13 julio 2026.** Solo fuentes primarias. Lo que no se pudo verificar está marcado y **no se presenta en clase**.
+> **Verificado: 9 octubre 2026** (METR y multiagente) y 13 julio 2026 (LangChain). Solo fuentes primarias. Lo que no se pudo verificar está marcado y **no se presenta en clase**.
 
 ## La tesis
 
@@ -42,8 +42,8 @@ Fuente: https://www.langchain.com/state-of-agent-engineering
 
 METR mide el **horizonte de tarea**: la duración de tarea (medida en tiempo de un experto humano) a la que un agente tiene X% de probabilidad de éxito trabajando solo.
 
-- **Time Horizon 1.1** (enero 2026): duplicación post-2023 estimada en **~130.8 días (≈4.3 meses)** — ~20% más rápido de lo estimado antes. El famoso "~7 meses" es la cifra histórica 2019–2025.
-- **Claude Opus 4.6** (feb 2026): **719 min (~12 h) al 50%** de confiabilidad, **70 min al 80%**.
+- **Time Horizon 1.1**: duplicación desde 2023 estimada en **128.7 días (≈4.2 meses)**, IC 95% 104.4–158.0 días (`doubling_time_in_days.from_2023_on` en el YAML oficial; excluye puntos con p50 > 16 h). El famoso "~7 meses" es la cifra histórica 2019–2025 (el mismo archivo da 187.8 días para la serie completa).
+- **Claude Opus 4.6** (publicado 5 feb 2026): **718.8 min (~12 h) al 50%** de confiabilidad, con un IC 95% enorme: **316.7–3,633.8 min**. **69.9 min al 80%** (IC 27.0–170.4).
 
 ### El dato que enseña más que ninguno
 
@@ -55,9 +55,9 @@ Es el argumento completo del curso, en dos números.
 
 ### Advertencia obligatoria
 
-**METR declara explícitamente que sus mediciones arriba de 16 horas no son confiables** porque la suite de tareas se está saturando. Cualquier cifra de "≥16 horas autónomas" hay que presentarla con esa advertencia o no presentarla.
+**METR declara explícitamente que sus mediciones arriba de 16 horas no son confiables con su suite actual** ("Measurements above 16 hrs are unreliable with our current task suite"). La página además avisa que ya no se actualiza activamente. Cualquier cifra de "≥16 horas autónomas" hay que presentarla con esa advertencia o no presentarla.
 
-Fuente: https://metr.org/time-horizons/
+Fuentes: https://metr.org/time-horizons y https://metr.org/assets/benchmark_results_1_1.yaml (los números exactos están en el YAML; la página solo trae la gráfica).
 
 ## El error compuesto
 
@@ -121,7 +121,7 @@ Multiagente añade especialización y paralelismo, pero multiplica costo, latenc
 Circula mucho en blogs, videos de YouTube y posts de Medium. **Puede ser cierto. No lo sabemos.** No se presenta en clase, y esa decisión es en sí misma parte del contenido del curso:
 
 - "F1 de 0.943 del Evaluator-Optimizer" / "2.3x más caro"
-- "90.2% vs 80.9% de precisión en multiagente"
+- "90.2% vs 80.9% de precisión en multiagente" — **la versión mal citada.** El 90.2% sí existe (Anthropic, junio 2025) pero es **mejora relativa sobre Opus 4 solo, en una eval interna**, no una precisión ni una comparación 90.2 vs 80.9. La versión correcta está en `multiagente.md`.
 - "Princeton NLP: un agente iguala a multiagente en 64% de tareas"
 - "$2 billones de capitalización SaaS desaparecidos"
 - "144 identidades no-humanas por empleado"

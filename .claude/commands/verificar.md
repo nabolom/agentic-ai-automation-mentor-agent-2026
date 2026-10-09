@@ -20,7 +20,7 @@ Los archivos de `referencias/` son la razón por la que este repo vale más que 
 **Ningún hecho sin fecha y sin fuente.** Si no puedes verificarlo, no lo escribas. Dilo.
 
 **Presta atención especial a:**
-- Precios con fecha de vencimiento (ej. el precio introductorio de Sonnet 5, que sube el 1 de septiembre de 2026)
+- Precios con fecha de vencimiento o escalones por longitud de prompt (ej. Haiku 5.5 arriba de 100k tokens). Y precios "introductorios" que luego se quedan: el de Sonnet 5 iba a subir en septiembre de 2026 y no subió
 - Modelos deprecados o retirados
 - Nombres de nodos que cambiaron
 - Versiones de spec (MCP se mueve rápido)

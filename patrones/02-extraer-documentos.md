@@ -44,8 +44,11 @@ Sé explícito con lo opcional. Esto es lo que evita la alucinación:
 
 Ese último campo, `campos_no_encontrados`, es la diferencia entre un extractor que te avisa y uno que te inventa datos. **Pídeselo explícitamente.**
 
+> **Sobre `confianza`:** la confianza que un modelo verbaliza tiende a sobreestimarse (Xiong et al., ICLR 2024, https://arxiv.org/abs/2306.13063), aunque es una señal utilizable y suele estar mejor calibrada que las probabilidades internas (Tian et al., EMNLP 2023, https://aclanthology.org/2023.emnlp-main.330/).
+> **Regla:** antes de enrutar con ella, calíbrala con tu suite: tasa de acierto por etiqueta (`alta`, `media`, `baja`). Si "alta" acierta el 70%, no es alta.
+
 ## Costo
 
-Haiku para documentos simples y estructurados. Sonnet si el formato varía mucho.
+Haiku 5.5 para documentos simples y estructurados (ojo: arriba de 100k tokens de prompt se encarece 5×; un PDF largo puede cruzar ese umbral). Sonnet 5.5 si el formato varía mucho.
 
 **Si procesas documentos en lote y no es urgente: Batch API, 50% menos.** Este patrón es el caso de uso canónico de batch, y casi nadie lo aprovecha.

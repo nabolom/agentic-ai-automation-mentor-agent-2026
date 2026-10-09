@@ -3,7 +3,7 @@ type: autodiagnostico
 title: Las 8 competencias de Agent Engineering
 description: Autodiagnóstico. Ocho cosas que separan a quien construye demos de quien construye sistemas.
 tags: [competencias, autodiagnostico, agent-engineering]
-timestamp: 2026-07-13T00:00:00Z
+timestamp: 2026-10-09T00:00:00Z
 ---
 
 # ¿Sabes hacer estas ocho cosas?
@@ -70,7 +70,7 @@ Usar fallas y trazas para ajustar el sistema, no para repetir prompts a ciegas.
 
 ## El dato que las justifica
 
-Claude Opus 4.6 tiene un horizonte autónomo de **12 horas al 50% de confiabilidad** — y de **70 minutos al 80%**.
+Claude Opus 4.6 tiene un horizonte autónomo de **12 horas al 50% de confiabilidad** (718.8 min; IC 95% de 5 a 60 horas) — y de **70 minutos al 80%**. Verificado contra METR el 9 de octubre de 2026.
 
 Esa brecha no la cierra el modelo. **La cierra el sistema que construyes alrededor.**
 

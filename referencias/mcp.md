@@ -2,36 +2,38 @@
 type: referencia-protocolo
 title: Model Context Protocol
 description: Versiones del spec, primitivas, transportes, y cuándo MCP es sobreingeniería.
-resource: https://blog.modelcontextprotocol.io
+resource: https://modelcontextprotocol.io/specification/versioning
 tags: [mcp, protocolo, agentes, herramientas]
-timestamp: 2026-07-13T00:00:00Z
+timestamp: 2026-10-09T00:00:00Z
 ---
 
 # MCP (Model Context Protocol) — hechos verificados
 
-> **Verificado: 13 julio 2026** contra blog.modelcontextprotocol.io y github.com/modelcontextprotocol
+> **Verificado: 9 octubre 2026** contra https://modelcontextprotocol.io/specification/versioning y /specification/2026-07-28/changelog
 
 ## Versión
 
-- **Estable: `2025-11-25`.** Es la que están corriendo los SDKs y hosts en producción hoy.
-- **Release candidate: `2026-07-28`** (anunciado 21 de mayo 2026). La revisión más grande desde el lanzamiento. **No es final; puede cambiar antes de salir.** No construyas contra el RC salvo que estés experimentando a propósito.
+- **Vigente: `2026-07-28`.** Es la revisión marcada como *current* en el spec. Lo que en julio de 2026 era un candidato a versión ya es la que corren SDKs y hosts.
+- **Anterior: `2025-11-25`.** Sigue existiendo para compatibilidad: la 2026-07-28 documenta cómo interoperar con servidores y clientes que todavía usan el handshake `initialize`.
 
-Las versiones son cadenas de fecha y se negocian en el handshake `initialize`.
+Las versiones son cadenas de fecha (`YYYY-MM-DD`). Desde 2026-07-28 **cada request declara su versión** en `_meta` (`io.modelcontextprotocol/protocolVersion`) y el servidor acepta o rechaza request por request; ya no hay handshake. Un cliente puede llamar `server/discover` para ver qué versiones soporta el servidor antes de mandar nada.
 
-## Qué trae el RC 2026-07-28
+Nota de vocabulario: el spec reserva *Final* para revisiones pasadas que ya no cambian; la vigente se llama *Current* y puede recibir cambios compatibles hacia atrás.
 
-- **Core sin estado.** Escala sobre infraestructura HTTP normal. Es el cambio grande.
-- **Extensions framework.** Extensiones con IDs DNS invertido, negociadas por capacidades, versionadas aparte del spec.
-- **MCP Apps (SEP-1865).** Los servidores mandan interfaces HTML que el host renderiza en iframe sandboxeado.
-- **Tasks.** Trabajo de larga duración.
-- **Auth endurecida**, más alineada a OAuth 2.1 / OIDC.
-- **Política formal de deprecación.**
+## Qué cambió en 2026-07-28 (contra 2025-11-25)
+
+- **Core sin estado.** Se eliminan las sesiones de protocolo (`Mcp-Session-Id`) y el handshake `initialize`. Escala sobre infraestructura HTTP normal. Es el cambio grande.
+- **`server/discover`** obligatorio: versiones soportadas, capacidades e identidad en una sola llamada.
+- **Extensions.** Campo `extensions` en capacidades; las *tasks* (trabajo de larga duración) salen del core y pasan a una extensión oficial (`io.modelcontextprotocol/tasks`).
+- **Multi Round-Trip Requests (MRTR).** Reemplaza las requests iniciadas por el servidor (`sampling`, `elicitation`, `roots`): el servidor devuelve `input_required` y el cliente reintenta con la información pedida.
+- **Deprecados:** Roots, Sampling y Logging; el transporte HTTP+SSE; y el registro dinámico de clientes OAuth (RFC 7591) a favor de Client ID Metadata Documents.
+- **Política formal de deprecación:** mínimo doce meses en estado *Deprecated* antes de poder removerse.
 
 ## Lo esencial
 
 Tres primitivas: **Tools** (acciones ejecutables), **Resources** (datos de solo lectura), **Prompts** (plantillas reutilizables).
 
-Dos transportes: **stdio** (local, misma máquina) y **Streamable HTTP** (remoto). SSE sigue soportado pero los mantenedores esperan retirarlo.
+Dos transportes: **stdio** (local, misma máquina) y **Streamable HTTP** (remoto). HTTP+SSE está formalmente deprecado desde 2026-07-28.
 
 ## Cuándo MCP es sobreingeniería
 
@@ -45,4 +47,6 @@ MCP resuelve un problema de **N agentes × M herramientas**. Si tienes 1 agente 
 
 Atajo útil: **el MCP Server Trigger de n8n convierte cualquier workflow en un servidor MCP.** Es la forma más barata de exponer una capacidad tuya a un agente, sin escribir un servidor desde cero.
 
-Fuente: https://blog.modelcontextprotocol.io
+Fuentes:
+- https://modelcontextprotocol.io/specification/versioning
+- https://modelcontextprotocol.io/specification/2026-07-28/changelog

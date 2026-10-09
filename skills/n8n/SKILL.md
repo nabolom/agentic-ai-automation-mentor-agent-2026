@@ -54,7 +54,7 @@ Y el **Time Saved node** te da el número para el reporte de impacto sin que lo 
 
 ## Rutear modelos por costo
 
-El **Model Selector** rutea a distintos modelos según condición. Lo simple a Haiku, lo complejo a Sonnet u Opus, dentro del mismo flujo. Es una diferencia de 5x en la factura (ver `referencias/claude-api.md`).
+El **Model Selector** rutea a distintos modelos según condición. Lo simple a Haiku 5.5, lo complejo a Sonnet 5.5 u Opus 5.5, dentro del mismo flujo. Con los precios vigentes es 20× entre Haiku 5.5 y Sonnet 5.5, y solo 2× entre Sonnet 5.5 y Opus 5.5 (ver `referencias/claude-api.md`).
 
 ## Cuando algo falla
 

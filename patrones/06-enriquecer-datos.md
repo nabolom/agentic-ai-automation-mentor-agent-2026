@@ -46,6 +46,9 @@ Sin esto, en tres meses nadie sabe qué datos del CRM son reales y cuáles se lo
 
 Esto no es opcional. Es la diferencia entre enriquecer una base de datos y contaminarla.
 
+> **Sobre `confianza`:** la confianza que un modelo verbaliza tiende a sobreestimarse (Xiong et al., ICLR 2024, https://arxiv.org/abs/2306.13063), aunque es una señal utilizable y suele estar mejor calibrada que las probabilidades internas (Tian et al., EMNLP 2023, https://aclanthology.org/2023.emnlp-main.330/).
+> **Regla:** antes de enrutar con ella, calíbrala con tu suite: tasa de acierto por etiqueta (`alta`, `media`, `baja` en `*_confianza`). Si "alta" acierta el 70%, no es alta.
+
 ## Nunca sobrescribas un dato humano
 
 Si el campo ya tiene un valor puesto por una persona, **no lo pises**. Escribe en un campo paralelo o mándalo a revisión.
@@ -60,4 +63,4 @@ Diseña para que correrlo dos veces no haga daño. Marca los registros procesado
 
 ## Costo
 
-Haiku para normalizar y categorizar. Batch. **Y pon un tope de gasto**: un enriquecedor con un bug de loop sobre 50,000 registros es una factura que no quieres explicar.
+Haiku 5.5 para normalizar y categorizar. Batch. **Y pon un tope de gasto**: un enriquecedor con un bug de loop sobre 50,000 registros es una factura que no quieres explicar.

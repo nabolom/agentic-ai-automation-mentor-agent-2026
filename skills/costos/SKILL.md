@@ -13,7 +13,7 @@ description: Calcular y optimizar lo que cuesta correr una automatización con I
 
 2. **Batch API — 50% de descuento.** Asíncrono, ≤24h, sin diferencia de calidad. Si el proceso no es en tiempo real (enriquecer datos, procesar documentos, análisis nocturno), no usarlo es tirar la mitad del dinero.
 
-3. **Rutear por modelo.** Haiku para clasificar/extraer/rutear/resumir. Sonnet para el grueso. Opus solo donde el razonamiento lo justifique. Es una diferencia de 5x. En n8n el **Model Selector** lo hace dentro del mismo flujo.
+3. **Rutear por modelo.** Haiku 5.5 para clasificar/extraer/rutear/resumir. Sonnet 5.5 para el grueso. Opus 5.5 solo donde el razonamiento lo justifique. Con los precios vigentes (9 oct 2026) la diferencia es **20× entre Haiku 5.5 y Sonnet 5.5** y solo **2× entre Sonnet 5.5 y Opus 5.5**: el ahorro grande está en mandar lo simple a Haiku, no en evitar Opus. En n8n el **Model Selector** lo hace dentro del mismo flujo.
 
 4. **Recortar contexto y output.** El output cuesta 5x el input. Baja `max_tokens` cuando la salida debe ser corta.
 
@@ -23,8 +23,8 @@ Se acumulan: batch + caching juntos.
 
 - **Las definiciones de herramientas se cobran en cada llamada.** Solo por incluir `tools` se agregan cientos de tokens de sistema, más los esquemas de tus herramientas. En cada request.
 - **Extended thinking** se cobra como output.
-- **Precio introductorio con fecha de vencimiento.** Sonnet 5 está a $2/$10 solo hasta el 31 de agosto de 2026; después sube a $3/$15. Un modelo de costos anual hecho con el precio de hoy se rompe en septiembre.
-- **Tokenizador nuevo.** Opus 4.7+, Sonnet 5 y Fable 5 producen ~30% más tokens para el mismo texto. Un cálculo hecho a ojo con la intuición de un modelo anterior se queda corto por un tercio.
+- **Haiku 5.5 tiene dos precios.** Arriba de 100k tokens de prompt (contando cache) la petición entera paga 5× más ($0.50/$2.50). Un clasificador barato al que alguien le mete el manual completo deja de ser barato.
+- **Tokenizador nuevo.** Desde Opus 4.7, el mismo texto produce ~35% más tokens (1M tokens pasó de ~750k a ~555k palabras). Un cálculo hecho a ojo con la intuición de un modelo anterior se queda corto por un tercio.
 - **El bucle infinito.** Un agente que reintenta sin tope con una API de pago es una factura sin tope. **Tope de gasto en la consola. El día uno.**
 
 ## Cómo estimar de verdad

@@ -63,6 +63,9 @@ SALIDA (JSON, nada más)
 
 Enruta `confianza: baja` a humano. Es tu red.
 
+> **Sobre `confianza`:** la confianza que un modelo verbaliza tiende a sobreestimarse (Xiong et al., ICLR 2024, https://arxiv.org/abs/2306.13063), aunque es una señal utilizable y suele estar mejor calibrada que las probabilidades internas (Tian et al., EMNLP 2023, https://aclanthology.org/2023.emnlp-main.330/).
+> **Regla:** antes de enrutar con ella, calíbrala con tu suite: tasa de acierto por etiqueta (`alta`, `media`, `baja`). Si "alta" acierta el 70%, no es alta.
+
 ## Costo
 
-Haiku 4.5. Nunca Opus para esto. Si el volumen es alto y no es urgente, considera Batch API (50% menos). Ver `referencias/claude-api.md`.
+Haiku 5.5 (`claude-haiku-5-5`). Nunca Opus para esto; con los precios vigentes Sonnet 5.5 cuesta 20× más que Haiku 5.5 en esta tarea. Si el volumen es alto y no es urgente, considera Batch API (50% menos). Ver `referencias/claude-api.md`.

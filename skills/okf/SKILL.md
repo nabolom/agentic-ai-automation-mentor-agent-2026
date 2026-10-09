@@ -21,7 +21,9 @@ Cada agente nuevo resuelve el mismo problema de ensamblado de contexto desde cer
 
 Un **bundle** es un directorio de markdown. Cada archivo es un **concepto**. La ruta es la identidad. YAML frontmatter arriba, markdown abajo.
 
-**El único campo obligatorio es `type`.** Los demás (`title`, `description`, `resource`, `tags`, `timestamp`) son la superficie consultable.
+**El único campo obligatorio es `type`.** Los demás (`title`, `description`, `resource`, `tags`) son la superficie consultable.
+
+**v0.2 (verificado 9 oct 2026):** `timestamp` desaparece y lo reemplaza `generated.at`; aparecen `sources` (de dónde deriva el concepto), `verified` (quién lo verificó y cuándo), `status` (`draft`/`stable`/`deprecated`) y `stale_after` (a partir de cuándo se considera viejo). `type` sigue siendo lo único obligatorio. Detalle y ejemplo en `referencias/okf.md`. El ejemplo de abajo está en v0.1, que es lo que todavía usa este bundle.
 
 ```markdown
 ---
@@ -71,7 +73,7 @@ Tres capas distintas que la gente revuelve constantemente:
 
 ## La recomendación honesta
 
-**Es v0.1 y hoy el ecosistema es básicamente Google.** Nadie más lo consume en serio todavía.
+**Va en v0.2 y hoy el ecosistema es básicamente Google.** Nadie más lo consume en serio todavía.
 
 Pero adoptar la convención cuesta **casi cero**: es frontmatter en archivos markdown que de todos modos ibas a escribir. Sin SDK, sin cuenta, sin lock-in.
 
@@ -92,6 +94,6 @@ Es la idea de Karpathy: los LLMs no se aburren, no se les olvida actualizar una 
 
 ## Este repo es un bundle OKF
 
-`referencias/` es conforme a OKF v0.1: frontmatter, un concepto por archivo, `index.md`, `log.md`, links cruzados.
+`referencias/` es conforme a OKF v0.1: frontmatter, un concepto por archivo, `index.md`, `log.md`, links cruzados. La migración del frontmatter a v0.2 (`generated.at`, `verified`, `stale_after`) está pendiente; `verified` y `stale_after` son exactamente la disciplina de "fecha de verificación + re-verificar cada 2 meses" que este repo ya practica a mano.
 
 Si alguien pregunta cómo se ve OKF en la práctica, **enséñale este directorio.**

@@ -5,7 +5,7 @@ description: Model Context Protocol. Úsala cuando se hable de MCP, servidores M
 
 # MCP
 
-**Lee `referencias/mcp.md` para versiones. La estable es `2025-11-25`; hay un RC `2026-07-28` que todavía puede cambiar.**
+**Lee `referencias/mcp.md` para versiones. La vigente es `2026-07-28` (sin estado, sin handshake: cada request declara su versión); `2025-11-25` es la anterior y sigue soportada por compatibilidad.**
 
 ## Empieza por aquí: probablemente no lo necesitas
 
@@ -36,7 +36,7 @@ Tres primitivas:
 - **Resources** — datos de solo lectura que el host decide cuándo cargar.
 - **Prompts** — plantillas reutilizables.
 
-Dos transportes: **stdio** (local) y **Streamable HTTP** (remoto). SSE sigue soportado pero va de salida.
+Dos transportes: **stdio** (local) y **Streamable HTTP** (remoto). HTTP+SSE está formalmente deprecado desde 2026-07-28; no construyas nada nuevo sobre él.
 
 ## Seguridad
 

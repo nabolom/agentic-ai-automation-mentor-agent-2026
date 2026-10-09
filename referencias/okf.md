@@ -1,25 +1,68 @@
 ---
 type: especificacion
 title: Open Knowledge Format (OKF)
-description: Spec abierto de Google Cloud para representar conocimiento organizacional como markdown + YAML frontmatter, legible por humanos y agentes.
+description: Spec abierto de Google Cloud para representar conocimiento organizacional como markdown + YAML frontmatter, legible por humanos y agentes. Cubre v0.1 y el cambio a v0.2.
 resource: https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf
 tags: [okf, conocimiento, contexto, interoperabilidad, google]
-timestamp: 2026-07-13T00:00:00Z
+timestamp: 2026-10-09T00:00:00Z
 ---
 
 # Open Knowledge Format — hechos verificados
 
-> **Verificado: 13 julio 2026** contra el blog oficial de Google Cloud (12 junio 2026).
+> **Verificado: 9 octubre 2026** contra https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md (v0.2). La sección histórica de v0.1 se verificó el 13 de julio de 2026 contra el blog de Google Cloud.
 
 ## Qué es
 
-**OKF v0.1.** Especificación abierta de Google Cloud (equipo de Data Cloud) que formaliza el patrón **"LLM wiki"** de Andrej Karpathy en un formato portable e interoperable.
+**OKF.** Especificación abierta de Google Cloud (equipo de Data Cloud) que formaliza el patrón **"LLM wiki"** de Andrej Karpathy en un formato portable e interoperable.
 
 Vendor-neutral. Legible por humanos y por agentes. **Es un formato, no una plataforma** — no requiere cuenta, SDK ni runtime.
 
-Publicado el 12 de junio de 2026. **v0.1** — explícitamente un punto de partida, no un estándar terminado.
+Publicado el 12 de junio de 2026 como **v0.1**, explícitamente un punto de partida. **Al 9 de octubre de 2026 el spec va en v0.2** (ver abajo).
 
-## El spec completo, en serio
+## v0.2 — qué cambió (verificado 9 oct 2026)
+
+El SPEC.md oficial declara: *"This document specifies OKF version 0.2."* El cambio importa porque toca el frontmatter que ya escribiste.
+
+**Sigue igual:** `type` es el **único campo obligatorio**. Un concepto con solo `type` es conformante. `title`, `description`, `resource` y `tags` pasan a "recomendados".
+
+**Cambios que rompen (breaking):**
+- `timestamp` **desaparece**; lo reemplaza **`generated.at`** (ISO 8601, "último cambio significativo del contenido"). Los consumidores pueden caer a `timestamp` cuando falte `generated`, así que un bundle v0.1 no se vuelve ilegible, pero ya no es la forma canónica.
+- La lista `# Citations` en el cuerpo se reemplaza por **`sources`** en el frontmatter.
+
+**Campos nuevos (opcionales):**
+- **`generated`**: cómo se produjo el contenido. Si está el objeto, `by` (actor) es obligatorio; `at` es la fecha.
+- **`sources`**: lista de materiales de los que deriva el concepto; cada entrada exige `resource`.
+- **`verified`**: eventos de verificación, cada uno con `by` y `at`. Es exactamente lo que este repo hacía a mano con "Verificado: 13 julio 2026".
+- **`status`**: `draft` | `stable` | `deprecated`. Ausente ⇒ `stable`.
+- **`stale_after`**: instante absoluto ISO 8601 a partir del cual el contenido se considera viejo. Es el "re-verificar cada 2 meses" de este repo, pero legible por máquina.
+
+También aparecen un tipo de concepto nuevo (`Attested Computation`) y el encabezado `# Computation`; no aplican a este bundle.
+
+Ejemplo de frontmatter v0.2 para un concepto de este repo:
+
+```yaml
+---
+type: referencia-api
+title: Claude API
+description: Precios, rate limits, caching, batch.
+resource: https://platform.claude.com/docs/en/about-claude/pricing
+tags: [claude, api, costos]
+generated:
+  by: humano
+  at: 2026-10-09T00:00:00Z
+sources:
+  - resource: https://platform.claude.com/docs/en/about-claude/pricing
+verified:
+  - by: humano
+    at: 2026-10-09T00:00:00Z
+status: stable
+stale_after: 2026-12-09T00:00:00Z
+---
+```
+
+**Estado de este bundle:** `referencias/` sigue en frontmatter v0.1 (`timestamp`). La migración a `generated.at` + `verified` + `stale_after` **queda pendiente** y está anotada en `log.md`. No se migró el 9 de octubre porque el cambio toca todos los archivos a la vez y conviene hacerlo en un commit aparte, con el visualizador de referencia a la mano para confirmar que lee ambas versiones.
+
+## El spec completo, en serio (v0.1, la forma que todavía usa este bundle)
 
 Un **bundle** OKF es un directorio de archivos markdown. Cada archivo es un **concepto**: una tabla, un dataset, una métrica, un runbook, una API, lo que sea. **La ruta del archivo es la identidad del concepto.**
 
@@ -32,7 +75,7 @@ title: Orders
 description: Una fila por pedido completado.
 resource: https://console.cloud.google.com/bigquery?p=acme&d=sales&t=orders
 tags: [sales, revenue]
-timestamp: 2026-05-28T14:30:00Z
+timestamp: 2026-05-28T14:30:00Z   ← en v0.2 esto es generated.at
 ---
 
 # Schema
@@ -94,7 +137,7 @@ Cada constructor de agentes resuelve el mismo problema de ensamblado de contexto
 
 ## La honestidad sobre OKF
 
-**Es v0.1 y el ecosistema es, hoy, Google.** Knowledge Catalog y las implementaciones de referencia. Nadie más lo consume todavía de forma seria.
+**Va en v0.2 y el ecosistema es, hoy, Google.** Knowledge Catalog y las implementaciones de referencia. Nadie más lo consume todavía de forma seria.
 
 **Pero adoptar la convención es prácticamente gratis** — es YAML frontmatter en archivos markdown que de todos modos ibas a escribir. No hay lock-in, no hay SDK, no hay dependencia.
 
@@ -112,5 +155,6 @@ No confundas:
 Son tres capas distintas. La gente las revuelve. OKF no compite con skills ni con MCP — MCP mueve datos en tiempo de ejecución; **OKF los representa en reposo**, en disco, versionados junto al código que describen.
 
 Fuentes:
+- https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md (v0.2)
 - https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing
 - Gist de Karpathy sobre LLM wikis: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
