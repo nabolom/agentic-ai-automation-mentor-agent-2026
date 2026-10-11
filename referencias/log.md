@@ -10,7 +10,7 @@ timestamp: 2026-10-09T00:00:00Z
 
 ## 2026-10-09 — Verificación Q4 (rama q4-rumbo)
 
-Re-verificados contra fuente oficial: `claude-api.md`, `mcp.md`, `n8n.md`, `okf.md`, `agent-engineering.md` (sección METR y lista de no verificados), `multiagente.md` (reescrito con frontmatter OKF y sumado a `index.md`). También las skills `claude-api`, `costos`, `prompts-de-agente`, `mcp`, `okf`, los patrones 01, 02 y 06, `/verificar` y `COMPETENCIAS.md`.
+Re-verificados contra fuente oficial: `claude-api.md`, `mcp.md`, `n8n.md`, `okf.md`, `agent-engineering.md` (sección METR y lista de no verificados), `multiagente.md` (reescrito con frontmatter OKF y sumado a `index.md`). También las skills `claude-api`, `costos`, `prompts-de-agente`, `mcp`, `okf`, los patrones 01, 02 y 06, `/verificar` y `docs/competencias.md`.
 
 **Hallazgos:**
 

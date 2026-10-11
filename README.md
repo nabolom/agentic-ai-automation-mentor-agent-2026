@@ -1,115 +1,67 @@
 # Agentic AI & Automation Mentor Agent 2026
 
-Tu experto en construcción de productos de IA y automatizaciones, dentro de Claude Code.
+[![Licencia: MIT](https://img.shields.io/badge/licencia-MIT-green.svg)](LICENSE)
 
-No es un chatbot de curso. Es infraestructura: la clonas una vez y te sirve para la automatización #1 y para la #12, seis meses después de que el curso terminó. Y antes de la segunda sesión te hace una pregunta incómoda: ¿qué vas a construir, y qué puedes demostrar hoy?
+Un mentor dentro de Claude Code que te lleva del proceso al sistema, y del sistema al producto.
 
-**Curso Productividad con Claude (IA) AVANZADO — Collective Academy, Q4 2026.**
+## Menú
 
-Basado en [ai-automation-expert](https://github.com/nabolom/ai-automation-expert), la versión de Q3 2026.
+- [Objetivo](#objetivo)
+- [Para quién es](#para-quién-es)
+- [Empieza en 3 pasos](#empieza-en-3-pasos)
+- [Tu ruta](#tu-ruta)
+- [Comandos](#comandos)
+- [Qué hay en este repo](#qué-hay-en-este-repo)
+- [Cómo te acompaña](#cómo-te-acompaña)
+- [Doctrina](#doctrina)
+- [Hechos y fechas](#hechos-y-fechas)
+- [Créditos y licencia](#créditos-y-licencia)
 
----
+Guías: [Instalación](docs/instalacion.md) · [Antes de S2: /rumbo](docs/antes-de-s2.md) · [Doctrina en corto](docs/doctrina.md) · [Las 8 competencias](docs/competencias.md) · [Seguridad](docs/seguridad.md) · [Sesiones del curso](curso/README.md) · [Los siete patrones](patrones/README.md)
 
-## Arranque
+## Objetivo
 
-### Paso 1 — Instala Claude Code
+- Decidir qué automatizar y qué no, con evidencia.
+- Medir tu sistema con un número y operarlo con cuatro paradas y gobernanza.
+- Convertirlo en algo que otra persona corre sin ti.
 
-El método principal es el **instalador nativo**. No necesita Node ni npm.
+La prueba de la ausencia: **si mañana no estás, ¿alguien más lo corre, sabe si funcionó y sabe qué hacer si no?**
 
-**macOS, Linux y WSL:**
+## Para quién es
 
-```bash
-curl -fsSL https://claude.ai/install.sh | bash
-```
+| Perfil | Qué obtienes |
+|---|---|
+| Ya tienes automatizaciones y quieres productificarlas o escalarlas | Un par que revisa tu diseño, te pide el número que falta y te dice qué parte es teatro. Evals, cuatro paradas, gobernanza y paquete de ejecución para que otro lo corra. |
+| Empiezas, pero ya sabes bastante | Del proceso al diseño con `/arrancar`: qué va en un `if`, qué va en IA y qué va a un humano. Patrones que corren, hechos fechados y un agente que no te explica lo que ya sabes. |
 
-**Windows (PowerShell):**
+No es un chatbot de curso ni un tutorial de Claude Code: es infraestructura que te sirve para la automatización #1 y para la #12.
 
-```powershell
-irm https://claude.ai/install.ps1 | iex
-```
+## Empieza en 3 pasos
 
-Cierra y vuelve a abrir la terminal, y verifica:
-
-```bash
-claude --version
-```
-
-Debe devolver un número de versión. Si dice `command not found`, el directorio de instalación no está en tu PATH todavía: sigue la guía oficial en https://code.claude.com/docs/en/setup (sección *Fix your PATH*).
-
-**Alternativa con npm** (solo si ya vives en Node; requiere Node 22 o superior):
-
-```bash
-npm install -g @anthropic-ai/claude-code
-```
-
-Necesitas también **Git** (`git --version`). En macOS viene con las Command Line Tools (`xcode-select --install`); en Windows, desde [git-scm.com](https://git-scm.com/download/win).
-
-Claude Code requiere una cuenta Pro, Max, Team, Enterprise o de Console. Al correr `claude` por primera vez te pide iniciar sesión en el navegador.
-
-### Paso 2 — Crea tu copia del repo
-
-**No hagas fork ni clones directo.** Usa el botón de template para tener tu propio repo con permisos de escritura:
-
-1. Ve a [github.com/nabolom/agentic-ai-automation-mentor-agent-2026](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026)
-2. Click en el botón verde **“Use this template”** → **“Create a new repository”**
-3. Pon el nombre que quieras (ej. `mi-automatizacion`)
-4. Márcalo como **Private** — tus procesos de negocio no tienen por qué ser públicos
-5. Click en **“Create repository”**
-
-Ahora clona **tu** repo (el que acabas de crear, no el mío). `git clone` crea la carpeta **donde estés parado en la terminal**; corre `pwd` si no sabes dónde estás.
-
-```bash
-mkdir ~/proyectos-ia && cd ~/proyectos-ia
-git clone https://github.com/TU-USUARIO/TU-REPO.git
-cd TU-REPO
-claude
-```
-
-Al entrar al directorio y correr `claude`, el agente lee automáticamente `CLAUDE.md` y carga la doctrina, el mapa del repo, las skills y la capa de acompañamiento. No necesitas configurar nada más.
-
-Los repos creados desde template **no reciben actualizaciones automáticas**: son una foto del día que los creaste. Cada sesión del curso trae su propio paso para traer lo nuevo con `curl`.
-
-### Paso 3 — Arranca tu primera automatización
-
-Dentro de Claude Code, escribe:
-
-```
-/arrancar
-```
-
-El agente te va a conducir paso a paso: elegir un proceso, mapearlo, clasificar cada paso, identificar el patrón, medir la línea base y definir el alcance. Al terminar tendrás cinco archivos de tu proyecto en `proyectos/`. O un veredicto honesto de "no automatizar todavía", que también cuenta.
-
----
-
-## Antes de S2: /rumbo
-
-Antes de la segunda sesión, cada quien corre el assessment de entrada. Fija qué vas a construir, mide con evidencia dónde estás y decide tu ruta. No se enseña: se mide. Toma unos 35 minutos.
-
-**Caso 1 · Vas a empezar tu repo hoy:**
-
-1. Entra a https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026 y usa "Use this template" → "Create a new repository", márcalo como Private y créalo.
-2. Clónalo en tu computadora, entra a la carpeta y abre Claude Code con `claude`.
-3. Escribe `/rumbo`.
-
-**Caso 2 · Ya tienes tu repo del curso (creado desde ai-automation-expert):**
-
-1. En la terminal, parado en tu repo, trae el assessment y la capa de acompañamiento:
+1. **Instala Claude Code** con el instalador nativo. Detalle, Windows y alternativa con npm en [docs/instalacion.md](docs/instalacion.md).
 
    ```bash
-   mkdir -p .claude/skills/rumbo
-   curl -o .claude/skills/rumbo/SKILL.md https://raw.githubusercontent.com/nabolom/agentic-ai-automation-mentor-agent-2026/main/.claude/skills/rumbo/SKILL.md
-   curl -o ACOMPANAMIENTO.md https://raw.githubusercontent.com/nabolom/agentic-ai-automation-mentor-agent-2026/main/ACOMPANAMIENTO.md
-   echo "@ACOMPANAMIENTO.md" >> CLAUDE.md
+   curl -fsSL https://claude.ai/install.sh | bash
+   claude --version
    ```
 
-2. Cierra y vuelve a abrir Claude Code, y escribe `/rumbo`.
+2. **Crea tu copia** en [github.com/nabolom/agentic-ai-automation-mentor-agent-2026](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026) con **Use this template**, márcala como **Private**, clónala y entra con `claude`.
 
-**En ambos casos:**
+3. **Corre `/rumbo`** y después **`/arrancar`**.
 
-1. Haz commit de tu `rumbo.md` y entrega su frontmatter a León 48 horas antes de S2.
-2. Lleva a S2 lo que dice la sección "Qué llevo a S2" de tu `rumbo.md`.
+¿Ya tienes tu repo del curso creado desde ai-automation-expert? Trae el assessment con dos `curl`: [docs/antes-de-s2.md](docs/antes-de-s2.md).
 
----
+## Tu ruta
+
+`/rumbo` asigna una de cinco rutas. Sale de lo que quieres y de lo que tienes; la evidencia decide cómo se te acompaña, no la ruta.
+
+| Ruta | Te toca si | Foco: qué llevas a S2 |
+|---|---|---|
+| `construir` | Tu estado actual es `nada` o `prototipo` | 10 casos recordados, no inventados, de tu proceso, con la salida esperada de cada uno |
+| `endurecer` | Corre para ti y el usuario final eres tú | El export o prompt actual y 10 casos reales |
+| `productificar` | Corre para ti y el usuario final es tu equipo, internos o clientes | El export y el nombre de quien lo va a correr sin ti |
+| `escalar` | Ya corre para otros | El costo real de un mes (consola o factura) y 10 casos de producción |
+| `todavia-no` | No describes un artefacto observable, o no tienes número ni forma de medirlo | El mapa del proceso con hechos, inferencias y faltantes separados |
 
 ## Comandos
 
@@ -124,107 +76,49 @@ Antes de la segunda sesión, cada quien corre el assessment de entrada. Fija qu�
 
 Fuera de los comandos, habla normal. Pregúntale, pídele código, discútele decisiones. Tiene el contexto.
 
----
-
-## Estructura
+## Qué hay en este repo
 
 ```
 CLAUDE.md             el cerebro
 ACOMPANAMIENTO.md     cómo te acompaña según lo que demostraste en /rumbo
+LICENSE               MIT
 rumbo.md              tu assessment (lo genera /rumbo)
 .claude/commands/     los comandos de arriba
 .claude/skills/       capacidades — se cargan bajo demanda
 .claude/settings.json permisos: el agente no lee .env ni secretos
+docs/                 guías para personas: instalación, antes de S2, doctrina, competencias, seguridad
 patrones/             los siete patrones, con estructura y trampas
 referencias/          hechos verificados y FECHADOS ← lo más valioso
 proyectos/            tus automatizaciones
 curso/                las guías de cada sesión
 ```
 
----
+## Cómo te acompaña
 
-## Por qué este repo existe
+El nivel de evidencia que demostraste en `/rumbo` decide el modo en cada tema. Detalle en [ACOMPANAMIENTO.md](ACOMPANAMIENTO.md).
 
-Un asistente de IA genérico ya sabe qué es un webhook. Lo que **no** tiene es criterio, hechos frescos y patrones probados. Y peor: **alucina precios, rate limits y nombres de nodos con total confianza.**
-
-Tres cosas viven aquí, y solo tres:
-
-**1. Doctrina.** Opiniones, no análisis balanceados. Preguntas "¿agente o workflow?" y obtienes una respuesta, con el criterio para decidirlo tú la próxima vez.
-
-**2. Hechos verificados y fechados.** Precios, rate limits, versiones, nombres exactos de nodos — contra fuente oficial, con fecha. Cuando el asistente y la referencia se contradigan, **gana la referencia**.
-
-`referencias/` es un bundle conforme a **Open Knowledge Format** (el spec que Google Cloud publicó en junio de 2026 para formalizar el patrón "LLM wiki"; hoy va en v0.2). Portable, interoperable, y crece solo: el agente puede escribir conceptos nuevos cuando aprende algo.
-
-**3. Patrones ejecutables.** Siete formas. Casi toda automatización de negocio es una de ellas.
-
----
-
----
-
-## La doctrina, en corto
-
-1. **Si puedes escribirlo como un `if`, que sea un `if`.** La IA es cara, lenta y no determinista.
-2. **¿Puedes dibujar el diagrama completo?** Entonces es un workflow, no un agente.
-3. **Diseña la falla, no el éxito.** Nadie está viendo a las 3 AM.
-4. **Salida estructurada o no hay sistema.** JSON con esquema, validado.
-5. **Los prompts son código.** Versiónalos, corre evals cuando cambien.
-6. **Un sistema completo a medias > medio sistema completo.**
-7. **El agente debe saber cuándo no sabe.** Escalamiento explícito.
-8. **Mide el proceso antes de automatizarlo.** No se recupera después.
-9. **Lo que no está en disco no existe.**
-10. **El harness importa más que el modelo.** Antes de subir de modelo, arregla el andamio.
-11. **La condición de parada debe ser verificable sin el modelo.** Un modelo siempre cree que avanzó.
-12. **El conocimiento vive en archivos, no en prompts.** Un concepto por archivo, versionado junto al código (OKF).
-13. **Menos pasos, siempre.** `0.95^20 = 0.358`. Veinte pasos al 95% y el sistema funciona el 36% de las veces.
-14. **Cuando falle, pregunta qué CAPA está rota.** Casi nunca es el modelo. Ver `referencias/agent-engineering.md`.
-
-¿Sabes hacer las ocho cosas que separan una demo de un sistema? → [`COMPETENCIAS.md`](COMPETENCIAS.md)
-
----
-
----
-
-## Los siete patrones
-
-| # | Patrón | Pieza clave |
+| Nivel | Modo | Qué hace |
 |---|---|---|
-| 01 | Clasificar y rutear | Text Classifier — **no un agente** |
-| 02 | Extraer documento → JSON | Information Extractor |
-| 03 | Human-in-the-loop | Chat node / HIL en tool calls |
-| 04 | RAG interno | Vector store + citas obligatorias |
-| 05 | Watcher | Estado + umbral de relevancia |
-| 06 | Enriquecer datos | Batch API (50% menos) |
-| 07 | Loop agéntico de larga duración | Harness: progreso + verificación externa |
+| 0–1 | Enseñar | Explica el mecanismo en corto, con un ejemplo, y hace una sola pregunta |
+| 2 | Retar | No explica: pide la evidencia que falta (el número, el archivo, el criterio) |
+| 3 | Revisar como par | No guía: señala riesgos y contradicciones; tú conduces |
 
----
+## Doctrina
 
----
+Los cinco principios que más pesan. Los catorce, en [docs/doctrina.md](docs/doctrina.md); la versión completa, en [CLAUDE.md](CLAUDE.md).
 
-## Advertencia sobre los hechos
+- **Si puedes escribirlo como un `if`, que sea un `if`.**
+- **Diseña la falla, no el éxito.**
+- **Salida estructurada o no hay sistema.**
+- **El harness importa más que el modelo.**
+- **La condición de parada debe ser verificable sin el modelo.**
+
+## Hechos y fechas
 
 Los archivos de `referencias/` están verificados al **9 de octubre de 2026** (Claude API, MCP, n8n, OKF, METR, multiagente; LangChain, harness y gobernanza al 13 de julio de 2026).
+Se pudren: corre `/verificar` cada dos meses, o antes de cualquier decisión de costos que importe.
+Al armar este repo, tres de los blogs mejor rankeados de "Claude API pricing 2026" tenían datos viejos o mal, incluyendo el primer resultado de Google. **Siempre la fuente oficial.**
 
-Se pudren. Corre `/verificar` cada dos meses, o antes de cualquier decisión de costos que importe.
+## Créditos y licencia
 
-Al armar este repo, tres de los blogs mejor rankeados de "Claude API pricing 2026" tenían datos viejos o mal — incluyendo el primer resultado de Google. **Siempre la fuente oficial.**
-
----
-
-## Seguridad
-
-Nunca subas credenciales. `.gitignore` ya bloquea `.env`, y `.claude/settings.json` le prohíbe al agente leer `.env`, `.env.*`, `secrets/` y cualquier `credentials.json`.
-
-Esas reglas cubren las herramientas de archivos del agente. Para lo que corre por terminal, activa el sandbox: escribe `/sandbox` dentro de Claude Code (macOS, Linux y WSL2; la doc lo recomienda para contener los comandos de shell: https://code.claude.com/docs/en/sandboxing).
-
-Si tu proceso toca datos sensibles de tu empresa, lee `.claude/skills/seguridad-datos/SKILL.md` antes de conectar nada.
-
----
-
-## Sesiones del curso
-
-| Sesión | Guía |
-|---|---|
-| S2 — Evals: mide tu decisión de IA | [`curso/S2-evals.md`](curso/S2-evals.md) |
-| S3 — Loops: el sistema que corre solo y para solo | [`curso/S3-loops.md`](curso/S3-loops.md) |
-| S4 — Gobernanza: qué pasa cuando se rompe a las 3 AM | [`curso/S4-gobernanza.md`](curso/S4-gobernanza.md) |
-| S5 — Multiagente a juicio | [`curso/S5-multiagente.md`](curso/S5-multiagente.md) · ejercicio: [`curso/EJERCICIO-S5.md`](curso/EJERCICIO-S5.md) |
+[MIT](LICENSE) © 2026 León Ruiz. Curso Productividad con Claude (IA) AVANZADO, [Collective Academy](https://collectiveacademy.com/). Basado en [ai-automation-expert](https://github.com/nabolom/ai-automation-expert) (Q3 2026).

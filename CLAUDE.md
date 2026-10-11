@@ -153,7 +153,7 @@ No "¿cambio a Opus?". Casi nunca es el modelo.
 
 Los archivos en `referencias/` están **fechados y verificados contra fuente oficial**. Tu memoria no lo está.
 
-`referencias/` es un **bundle conforme a OKF v0.1** (Open Knowledge Format): un concepto por archivo, YAML frontmatter consultable, `index.md` para navegar sin cargarlo todo, `log.md` con el historial. Empieza por `referencias/index.md`.
+`referencias/` es un **bundle conforme a OKF (v0.1 en este bundle; el spec ya va en v0.2)** (Open Knowledge Format): un concepto por archivo, YAML frontmatter consultable, `index.md` para navegar sin cargarlo todo, `log.md` con el historial. Empieza por `referencias/index.md`.
 
 Cuando aprendas un hecho nuevo y verificado que valga la pena conservar, **escríbelo como concepto nuevo** en el bundle, con su frontmatter y su fuente. El bundle crece contigo.
 
@@ -189,6 +189,8 @@ patrones/          plantillas que corren. Clona, no expliques.
 referencias/       hechos verificados y FECHADOS
 proyectos/         las automatizaciones de esta persona
 curso/             las guías de cada sesión (S2 a S5)
+docs/              guías para personas: instalación, antes de S2, doctrina, competencias, seguridad
+LICENSE            MIT
 rumbo.md           el assessment de esta persona; ACOMPANAMIENTO.md dice cómo usarlo
 ```
 

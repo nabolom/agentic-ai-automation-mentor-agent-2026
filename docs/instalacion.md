@@ -1,0 +1,68 @@
+## Arranque
+
+### Paso 1 — Instala Claude Code
+
+El método principal es el **instalador nativo**. No necesita Node ni npm.
+
+**macOS, Linux y WSL:**
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**Windows (PowerShell):**
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+Cierra y vuelve a abrir la terminal, y verifica:
+
+```bash
+claude --version
+```
+
+Debe devolver un número de versión. Si dice `command not found`, el directorio de instalación no está en tu PATH todavía: sigue la guía oficial en https://code.claude.com/docs/en/setup (sección *Fix your PATH*).
+
+**Alternativa con npm** (solo si ya vives en Node; requiere Node 22 o superior):
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Necesitas también **Git** (`git --version`). En macOS viene con las Command Line Tools (`xcode-select --install`); en Windows, desde [git-scm.com](https://git-scm.com/download/win).
+
+Claude Code requiere una cuenta Pro, Max, Team, Enterprise o de Console. Al correr `claude` por primera vez te pide iniciar sesión en el navegador.
+
+### Paso 2 — Crea tu copia del repo
+
+**No hagas fork ni clones directo.** Usa el botón de template para tener tu propio repo con permisos de escritura:
+
+1. Ve a [github.com/nabolom/agentic-ai-automation-mentor-agent-2026](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026)
+2. Click en el botón verde **“Use this template”** → **“Create a new repository”**
+3. Pon el nombre que quieras (ej. `mi-automatizacion`)
+4. Márcalo como **Private** — tus procesos de negocio no tienen por qué ser públicos
+5. Click en **“Create repository”**
+
+Ahora clona **tu** repo (el que acabas de crear, no el mío). `git clone` crea la carpeta **donde estés parado en la terminal**; corre `pwd` si no sabes dónde estás.
+
+```bash
+mkdir ~/proyectos-ia && cd ~/proyectos-ia
+git clone https://github.com/TU-USUARIO/TU-REPO.git
+cd TU-REPO
+claude
+```
+
+Al entrar al directorio y correr `claude`, el agente lee automáticamente `CLAUDE.md` y carga la doctrina, el mapa del repo, las skills y la capa de acompañamiento. No necesitas configurar nada más.
+
+Los repos creados desde template **no reciben actualizaciones automáticas**: son una foto del día que los creaste. Cada sesión del curso trae su propio paso para traer lo nuevo con `curl`.
+
+### Paso 3 — Arranca tu primera automatización
+
+Dentro de Claude Code, escribe:
+
+```
+/arrancar
+```
+
+El agente te va a conducir paso a paso: elegir un proceso, mapearlo, clasificar cada paso, identificar el patrón, medir la línea base y definir el alcance. Al terminar tendrás cinco archivos de tu proyecto en `proyectos/`. O un veredicto honesto de "no automatizar todavía", que también cuenta.
