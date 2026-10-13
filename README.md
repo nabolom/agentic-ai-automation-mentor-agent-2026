@@ -1,129 +1,162 @@
 # Agentic AI & Automation Mentor Agent 2026
 
-[![Licencia: MIT](https://img.shields.io/badge/licencia-MIT-green.svg)](LICENSE)
+> Curso avanzado para convertir automatizaciones en sistemas medibles, gobernables y operables por otra persona.
 
-Un mentor dentro de Claude Code que te lleva del proceso al sistema, y del sistema al producto.
+![Header técnico del sistema: proceso, validación, humano y sistema operable](docs/visuales/repo-header.png)
 
-## Menú
-
-- [Objetivo](#objetivo)
-- [Para quién es](#para-quién-es)
-- [Empieza en 3 pasos](#empieza-en-3-pasos)
-- [Empieza aquí como alumno](#empieza-aquí-como-alumno)
-- [Tu ruta](#tu-ruta)
-- [Comandos](#comandos)
-- [Qué hay en este repo](#qué-hay-en-este-repo)
-- [Cómo te acompaña](#cómo-te-acompaña)
-- [Doctrina](#doctrina)
-- [Hechos y fechas](#hechos-y-fechas)
-- [Créditos y licencia](#créditos-y-licencia)
-
-Guías: [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md) · [Camino dorado](ejemplo/README.md) · [Instalación](docs/instalacion.md) · [Antes de S2: /rumbo](docs/antes-de-s2.md) · [Doctrina en corto](docs/doctrina.md) · [Las 8 competencias](docs/competencias.md) · [Seguridad](docs/seguridad.md) · [Sesiones del curso](curso/README.md) · [Kit del facilitador](facilitador/README.md) · [Mapa visual](docs/visuales/mapa-del-curso.png) · [Los siete patrones](patrones/README.md)
-
-Si vienes a la cohorte, empieza por la [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md) y ejecuta el [Camino dorado](ejemplo/README.md). El resto del repositorio funciona como referencia y mentoría bajo demanda.
+[![Licencia MIT](https://img.shields.io/badge/License-MIT-0F766E.svg)](LICENSE)
+[![Validación](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026/actions/workflows/validate.yml)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![Claude Code](https://img.shields.io/badge/Workflow-Claude%20Code-5B5BD6.svg)](https://code.claude.com/docs/en/overview)
+[![Cowork](https://img.shields.io/badge/Ruta-Cowork-0EA5A4.svg)](ALUMNO-EMPIEZA-AQUI.md)
+[![Nivel avanzado](https://img.shields.io/badge/Nivel-Avanzado-E77B52.svg)](docs/competencias.md)
+[![Núcleo](https://img.shields.io/badge/Núcleo-6%20casos-172033.svg)](ejemplo/README.md)
 
 ## Objetivo
 
-- Decidir qué automatizar y qué no, con evidencia.
-- Medir tu sistema con un número y operarlo con cuatro paradas y gobernanza.
-- Convertirlo en algo que otra persona corre sin ti.
+Este repositorio te acompaña para:
 
-La prueba de la ausencia: **si mañana no estás, ¿alguien más lo corre, sabe si funcionó y sabe qué hacer si no?**
+1. decidir qué automatizar y qué no, con evidencia;
+2. separar lo que debe ser `if`, IA, herramienta o humano;
+3. medir un sistema con casos reales y salida esperada;
+4. diagnosticar si la falla está en el modelo, el contexto, el harness o la herramienta;
+5. gobernar permisos, costos, aprobaciones y recuperación;
+6. dejar un sistema que otra persona pueda operar sin ti.
+
+La pregunta que guía todo el curso es:
+
+> **Si mañana no estás, ¿alguien más puede correr el sistema, saber si funcionó y saber qué hacer si no?**
+
+## Autoría y herramientas
+
+**La dirección pedagógica, el diseño del curso, la doctrina y las decisiones finales de este repositorio son de León Ruiz.**
+
+Claude Code y Cowork son **herramientas y asistentes de ejecución bajo su dirección**. No son coautores del repositorio. El criterio final, el alcance y la responsabilidad del material pertenecen a su autor y facilitador.
 
 ## Para quién es
 
-| Perfil | Qué obtienes |
+| Perfil | Qué obtiene |
 |---|---|
-| Ya tienes automatizaciones y quieres productificarlas o escalarlas | Un par que revisa tu diseño, te pide el número que falta y te dice qué parte es teatro. Evals, cuatro paradas, gobernanza y paquete de ejecución para que otro lo corra. |
-| Empiezas, pero ya sabes bastante | Del proceso al diseño con `/arrancar`: qué va en un `if`, qué va en IA y qué va a un humano. Patrones que corren, hechos fechados y un agente que no te explica lo que ya sabes. |
+| Ya tienes automatizaciones y quieres productificarlas o escalarlas | Un marco para medir, endurecer, gobernar y entregar tu sistema. |
+| Eres autodidacta o intermedio y ya sabes construir cosas | Una ruta que parte de tu experiencia y te pide la evidencia que falta, sin explicarte lo que ya sabes. |
+| Eres avanzado | Un núcleo común y extensiones de costos, harness, MCP, loops y multiagente. |
+| Todavía no tienes proyecto propio | Un camino dorado común para aprender el criterio antes de transferirlo a tu proceso. |
 
-No es un chatbot de curso ni un tutorial de Claude Code: es infraestructura que te sirve para la automatización #1 y para la #12.
+No es un chatbot de curso ni una lista de tutoriales. Es una infraestructura de trabajo para pasar del proceso al sistema y del sistema al producto.
 
-## Empieza en 3 pasos
+## Elige tu puerta de entrada
 
-1. **Instala Claude Code** con el instalador nativo. Detalle, Windows y alternativa con npm en [docs/instalacion.md](docs/instalacion.md).
+| Soy… | Empiezo por… | Resultado inicial |
+|---|---|---|
+| Alumno | [`ALUMNO-EMPIEZA-AQUI.md`](ALUMNO-EMPIEZA-AQUI.md) | Una decisión acotada y seis casos núcleo |
+| Facilitador | [`facilitador/README.md`](facilitador/README.md) | Agenda, preguntas, rescates y extensiones |
+| Alumno avanzado | Ruta núcleo + extensión opcional | Más profundidad sin frenar al grupo |
+| Sin entorno listo | [`ejemplo/README.md`](ejemplo/README.md) | Camino dorado offline o en papel |
+
+## Primeros 15 minutos
+
+1. Crea tu copia privada con **Use this template** y clónala.
+2. Abre la carpeta en Claude Code o Cowork.
+3. Comprueba tu entorno:
 
    ```bash
-   curl -fsSL https://claude.ai/install.sh | bash
    claude --version
+   git --version
+   claude doctor
    ```
 
-2. **Crea tu copia** en [github.com/nabolom/agentic-ai-automation-mentor-agent-2026](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026) con **Use this template**, márcala como **Private**, clónala y entra con `claude`.
+4. Lee [`ALUMNO-EMPIEZA-AQUI.md`](ALUMNO-EMPIEZA-AQUI.md).
+5. Entra a la [`Ruta de la cohorte`](curso/00-ruta-de-la-cohorte.md).
+6. Si algo falla, usa el [`Camino dorado`](ejemplo/README.md) sin credenciales.
 
-3. **Corre `/rumbo`** y después **`/arrancar`**.
+No necesitas leer todo el repo, conectar una API real, usar n8n ni construir un agente autónomo para empezar.
 
-¿Ya tienes tu repo del curso creado desde ai-automation-expert? Trae el assessment con dos `curl`: [docs/antes-de-s2.md](docs/antes-de-s2.md).
+## Ruta del curso
 
-## Empieza aquí como alumno
-
-Si quieres una guía de 15 minutos, sigue [`ALUMNO-EMPIEZA-AQUI.md`](ALUMNO-EMPIEZA-AQUI.md). Incluye la ruta Claude Code/Cowork, el fallback sin credenciales y el criterio de salida del núcleo.
-
-Si eres facilitador, usa el [`Kit del facilitador`](facilitador/README.md). Para comprobar que la copia está sana antes de clase, ejecuta:
-
-```bash
-PYTHONDONTWRITEBYTECODE=1 python3 verificar.py
+```text
+proceso → decisión → evals → diagnóstico → límites → handoff
 ```
 
-El mapa visual de la experiencia está en [`docs/visuales/mapa-del-curso.mmd`](docs/visuales/mapa-del-curso.mmd) y en [`PNG`](docs/visuales/mapa-del-curso.png).
-
-## Tu ruta
-
-`/rumbo` asigna una de cinco rutas. Sale de lo que quieres y de lo que tienes; la evidencia decide cómo se te acompaña, no la ruta.
-
-| Ruta | Te toca si | Foco: qué llevas a S2 |
+| Sesión | Pregunta central | Evidencia |
 |---|---|---|
-| `construir` | Tu estado actual es `nada` o `prototipo` | 6 casos núcleo recordados, no inventados, de tu proceso, con la salida esperada de cada uno; 10 para la suite extendida |
-| `endurecer` | Corre para ti y el usuario final eres tú | El export o prompt actual y 6 casos reales; completa a 10 si el tiempo lo permite |
-| `productificar` | Corre para ti y el usuario final es tu equipo, internos o clientes | El export y el nombre de quien lo va a correr sin ti |
-| `escalar` | Ya corre para otros | El costo real de un mes (consola o factura) y 6 casos de producción; 10 para la suite extendida |
-| `todavia-no` | No describes un artefacto observable, o no tienes número ni forma de medirlo | El mapa del proceso con hechos, inferencias y faltantes separados |
+| S2 — Evals | ¿Cómo sé si mi decisión funciona? | Seis casos: 4 típicos, 1 límite y 1 adversarial; salida esperada y línea base |
+| S3 — Loops | ¿Qué capa está fallando y necesito iteración real? | Diagnóstico, checker o cuatro paradas, traza y comparación v0 → v1 |
+| S4 — Gobernanza | ¿Puede otra persona operar esto con límites claros? | Permisos, costo, aprobación, observabilidad, demo y handoff |
+| S5 — Multiagente | ¿La complejidad adicional está justificada? | Extensión opcional para quien terminó el núcleo |
+
+Los **6 casos** son el requisito mínimo válido. Los **10 casos** son una suite extendida para profundizar, no una condición para avanzar.
+
+## Mapa del recorrido
+
+![Mapa visual del curso: alumno, evals, diagnóstico, gobernanza y handoff](docs/visuales/mapa-del-curso.png)
+
+Fuente editable: [`docs/visuales/mapa-del-curso.mmd`](docs/visuales/mapa-del-curso.mmd).
+
+## Camino dorado
+
+El camino dorado ofrece un caso común antes de pedirte transferir el criterio a tu automatización:
+
+```text
+entrada → if determinista → IA solo si hay ambigüedad → salida estructurada → validación → humano
+```
+
+Puedes correrlo sin credenciales:
+
+```bash
+python3 ejemplo/camino_dorado.py --modo offline --version v1
+```
+
+| Versión | Núcleo | Extendida |
+|---|---:|---:|
+| `v0` | 4/6 — línea base intencional | 7/10 |
+| `v1` | 6/6 | 10/10 |
+
+Si no tienes Python, abre [`ejemplo/casos.json`](ejemplo/casos.json) y recorre los seis casos en papel. El contrato y las preguntas de diseño son los mismos.
 
 ## Comandos
 
 | Comando | Qué hace |
 |---|---|
-| `/rumbo` | Assessment de entrada: qué vas a construir, qué puedes demostrar hoy, y tu ruta |
-| `/arrancar` | Nueva automatización: del proceso al diseño |
-| `/eval` | Corre tus evals contra el prompt actual y te da la tasa de acierto |
-| `/cuatro-paradas` | Diseña y ejecuta un loop de trabajo-verificación con cuatro paradas explícitas (antes `/loop`) |
-| `/auditar` | Revisión crítica. Te dice qué parte de tu sistema es teatro |
-| `/verificar` | Re-verifica las referencias contra fuente oficial |
+| `/rumbo` | Assessment de entrada: qué quieres construir, qué puedes demostrar y qué ruta te conviene |
+| `/arrancar` | Lleva un proceso al diseño de una automatización |
+| `/eval` | Corre tus evals contra el sistema y devuelve una tasa |
+| `/cuatro-paradas` | Diseña y ejecuta un loop con trabajo, verificación, parada y escalamiento |
+| `/auditar` | Revisión crítica: identifica riesgos, contradicciones y teatro |
+| `/verificar` | Re-verifica referencias sensibles contra fuentes oficiales |
 
-Fuera de los comandos, habla normal. Pregúntale, pídele código, discútele decisiones. Tiene el contexto.
+Fuera de los comandos, habla normal con el asistente de ejecución. Pídele código, discute decisiones y conserva lo importante en disco.
 
-## Qué hay en este repo
+## Qué hay en este repositorio
 
-```
-CLAUDE.md             el cerebro
-ACOMPANAMIENTO.md     cómo te acompaña según lo que demostraste en /rumbo
-LICENSE               MIT
-rumbo.md              tu assessment (lo genera /rumbo)
-.claude/commands/     los comandos de arriba
-.claude/skills/       capacidades — se cargan bajo demanda
-.claude/settings.json permisos: el agente no lee .env ni secretos
-docs/                 guías para personas: instalación, antes de S2, doctrina, competencias, seguridad
+```text
+README.md             esta portada y las puertas de entrada
+ALUMNO-EMPIEZA-AQUI.md guía de primeros 15 minutos
+CLAUDE.md             instrucciones del asistente bajo tu dirección
+ACOMPANAMIENTO.md     cómo cambia el acompañamiento según tu evidencia
 facilitador/          checklist, guiones S2–S4, rescates y debrief
-patrones/             los siete patrones, con estructura y trampas
-referencias/          hechos verificados y FECHADOS ← lo más valioso
-proyectos/            tus automatizaciones
-curso/                las guías de cada sesión
-verificar.py          una verificación local de pruebas, fixtures, tasas y enlaces
+curso/                ruta de cohorte y guías de sesión
+ejemplo/              camino dorado, dataset y pruebas reproducibles
+proyectos/            plantillas, rúbrica, demo y handoff
+patrones/             siete patrones de automatización
+referencias/          hechos verificados y fechados
+docs/                 instalación, doctrina, seguridad y visuales
+verificar.py          validación local de pruebas, fixtures, tasas y enlaces
 .github/workflows/    validación automática en cada push y pull request
 ```
 
 ## Cómo te acompaña
 
-El nivel de evidencia que demostraste en `/rumbo` decide el modo en cada tema. Detalle en [ACOMPANAMIENTO.md](ACOMPANAMIENTO.md).
+El nivel de evidencia que demuestras en `/rumbo` decide cómo se te acompaña:
 
 | Nivel | Modo | Qué hace |
 |---|---|---|
-| 0–1 | Enseñar | Explica el mecanismo en corto, con un ejemplo, y hace una sola pregunta |
-| 2 | Retar | No explica: pide la evidencia que falta (el número, el archivo, el criterio) |
-| 3 | Revisar como par | No guía: señala riesgos y contradicciones; tú conduces |
+| 0–1 | Enseñar | Explica el mecanismo en corto, con un ejemplo y una sola pregunta |
+| 2 | Retar | Pide la evidencia que falta: número, archivo o criterio |
+| 3 | Revisar como par | Señala riesgos y contradicciones; tú conduces |
+
+La verdad de las salidas esperadas, umbrales y límites la fija la persona que conoce la operación. El asistente propone borradores; no inventa la verdad.
 
 ## Doctrina
-
-Los cinco principios que más pesan. Los catorce, en [docs/doctrina.md](docs/doctrina.md); la versión completa, en [CLAUDE.md](CLAUDE.md).
 
 - **Si puedes escribirlo como un `if`, que sea un `if`.**
 - **Diseña la falla, no el éxito.**
@@ -131,11 +164,23 @@ Los cinco principios que más pesan. Los catorce, en [docs/doctrina.md](docs/doc
 - **El harness importa más que el modelo.**
 - **La condición de parada debe ser verificable sin el modelo.**
 
+La versión completa está en [`docs/doctrina.md`](docs/doctrina.md) y [`CLAUDE.md`](CLAUDE.md).
+
+## Verificación local
+
+Antes de clase o antes de compartir cambios, ejecuta:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 verificar.py
+```
+
+La verificación cubre pruebas reproducibles, fixtures de `/rumbo`, tasas del camino dorado, enlaces locales y whitespace de Git.
+
 ## Hechos y fechas
 
-Los archivos de `referencias/` están verificados al **9 de octubre de 2026** (Claude API, MCP, n8n, OKF, METR, multiagente; LangChain, harness y gobernanza al 13 de julio de 2026).
-Se pudren: corre `/verificar` cada dos meses, o antes de cualquier decisión de costos que importe.
-Al armar este repo, tres de los blogs mejor rankeados de "Claude API pricing 2026" tenían datos viejos o mal, incluyendo el primer resultado de Google. **Siempre la fuente oficial.**
+Los archivos de [`referencias/`](referencias/) están verificados al 9 de octubre de 2026 para Claude API, MCP, n8n, OKF, METR y multiagente; LangChain, harness y gobernanza están fechados al 13 de julio de 2026.
+
+El conocimiento se pudre. Corre `/verificar` cada dos meses o antes de tomar una decisión de costos que importe. Para hechos sensibles a fecha, usa siempre la fuente oficial.
 
 ## Créditos y licencia
 
