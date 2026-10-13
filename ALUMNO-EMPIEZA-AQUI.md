@@ -32,6 +32,8 @@ claude doctor
 
 No pegues API keys en archivos ni en mensajes. Las credenciales, si algún día hacen falta, viven fuera del repositorio.
 
+Si tu siguiente actividad es S2, sigue la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md): camino dorado, `/rumbo`, una decisión y seis casos.
+
 Si trabajas en **Cowork**, abre la misma carpeta y sigue esta guía; la interfaz cambia, pero el contrato, los casos y la evidencia son los mismos. Cuando una actividad pida un comando de terminal, ejecútalo en la terminal disponible o usa el fallback offline/papel.
 
 ### 3. Elige tu ruta de trabajo

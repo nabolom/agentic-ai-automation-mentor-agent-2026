@@ -4,6 +4,7 @@
 
 - [ ] Compartí la copia correcta del repositorio o la plantilla de GitHub.
 - [ ] Compartí [`ALUMNO-EMPIEZA-AQUI.md`](../ALUMNO-EMPIEZA-AQUI.md).
+- [ ] Compartí la [`Ruta crítica antes de S2`](../docs/ruta-critica-antes-de-s2.md).
 - [ ] Pedí completar `claude --version`, `git --version` y `claude doctor`.
 - [ ] Recordé que no se pegan API keys en el repo ni en mensajes.
 - [ ] Confirmé que el grupo sabe dónde encontrar la [Ruta de la cohorte](../curso/00-ruta-de-la-cohorte.md).
