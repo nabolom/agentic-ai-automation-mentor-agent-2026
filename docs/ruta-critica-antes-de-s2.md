@@ -16,6 +16,16 @@ timestamp: 2026-10-13T00:00:00Z
 
 > **Regla:** antes de construir un agente, fija el proceso, la decisión, la salida esperada y cómo sabrás si funcionó.
 
+## Dependencias antes de empezar
+
+No instales todo el ecosistema. Consulta la [`Guía de dependencias y preflight`](dependencias-y-preflight.md) y elige una ruta:
+
+- **Código/API:** Git + Claude Code + Python son la combinación recomendada.
+- **Cowork/visual:** Cowork + acceso al repo bastan para comenzar.
+- **JavaScript/TypeScript, n8n local o MCP:** Node.js + NPM solo si tu proyecto los necesita.
+
+La ruta nativa de Claude Code **no necesita Node ni NPM**. Las API keys tampoco son requisito antes de S2.
+
 ## Mensaje corto para hoy
 
 Si solo vas a compartir una instrucción, comparte esta:
@@ -23,13 +33,14 @@ Si solo vas a compartir una instrucción, comparte esta:
 ```text
 Antes de S2, no construyan un agente completo. Hagan esta ruta en orden (60–90 min):
 
-1. Abran su copia del repo en Claude Code o Cowork.
-2. Comprueben `claude --version`, `git --version` y `claude doctor`.
-3. Corran el camino dorado offline v1; si no tienen Python, recorran `ejemplo/casos.json` en papel.
-4. Ejecuten `/rumbo` y guarden `rumbo.md`.
-5. Elijan UN proceso propio o quédense con el caso común.
-6. Escriban UNA decisión de IA; no diseñen todo el agente.
-7. Traigan seis casos: 4 típicos, 1 límite y 1 adversarial, con su salida esperada.
+1. Consulten la guía de dependencias y elijan Claude Code o Cowork.
+2. Instalen/verifiquen solo lo que necesita su ruta; Node/NPM son opcionales.
+3. Abran su copia del repo en Claude Code o Cowork.
+4. Corran el camino dorado offline v1; si no tienen Python, recorran `ejemplo/casos.json` en papel.
+5. Ejecuten `/rumbo` y guarden `rumbo.md`.
+6. Elijan UN proceso propio o quédense con el caso común.
+7. Escriban UNA decisión de IA; no diseñen todo el agente.
+8. Traigan seis casos: 4 típicos, 1 límite y 1 adversarial, con su salida esperada.
 
 Para S2 deben poder mostrar: proceso/caso, una decisión, seis casos, salidas esperadas y una ruta de fallback.
 
@@ -49,7 +60,7 @@ En 60–90 minutos, el Aprendedor(a) debe llegar a S2 con:
 
 ## Orden obligatorio
 
-1. **Preflight** — Claude Code/Cowork, Git y `claude doctor`.
+1. **Dependencias y preflight** — elegir ruta; verificar solo Git, Claude Code/Cowork y Python cuando correspondan.
 2. **Camino dorado** — primero el caso común, sin credenciales.
 3. **Rumbo** — qué quieres construir, qué puedes demostrar y qué ruta te conviene.
 4. **Transferencia** — elegir un proceso propio o quedarse conscientemente con el caso común.
@@ -61,7 +72,7 @@ En 60–90 minutos, el Aprendedor(a) debe llegar a S2 con:
 
 | Minutos | Acción | Salida |
 |---:|---|---|
-| 0–10 | Abrir la copia, ejecutar preflight y elegir ruta visual o código/API. | Entorno listo o falla documentada. |
+| 0–10 | Consultar la matriz de dependencias, ejecutar el preflight de la ruta elegida y documentar cualquier falla. | Entorno listo o fallback seleccionado. |
 | 10–25 | Correr el camino dorado offline v1, o recorrer `casos.json` en papel. | Vocabulario común: `if` → IA → validación → humano. |
 | 25–60 | Ejecutar `/rumbo` y completar sus decisiones de entrada. | `rumbo.md` y sección “Qué llevo a S2”. |
 | 60–75 | Elegir un proceso propio o el caso común y escribir una sola decisión de IA. | Una frase de alcance y contrato inicial. |
@@ -92,7 +103,9 @@ No necesitas que todos los archivos del proyecto estén completos antes de S2. N
 | Si ocurre esto… | Haz esto… |
 |---|---|
 | Claude Code o auth no funcionan | Trabaja en Cowork, con el camino dorado o en papel. |
+| Git no está listo | Usa Cowork, ZIP o papel para no bloquear el aprendizaje; instala Git después para commits. |
 | No tienes Python | Abre `ejemplo/casos.json` y recorre los seis casos manualmente. |
+| No tienes Node/NPM | Continúa: solo son necesarios para JS/TS, n8n local o MCP que los requiera. |
 | No tienes proceso propio | Usa el camino dorado; la transferencia queda para S2. |
 | No tienes tiempo para seis casos | Termina `/rumbo`, fija una decisión y lleva los casos incompletos marcados; S2 los completa. |
 | Te tienta construir un agente completo | Detente: primero contrato, casos y criterio de éxito. |
@@ -109,6 +122,7 @@ No necesitas que todos los archivos del proyecto estén completos antes de S2. N
 ## Referencias rápidas
 
 - [Empieza aquí como Aprendedor(a)](../ALUMNO-EMPIEZA-AQUI.md)
+- [Dependencias y preflight](dependencias-y-preflight.md)
 - [Competencias de Agentic AI](competencias.md)
 - [Camino dorado](../ejemplo/README.md)
 - [Ruta de la cohorte](../curso/00-ruta-de-la-cohorte.md)

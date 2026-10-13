@@ -59,7 +59,7 @@ No es un chatbot de curso ni una lista de tutoriales. Es una infraestructura de 
 | Aprendedor(a) avanzado(a) | Ruta núcleo + extensión opcional | Más profundidad sin frenar al grupo |
 | Sin entorno listo | [`ejemplo/README.md`](ejemplo/README.md) | Camino dorado offline o en papel |
 
-> **Si vas a S2 hoy:** sigue la [`Ruta crítica antes de S2`](docs/ruta-critica-antes-de-s2.md) en 60–90 minutos. El mapa de salida está en [`Competencias de Agentic AI`](docs/competencias.md).
+> **Si vas a S2 hoy:** sigue la [`Ruta crítica antes de S2`](docs/ruta-critica-antes-de-s2.md) en 60–90 minutos. Antes de instalar, revisa [`Dependencias y preflight`](docs/dependencias-y-preflight.md): Node/NPM son condicionales, no requisitos generales.
 
 ## Primeros 15 minutos
 
@@ -142,6 +142,7 @@ README.md             esta portada y las puertas de entrada
 ALUMNO-EMPIEZA-AQUI.md guía de primeros 15 minutos
 docs/competencias.md   mapa de competencias de salida
 docs/ruta-critica-antes-de-s2.md preparación accionable para S2
+docs/dependencias-y-preflight.md matriz de dependencias por ruta y sistema operativo
 CLAUDE.md             instrucciones del asistente bajo tu dirección
 ACOMPANAMIENTO.md     cómo cambia el acompañamiento según tu evidencia
 facilitador/          checklist, guiones S2–S4, rescates y debrief

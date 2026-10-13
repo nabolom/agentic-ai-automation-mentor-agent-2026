@@ -1,5 +1,7 @@
 ## Arranque
 
+> Para decidir qué necesitas según tu sistema y ruta, empieza por [`Dependencias y preflight`](dependencias-y-preflight.md). Esta página contiene los pasos detallados de instalación.
+
 ### Paso 1 — Instala Claude Code
 
 El método principal es el **instalador nativo**. No necesita Node ni npm.
@@ -45,6 +47,8 @@ claude doctor
 ```
 
 `claude doctor` muestra diagnósticos de instalación y configuración sin iniciar una sesión, según la [guía oficial de setup](https://code.claude.com/docs/en/setup). Si algún paso falla, conserva el mensaje o una captura y lleva el problema a office hours; no necesitas resolverlo para participar en la actividad.
+
+El preflight de Python, Node.js y NPM es condicional a la ruta del proyecto. No instales Node/NPM solo para hacer funcionar Claude Code: el instalador nativo no los necesita.
 
 Si no llegas con Claude Code listo, usa el camino dorado sin credenciales desde la raíz del repositorio:
 
