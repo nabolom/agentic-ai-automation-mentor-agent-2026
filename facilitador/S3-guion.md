@@ -1,13 +1,13 @@
 # S3 — Guion del facilitador
 
-**Objetivo:** que cada alumno distinga una falla del modelo de una falla de contexto, herramienta o harness, y justifique si necesita iteración.
+**Objetivo:** que cada Aprendedor(a) distinga una falla del modelo de una falla de contexto, herramienta o harness, y justifique si necesita iteración.
 
 **Guía técnica:** [`curso/S3-loops.md`](../curso/S3-loops.md)
 **Comando:** `/cuatro-paradas`
 
 ## Agenda de 150 minutos
 
-| Minutos | Tú haces | El alumno produce | Pregunta de transición |
+| Minutos | Tú haces | El Aprendedor(a) produce | Pregunta de transición |
 |---:|---|---|---|
 | 0–15 | Recuperas la línea base de S2 | Número y casos fallidos | “¿Qué evidencia tenemos?” |
 | 15–40 | Modelas diagnóstico por capas | `diagnostico.md` y `harness.md` | “¿Qué capa descartaste primero?” |
@@ -21,7 +21,7 @@
 
 ### Sin loop
 
-El alumno escribe:
+El Aprendedor(a) escribe:
 
 ```text
 No necesito loop porque __________________.
@@ -31,7 +31,7 @@ Después produce un checker que verifica sin preguntarle al modelo y corre los s
 
 ### Con loop
 
-El alumno debe fijar con números:
+El Aprendedor(a) debe fijar con números:
 
 - éxito;
 - presupuesto;
@@ -59,7 +59,7 @@ No aceptes “hasta que quede bien” ni “las vueltas que necesite”.
 
 ## Cierre mínimo
 
-El alumno debe poder mostrar:
+El Aprendedor(a) debe poder mostrar:
 
 - la capa diagnosticada;
 - evidencia que descarte las otras;

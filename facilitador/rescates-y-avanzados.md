@@ -2,7 +2,7 @@
 
 ## Principio
 
-Cuando algo se rompe, rescata el **objetivo de aprendizaje**, no necesariamente la herramienta que el alumno eligió.
+Cuando algo se rompe, rescata el **objetivo de aprendizaje**, no necesariamente la herramienta que el Aprendedor(a) eligió.
 
 ## Matriz de rescate
 
@@ -13,7 +13,7 @@ Cuando algo se rompe, rescata el **objetivo de aprendizaje**, no necesariamente 
 | No hay autenticación | No pedir ni pegar una llave; usar offline | Contrato y punto de integración documentado |
 | Herramienta visual no responde | Trabajar con formato local y comparar después | Evals y criterio de escalamiento |
 | No hay proyecto propio | Usar el camino dorado y nombrar la transferencia | Decisión acotada y seis casos |
-| El alumno trae dos proyectos | Elegir uno; dejar el otro fuera de alcance | Alcance explícito |
+| El Aprendedor(a) trae dos proyectos | Elegir uno; dejar el otro fuera de alcance | Alcance explícito |
 | El loop no arranca | Especificar cuatro paradas o tomar ruta no-loop | Harness y checker |
 | Agent Teams no arranca | No depurarlo durante el taller | Juicio arquitectónico documentado |
 

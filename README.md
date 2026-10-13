@@ -54,9 +54,9 @@ No es un chatbot de curso ni una lista de tutoriales. Es una infraestructura de 
 
 | Soy… | Empiezo por… | Resultado inicial |
 |---|---|---|
-| Alumno | [`ALUMNO-EMPIEZA-AQUI.md`](ALUMNO-EMPIEZA-AQUI.md) | Una decisión acotada y seis casos núcleo |
+| Aprendedor(a) | [`ALUMNO-EMPIEZA-AQUI.md`](ALUMNO-EMPIEZA-AQUI.md) | Una decisión acotada y seis casos núcleo |
 | Facilitador | [`facilitador/README.md`](facilitador/README.md) | Agenda, preguntas, rescates y extensiones |
-| Alumno avanzado | Ruta núcleo + extensión opcional | Más profundidad sin frenar al grupo |
+| Aprendedor(a) avanzado(a) | Ruta núcleo + extensión opcional | Más profundidad sin frenar al grupo |
 | Sin entorno listo | [`ejemplo/README.md`](ejemplo/README.md) | Camino dorado offline o en papel |
 
 ## Primeros 15 minutos
@@ -94,7 +94,7 @@ Los **6 casos** son el requisito mínimo válido. Los **10 casos** son una suite
 
 ## Mapa del recorrido
 
-![Mapa visual del curso: alumno, evals, diagnóstico, gobernanza y handoff](docs/visuales/mapa-del-curso.png)
+![Mapa visual del curso: Aprendedor(a), evals, diagnóstico, gobernanza y handoff](docs/visuales/mapa-del-curso.png)
 
 Fuente editable: [`docs/visuales/mapa-del-curso.mmd`](docs/visuales/mapa-del-curso.mmd).
 

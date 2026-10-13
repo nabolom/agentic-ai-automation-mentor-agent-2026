@@ -1,6 +1,6 @@
 # S2 — Guion del facilitador
 
-**Objetivo:** que cada alumno salga con un caso acotado, una decisión de IA y una primera medición.
+**Objetivo:** que cada Aprendedor(a) salga con un caso acotado, una decisión de IA y una primera medición.
 
 **Guía técnica:** [`curso/S2-evals.md`](../curso/S2-evals.md)
 **Ruta:** [`curso/00-ruta-de-la-cohorte.md`](../curso/00-ruta-de-la-cohorte.md)
@@ -8,7 +8,7 @@
 
 ## Agenda de 150 minutos
 
-| Minutos | Tú haces | El alumno produce | Pregunta de transición |
+| Minutos | Tú haces | El Aprendedor(a) produce | Pregunta de transición |
 |---:|---|---|---|
 | 0–15 | Recuperas `if`, IA, herramienta y humano | Una decisión explicada | “¿Por qué esto no es solo un prompt?” |
 | 15–35 | Corres/enseñas el camino dorado, incluido un caso que escala | Lectura del recorrido | “¿Dónde no debe decidir el modelo?” |
@@ -39,7 +39,7 @@
 
 ## Cierre mínimo
 
-El alumno debe poder mostrar:
+El Aprendedor(a) debe poder mostrar:
 
 - una decisión de IA acotada;
 - seis casos con salida esperada;

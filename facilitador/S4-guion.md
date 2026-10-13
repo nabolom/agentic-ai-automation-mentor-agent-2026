@@ -7,7 +7,7 @@
 
 ## Agenda de 150 minutos
 
-| Minutos | Tú haces | El alumno produce | Pregunta de transición |
+| Minutos | Tú haces | El Aprendedor(a) produce | Pregunta de transición |
 |---:|---|---|---|
 | 0–20 | Recuperas permisos y acciones irreversibles | Riesgo principal identificado | “¿Qué puede hacer el sistema que no debería hacer solo?” |
 | 20–45 | Corres `/auditar` y limitas el foco | Hasta tres hallazgos prioritarios | “¿Cuál duele más en producción?” |

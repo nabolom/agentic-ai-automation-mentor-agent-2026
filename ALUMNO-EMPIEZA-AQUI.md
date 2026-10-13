@@ -1,4 +1,4 @@
-# Empieza aquí — alumno
+# Empieza aquí — Aprendedor(a)
 
 Esta página es tu **primer recorrido**. No necesitas leer todo el repositorio antes de empezar.
 

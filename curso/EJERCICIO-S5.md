@@ -41,7 +41,7 @@ Después de leer el caso, responde:
 
 ---
 
-## 4. Ejecuta el Nest — todos los alumnos
+## 4. Ejecuta el Nest — todos los Aprendedores(as)
 
 En la Terminal, dentro de la carpeta `nest-a-juicio`, ejecuta:
 
@@ -62,7 +62,7 @@ El primer mensaje confirma que el Nest guardó la decisión de negocio, la evide
 
 ---
 
-## 5. Ejecuta el Swarm — alumnos y facilitador
+## 5. Ejecuta el Swarm — Aprendedores(as) y facilitador
 
 Ahora ejecuta el mismo caso como un Agent Team:
 

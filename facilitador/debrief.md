@@ -2,7 +2,7 @@
 
 Usa estas preguntas en los últimos minutos o como mensaje posterior. No son una entrega técnica adicional.
 
-## Exit ticket del alumno
+## Exit ticket del Aprendedor(a)
 
 Completa en una o dos líneas:
 
