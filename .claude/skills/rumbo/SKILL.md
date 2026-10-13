@@ -166,10 +166,10 @@ Escríbelo así: `Enseñar: objetivos, contexto, …` · `Retar: …` · `Revisa
 
 Según la ruta:
 
-- `construir` → **10 casos recordados, no inventados**, de su proceso, con la salida esperada de cada uno.
-- `endurecer` → el **export o prompt actual** y **10 casos reales**.
+- `construir` → **6 casos recordados, no inventados** (4 típicos, 1 límite, 1 adversarial), de su proceso, con la salida esperada de cada uno. Los 10 de la suite extendida son opcionales.
+- `endurecer` → el **export o prompt actual** y **6 casos reales** (4/1/1); 10 si quiere la extendida.
 - `productificar` → el **export** y el **nombre de quien lo va a correr** sin la persona.
-- `escalar` → el **costo real de un mes** (consola o factura) y **10 casos de producción**.
+- `escalar` → el **costo real de un mes** (consola o factura) y **6 casos de producción** (4/1/1); 10 si quiere la extendida.
 - `todavia-no` → el **mapa del proceso** con hechos, inferencias y faltantes separados.
 
 ### Al cerrar

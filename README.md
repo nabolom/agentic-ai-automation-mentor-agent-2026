@@ -9,6 +9,7 @@ Un mentor dentro de Claude Code que te lleva del proceso al sistema, y del siste
 - [Objetivo](#objetivo)
 - [Para quién es](#para-quién-es)
 - [Empieza en 3 pasos](#empieza-en-3-pasos)
+- [Empieza aquí como alumno](#empieza-aquí-como-alumno)
 - [Tu ruta](#tu-ruta)
 - [Comandos](#comandos)
 - [Qué hay en este repo](#qué-hay-en-este-repo)
@@ -17,7 +18,9 @@ Un mentor dentro de Claude Code que te lleva del proceso al sistema, y del siste
 - [Hechos y fechas](#hechos-y-fechas)
 - [Créditos y licencia](#créditos-y-licencia)
 
-Guías: [Instalación](docs/instalacion.md) · [Antes de S2: /rumbo](docs/antes-de-s2.md) · [Doctrina en corto](docs/doctrina.md) · [Las 8 competencias](docs/competencias.md) · [Seguridad](docs/seguridad.md) · [Sesiones del curso](curso/README.md) · [Los siete patrones](patrones/README.md)
+Guías: [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md) · [Camino dorado](ejemplo/README.md) · [Instalación](docs/instalacion.md) · [Antes de S2: /rumbo](docs/antes-de-s2.md) · [Doctrina en corto](docs/doctrina.md) · [Las 8 competencias](docs/competencias.md) · [Seguridad](docs/seguridad.md) · [Sesiones del curso](curso/README.md) · [Kit del facilitador](facilitador/README.md) · [Mapa visual](docs/visuales/mapa-del-curso.png) · [Los siete patrones](patrones/README.md)
+
+Si vienes a la cohorte, empieza por la [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md) y ejecuta el [Camino dorado](ejemplo/README.md). El resto del repositorio funciona como referencia y mentoría bajo demanda.
 
 ## Objetivo
 
@@ -51,16 +54,28 @@ No es un chatbot de curso ni un tutorial de Claude Code: es infraestructura que 
 
 ¿Ya tienes tu repo del curso creado desde ai-automation-expert? Trae el assessment con dos `curl`: [docs/antes-de-s2.md](docs/antes-de-s2.md).
 
+## Empieza aquí como alumno
+
+Si quieres una guía de 15 minutos, sigue [`ALUMNO-EMPIEZA-AQUI.md`](ALUMNO-EMPIEZA-AQUI.md). Incluye la ruta Claude Code/Cowork, el fallback sin credenciales y el criterio de salida del núcleo.
+
+Si eres facilitador, usa el [`Kit del facilitador`](facilitador/README.md). Para comprobar que la copia está sana antes de clase, ejecuta:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 verificar.py
+```
+
+El mapa visual de la experiencia está en [`docs/visuales/mapa-del-curso.mmd`](docs/visuales/mapa-del-curso.mmd) y en [`PNG`](docs/visuales/mapa-del-curso.png).
+
 ## Tu ruta
 
 `/rumbo` asigna una de cinco rutas. Sale de lo que quieres y de lo que tienes; la evidencia decide cómo se te acompaña, no la ruta.
 
 | Ruta | Te toca si | Foco: qué llevas a S2 |
 |---|---|---|
-| `construir` | Tu estado actual es `nada` o `prototipo` | 10 casos recordados, no inventados, de tu proceso, con la salida esperada de cada uno |
-| `endurecer` | Corre para ti y el usuario final eres tú | El export o prompt actual y 10 casos reales |
+| `construir` | Tu estado actual es `nada` o `prototipo` | 6 casos núcleo recordados, no inventados, de tu proceso, con la salida esperada de cada uno; 10 para la suite extendida |
+| `endurecer` | Corre para ti y el usuario final eres tú | El export o prompt actual y 6 casos reales; completa a 10 si el tiempo lo permite |
 | `productificar` | Corre para ti y el usuario final es tu equipo, internos o clientes | El export y el nombre de quien lo va a correr sin ti |
-| `escalar` | Ya corre para otros | El costo real de un mes (consola o factura) y 10 casos de producción |
+| `escalar` | Ya corre para otros | El costo real de un mes (consola o factura) y 6 casos de producción; 10 para la suite extendida |
 | `todavia-no` | No describes un artefacto observable, o no tienes número ni forma de medirlo | El mapa del proceso con hechos, inferencias y faltantes separados |
 
 ## Comandos
@@ -87,10 +102,13 @@ rumbo.md              tu assessment (lo genera /rumbo)
 .claude/skills/       capacidades — se cargan bajo demanda
 .claude/settings.json permisos: el agente no lee .env ni secretos
 docs/                 guías para personas: instalación, antes de S2, doctrina, competencias, seguridad
+facilitador/          checklist, guiones S2–S4, rescates y debrief
 patrones/             los siete patrones, con estructura y trampas
 referencias/          hechos verificados y FECHADOS ← lo más valioso
 proyectos/            tus automatizaciones
 curso/                las guías de cada sesión
+verificar.py          una verificación local de pruebas, fixtures, tasas y enlaces
+.github/workflows/    validación automática en cada push y pull request
 ```
 
 ## Cómo te acompaña

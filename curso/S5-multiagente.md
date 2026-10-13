@@ -1,6 +1,6 @@
 ## Sesión 5 · Multiagente a juicio — "Pruébame que merecías existir"
 
-Última sesión. La pregunta vuelve a la arquitectura: **¿tu nest de subagentes produjo suficiente calidad o velocidad para justificar los tokens que consumió?** No admiramos multiagente; lo comparamos con un solo agente, bajo la misma tarea y configuración, y dejamos que los datos dicten el veredicto.
+**Extensión avanzada, opcional: no es requisito común.** El núcleo de la cohorte termina en S4. Esta clínica es para quien ya tiene su sistema medido y gobernado. La pregunta vuelve a la arquitectura: **¿tu nest de subagentes produjo suficiente calidad o velocidad para justificar los tokens que consumió?** No admiramos multiagente; lo comparamos con un solo agente, bajo la misma tarea y configuración, y dejamos que los datos dicten el veredicto.
 
 **El ejercicio completo vive en [`EJERCICIO-S5.md`](EJERCICIO-S5.md).** Ahí encontrarás el prework, el baseline técnicamente bloqueado contra subagentes, las dos corridas, las métricas, las tarjetas de veredicto y el plan B para clase.
 

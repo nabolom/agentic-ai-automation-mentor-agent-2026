@@ -34,6 +34,28 @@ Necesitas también **Git** (`git --version`). En macOS viene con las Command Lin
 
 Claude Code requiere una cuenta Pro, Max, Team, Enterprise o de Console. Al correr `claude` por primera vez te pide iniciar sesión en el navegador.
 
+### Preflight antes de clase
+
+Haz estas comprobaciones antes de la sesión:
+
+```bash
+claude --version
+git --version
+claude doctor
+```
+
+`claude doctor` muestra diagnósticos de instalación y configuración sin iniciar una sesión, según la [guía oficial de setup](https://code.claude.com/docs/en/setup). Si algún paso falla, conserva el mensaje o una captura y lleva el problema a office hours; no necesitas resolverlo para participar en la actividad.
+
+Si no llegas con Claude Code listo, usa el camino dorado sin credenciales desde la raíz del repositorio:
+
+```bash
+python3 ejemplo/camino_dorado.py --modo offline --version v1
+```
+
+En Windows, cambia `python3` por `py`. Si tampoco tienes Python, abre `ejemplo/casos.json` y recorre los seis casos del núcleo en papel con el diagrama de [`ejemplo/README.md`](../ejemplo/README.md).
+
+El fallback permite practicar entradas, salidas esperadas, validación y escalamiento. La autenticación real se agrega después, cuando el contrato ya está claro.
+
 ### Paso 2 — Crea tu copia del repo
 
 **No hagas fork ni clones directo.** Usa el botón de template para tener tu propio repo con permisos de escritura:

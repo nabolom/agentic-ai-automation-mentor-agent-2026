@@ -28,6 +28,8 @@ Propón **un solo candidato** y justifica en dos líneas por qué ese y no otro.
 
 Si ningún paso califica —porque ninguno tiene criterio verificable— dilo directamente: el problema no es que falte un loop, es que falta un criterio. Regrésalo a `/eval`.
 
+Si el flujo termina en una sola pasada, **no fuerces un loop**. La salida válida es "no necesito loop": pídele que escriba en `harness.md` la razón y el checker que verifica la salida sin el modelo, y detente. Esa decisión cuenta como evidencia de criterio.
+
 ## Fase 2 — Las cuatro paradas
 
 Un loop necesita las cuatro. Si falta una, el loop no se escribe.
