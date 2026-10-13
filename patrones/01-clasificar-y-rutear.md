@@ -35,7 +35,7 @@ Error Trigger (workflow aparte, observabilidad)
 
 **2. La rama de "no sé".** El clasificador *va* a encontrar cosas que no encajan. Si no le das una salida, va a inventar una categoría. Rama explícita: baja confianza o ninguna categoría → humano.
 
-**3. Medir.** 10 casos de eval con la categoría correcta anotada a mano. Sin eso, "funciona bien" es una opinión.
+**3. Medir.** 6 casos de eval (4 típicos, 1 límite, 1 adversarial) con la categoría correcta anotada a mano; 10 en la suite extendida. Sin eso, "funciona bien" es una opinión. El ejemplo completo corre en [`ejemplo/`](../ejemplo/README.md).
 
 ## Prompt del clasificador
 

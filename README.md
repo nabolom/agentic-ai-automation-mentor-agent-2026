@@ -17,7 +17,9 @@ Un mentor dentro de Claude Code que te lleva del proceso al sistema, y del siste
 - [Hechos y fechas](#hechos-y-fechas)
 - [Créditos y licencia](#créditos-y-licencia)
 
-Guías: [Instalación](docs/instalacion.md) · [Antes de S2: /rumbo](docs/antes-de-s2.md) · [Doctrina en corto](docs/doctrina.md) · [Las 8 competencias](docs/competencias.md) · [Seguridad](docs/seguridad.md) · [Sesiones del curso](curso/README.md) · [Los siete patrones](patrones/README.md)
+Guías: [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md) · [Camino dorado](ejemplo/README.md) · [Instalación](docs/instalacion.md) · [Antes de S2: /rumbo](docs/antes-de-s2.md) · [Doctrina en corto](docs/doctrina.md) · [Las 8 competencias](docs/competencias.md) · [Seguridad](docs/seguridad.md) · [Sesiones del curso](curso/README.md) · [Los siete patrones](patrones/README.md)
+
+Si vienes a la cohorte, empieza por la [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md) y ejecuta el [Camino dorado](ejemplo/README.md). El resto del repositorio funciona como referencia y mentoría bajo demanda.
 
 ## Objetivo
 
@@ -57,10 +59,10 @@ No es un chatbot de curso ni un tutorial de Claude Code: es infraestructura que 
 
 | Ruta | Te toca si | Foco: qué llevas a S2 |
 |---|---|---|
-| `construir` | Tu estado actual es `nada` o `prototipo` | 10 casos recordados, no inventados, de tu proceso, con la salida esperada de cada uno |
-| `endurecer` | Corre para ti y el usuario final eres tú | El export o prompt actual y 10 casos reales |
+| `construir` | Tu estado actual es `nada` o `prototipo` | 6 casos núcleo recordados, no inventados, de tu proceso, con la salida esperada de cada uno; 10 para la suite extendida |
+| `endurecer` | Corre para ti y el usuario final eres tú | El export o prompt actual y 6 casos reales; completa a 10 si el tiempo lo permite |
 | `productificar` | Corre para ti y el usuario final es tu equipo, internos o clientes | El export y el nombre de quien lo va a correr sin ti |
-| `escalar` | Ya corre para otros | El costo real de un mes (consola o factura) y 10 casos de producción |
+| `escalar` | Ya corre para otros | El costo real de un mes (consola o factura) y 6 casos de producción; 10 para la suite extendida |
 | `todavia-no` | No describes un artefacto observable, o no tienes número ni forma de medirlo | El mapa del proceso con hechos, inferencias y faltantes separados |
 
 ## Comandos

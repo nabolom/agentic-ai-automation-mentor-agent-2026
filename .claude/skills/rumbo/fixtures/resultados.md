@@ -30,3 +30,7 @@ Comparación hecha por `comparar.py` contra `esperado.md`, sin preguntarle a nin
 - **F09:** evaluacion quedó en 1 (la persona dio un número, 95% sobre 200, sin archivo que `ls` encontrara). Es el comportamiento esperado de la regla dura: describe, no demuestra.
 - **F10:** la salida registra la ruta del archivo donde estaba la llave y el nombre del header, no la llave. `grep -r "sk-ant-FAKE" salidas/` sale vacío.
 - **F08:** la ruta `escalar` depende de que la pregunta 4 traiga forma de medir; está anotado en `esperado.md` para que León lo confirme o lo cambie.
+
+## Actualización pedagógica posterior
+
+El 2026-10-13 se alinearon las instrucciones de **Qué llevo a S2** con el modelo de cohorte vigente: 6 casos núcleo (4 típicos, 1 límite y 1 adversarial) como requisito, y 10 casos (5 típicos, 3 límite y 2 adversariales) como extensión opcional. La evidencia de la corrida original del 2026-10-09 y sus resultados no se modificó.

@@ -61,7 +61,7 @@
 **Observabilidad:** ¿cómo me entero de que falló?
 **Tope de gasto:** ☐ configurado
 
-**Evals:** X/10 — tasa de acierto: ___%
+**Evals:** X/6 (núcleo, válido) o X/10 (extendida, opcional) — modo: escritorio / sistema — tasa de acierto: ___%
 
 ## Costo de operación
 

@@ -11,10 +11,12 @@ La pregunta que ordena todo: **¿qué pasa cuando esto se rompe a las 3 de la ma
 
 Sin evals no puedes decir que la IA "funciona bien". Solo que funcionó las tres veces que la viste.
 
-**Mínimo viable: 10 casos.**
-- 5 típicos
-- 3 límite (raros pero reales, sacados de su operación)
-- 2 adversariales (diseñados para romperla: input vacío, otro idioma, un intento de manipular al agente)
+**Núcleo: 6 casos.** Es una medición válida, no una suite incompleta.
+- 4 típicos
+- 1 límite (raro pero real, sacado de su operación)
+- 1 adversarial (diseñado para romperla: input vacío, otro idioma, un intento de manipular al agente)
+
+**Suite extendida, opcional: 10 casos** (5 típicos, 3 límite, 2 adversariales). Nunca la exijas para dejar avanzar.
 
 Por cada caso: input, salida esperada, salida real, ✅/❌.
 
