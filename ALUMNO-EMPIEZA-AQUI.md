@@ -22,13 +22,17 @@ Si ya tienes una copia del curso, trabaja en ella; no necesitas crear otra.
 
 ### 2. Haz el preflight
 
-Comprueba lo mínimo:
+Primero lee [`Dependencias y preflight`](docs/dependencias-y-preflight.md). Elige Claude Code o Cowork y verifica solo lo que necesita tu ruta.
+
+Para Claude Code:
 
 ```bash
 claude --version
 git --version
 claude doctor
 ```
+
+Si tu proyecto usa Python, verifica también `python3 --version` en macOS/Linux o `py --version` en Windows. Node/NPM solo aplican a proyectos JS/TS, n8n local o MCP.
 
 No pegues API keys en archivos ni en mensajes. Las credenciales, si algún día hacen falta, viven fuera del repositorio.
 
