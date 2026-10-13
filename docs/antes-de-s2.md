@@ -1,6 +1,8 @@
 ## Antes de S2: /rumbo
 
-Antes de la segunda sesión, cada quien corre el assessment de entrada. Fija qué vas a construir, mide con evidencia dónde estás y decide tu ruta. No se enseña: se mide. Toma unos 35 minutos.
+> **Ruta recomendada para el grupo:** [`Ruta crítica antes de S2`](ruta-critica-antes-de-s2.md), de 60–90 minutos. Este archivo conserva los pasos técnicos del assessment `/rumbo`.
+
+Antes de la segunda sesión, cada Aprendedor(a) corre el assessment de entrada. Fija qué va a construir, mide con evidencia dónde está y decide su ruta. No se enseña: se mide. El assessment mínimo toma unos 35 minutos; la preparación completa añade camino dorado, decisión y casos núcleo.
 
 **Caso 1 · Vas a empezar tu repo hoy:**
 

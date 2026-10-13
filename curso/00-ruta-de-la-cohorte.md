@@ -14,6 +14,8 @@ Al terminar, cada Aprendedor(a) debe poder tomar una automatización real y resp
 
 No es obligatorio construir un agente autónomo. **Justificar un workflow con un solo paso de IA, o decidir no automatizar todavía, también es un resultado válido.**
 
+El mapa completo de salida está en [`Competencias de Agentic AI`](../docs/competencias.md). La preparación inmediata para S2 está en la [`Ruta crítica antes de S2`](../docs/ruta-critica-antes-de-s2.md).
+
 ## Cómo trabajarás
 
 Hay dos rutas de implementación, con los mismos criterios de calidad:
