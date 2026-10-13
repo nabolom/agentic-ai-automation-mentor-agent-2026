@@ -1,16 +1,22 @@
-# Agentic AI & Automation Mentor Agent 2026
+<h1 align="center">Agentic AI &amp; Automation Mentor Agent 2026</h1>
 
-> Curso avanzado para convertir automatizaciones en sistemas medibles, gobernables y operables por otra persona.
+<p align="center"><strong>Curso avanzado para convertir automatizaciones en sistemas medibles, gobernables y operables por otra persona.</strong></p>
 
-![Header técnico del sistema: proceso, validación, humano y sistema operable](docs/visuales/repo-header.png)
+<p align="center">
+  <img src="docs/visuales/repo-header.png" alt="Ilustración de Raúl Sisniega: zorro y gato frente a un sintetizador" width="100%">
+</p>
 
-[![Licencia MIT](https://img.shields.io/badge/License-MIT-0F766E.svg)](LICENSE)
-[![Validación](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026/actions/workflows/validate.yml)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
-[![Claude Code](https://img.shields.io/badge/Workflow-Claude%20Code-5B5BD6.svg)](https://code.claude.com/docs/en/overview)
-[![Cowork](https://img.shields.io/badge/Ruta-Cowork-0EA5A4.svg)](ALUMNO-EMPIEZA-AQUI.md)
-[![Nivel avanzado](https://img.shields.io/badge/Nivel-Avanzado-E77B52.svg)](docs/competencias.md)
-[![Núcleo](https://img.shields.io/badge/Núcleo-6%20casos-172033.svg)](ejemplo/README.md)
+<p align="center"><sub>Ilustración: <a href="https://www.behance.net/biosisniega">Raúl Sisniega</a> ©</sub></p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="Licencia MIT" src="https://img.shields.io/badge/License-MIT-0F766E.svg"></a>
+  <a href="https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026/actions/workflows/validate.yml"><img alt="Validación" src="https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026/actions/workflows/validate.yml/badge.svg?branch=main"></a>
+  <a href="https://www.python.org/"><img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776AB.svg?logo=python&amp;logoColor=white"></a>
+  <a href="https://code.claude.com/docs/en/overview"><img alt="Workflow compatible con Claude Code" src="https://img.shields.io/badge/Workflow-Claude%20Code-5B5BD6.svg"></a>
+  <a href="ALUMNO-EMPIEZA-AQUI.md"><img alt="Ruta compatible con Cowork" src="https://img.shields.io/badge/Ruta-Cowork-0EA5A4.svg"></a>
+  <a href="docs/competencias.md"><img alt="Nivel avanzado" src="https://img.shields.io/badge/Nivel-Avanzado-E77B52.svg"></a>
+  <a href="ejemplo/README.md"><img alt="Núcleo de seis casos" src="https://img.shields.io/badge/Núcleo-6%20casos-172033.svg"></a>
+</p>
 
 ## Objetivo
 
@@ -185,3 +191,5 @@ El conocimiento se pudre. Corre `/verificar` cada dos meses o antes de tomar una
 ## Créditos y licencia
 
 [MIT](LICENSE) © 2026 León Ruiz. Curso Productividad con Claude (IA) AVANZADO, [Collective Academy](https://collectiveacademy.com/). Basado en [ai-automation-expert](https://github.com/nabolom/ai-automation-expert) (Q3 2026).
+
+Ilustración de portada: [Raúl Sisniega](https://www.behance.net/biosisniega) ©. Publicada con autorización del autor.
