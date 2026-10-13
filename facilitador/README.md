@@ -38,7 +38,7 @@ Usa [`debrief.md`](debrief.md) para cerrar cada sesión sin convertir el cierre 
 ## Principios de facilitación
 
 - **No empieces por la herramienta.** Empieza por la decisión y el contrato.
-- **No arregles el sistema por el alumno.** Pide evidencia y deja que el alumno fije la salida esperada.
+- **No arregles el sistema por el Aprendedor(a).** Pide evidencia y deja que el Aprendedor(a) fije la salida esperada.
 - **Un solo proceso.** Si aparecen dos, pide elegir uno.
 - **Seis casos bastan para avanzar.** Diez son extensión.
 - **“No necesito loop” es una buena respuesta** cuando hay verificación externa y evidencia.

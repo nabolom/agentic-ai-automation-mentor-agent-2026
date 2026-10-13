@@ -4,7 +4,7 @@ Esta ruta convierte el repositorio en una experiencia de tres sesiones de 2.5 ho
 
 ## Resultado del curso
 
-Al terminar, cada alumno debe poder tomar una automatización real y responder con evidencia:
+Al terminar, cada Aprendedor(a) debe poder tomar una automatización real y responder con evidencia:
 
 1. **Qué parte es una regla, qué parte necesita IA y qué parte debe seguir siendo humana.**
 2. **Cómo sabe que el sistema terminó bien sin preguntarle al modelo.**

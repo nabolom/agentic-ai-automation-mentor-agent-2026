@@ -69,7 +69,7 @@ Para salir de Claude Code y volver a la terminal: `Ctrl+C` (o escribe `/exit`). 
 
 Pregunta justa — parecería natural escribir primero el prompt y luego probarlo. El orden es al revés a propósito:
 
-> **La verdad se fija antes de medir.** Si escribes el prompt primero, vas a escribir — sin darte cuenta — casos que tu prompt ya resuelve, y el número saldrá bonito y mentiroso. Si fijas los casos primero (con sus salidas esperadas), el prompt se enfrenta a una realidad que no puede acomodar. Es la misma razón por la que un examen se escribe antes de ver las respuestas del alumno.
+> **La verdad se fija antes de medir.** Si escribes el prompt primero, vas a escribir — sin darte cuenta — casos que tu prompt ya resuelve, y el número saldrá bonito y mentiroso. Si fijas los casos primero (con sus salidas esperadas), el prompt se enfrenta a una realidad que no puede acomodar. Es la misma razón por la que un examen se escribe antes de ver las respuestas del Aprendedor(a).
 
 Además, tu prompt v0 no nace de la nada: se traduce desde tu `decisiones.md` y `reglas.md` de la Sesión 1. El diseño ya existe; el prompt solo lo pone en palabras. Por eso escribirlo toma 2 minutos en el Paso 2, mientras que los casos — que sí requieren TU conocimiento de la operación — se llevan el Paso 1 completo.
 

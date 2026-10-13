@@ -20,7 +20,7 @@ La entrega no se califica por la cantidad de comandos ejecutados ni por usar un 
 - **Confiabilidad:** mínimo 1.
 - **Operabilidad:** mínimo 1.
 
-No se exige un loop, la suite extendida de diez casos ni multiagente. Si el alumno justifica que no corresponden, esa decisión cuenta como evidencia de criterio.
+No se exige un loop, la suite extendida de diez casos ni multiagente. Si el Aprendedor(a) justifica que no corresponden, esa decisión cuenta como evidencia de criterio.
 
 ## Qué cuenta como evidencia
 

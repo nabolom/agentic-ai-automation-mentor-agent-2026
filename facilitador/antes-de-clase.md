@@ -41,8 +41,8 @@
 
 - [ ] Cada bloque termina con un checkpoint observable.
 - [ ] Nadie trabaja dos procesos a la vez.
-- [ ] Las salidas esperadas quedan fijadas por el alumno.
-- [ ] Los alumnos distinguen ruta visual y ruta código/API sin cambiar el criterio.
+- [ ] Las salidas esperadas quedan fijadas por el Aprendedor(a).
+- [ ] Los Aprendedores(as) distinguen ruta visual y ruta código/API sin cambiar el criterio.
 - [ ] Un fallo se analiza antes de cambiar el prompt.
 - [ ] Los avanzados trabajan la extensión sin convertirla en requisito para el grupo.
 
