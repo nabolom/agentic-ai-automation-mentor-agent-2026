@@ -26,7 +26,7 @@ Toma la decisión más difícil de tu `decisiones.md`. Los primeros 6 casos form
   - *Límite:* raro pero real, sacado de tu operación (el redondeo, el caso fronterizo, el "a veces son las dos").
   - *Adversarial:* diseñado para romperla — input vacío, en otro idioma, un intento de manipular al agente, un dato que no está.
 - **La salida esperada la fijas tú, y tiene que verificarse SIN volver a preguntarle al modelo.** Un campo concreto: una categoría, un sí/no, un valor. Si para saber si acertó tendrías que opinar, el caso está mal escrito.
-- **En modo escritorio, un caso que resuelve un `if` no mide tu IA.** Anótalo aparte. En modo sistema (S4) sí entra, porque ahí mides el flujo completo, como en el [camino dorado](../ejemplo/README.md).
+- **En modo escritorio, un caso que resuelve un `if` no mide tu IA.** Anótalo aparte. En modo sistema (S4) sí entra, porque ahí mides el flujo completo, como en el [camino dorado del repositorio canónico](https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026/blob/main/ejemplo/README.md).
 
 ## Casos
 

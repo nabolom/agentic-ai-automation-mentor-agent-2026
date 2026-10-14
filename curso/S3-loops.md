@@ -36,6 +36,37 @@ Antes de construirlo, intenta dibujar el flujo completo. Si termina en una pasad
 
 ---
 
+### Puente desde S2 — si solo tienes el checkpoint mínimo
+
+La Sesión 2 puede cerrarse correctamente con una ruta, un proceso o caso, una decisión, tres casos ancla, sus salidas esperadas, un siguiente paso y un fallback. Eso todavía no garantiza que existan `evals.md`, `flujo.md` y `alcance.md` en `proyectos/<tu-proyecto>/`.
+
+Antes de correr `/cuatro-paradas`, comprueba qué tienes:
+
+```bash
+ls proyectos/<tu-proyecto>/
+```
+
+Si falta `evals.md`, completa primero la continuidad de S2: seis casos recordados de tu operación, con 4 típicos, 1 límite y 1 adversarial. Los diez casos son opcionales. Usa `proyectos/PLANTILLA-evals.md` y conserva las salidas esperadas que fijaste tú.
+
+Si falta `flujo.md` o `alcance.md`, dentro de Claude Code o Cowork escribe:
+
+```text
+Lee el checkpoint de S2 en proyectos/<tu-proyecto>/rumbo.md o en la nota que te indique,
+junto con proyectos/<tu-proyecto>/evals.md y cualquier evidencia existente.
+
+Hazme una pregunta a la vez si falta información.
+No inventes pasos, contexto, herramientas ni criterios de terminado.
+Cuando yo confirme que hay suficiente evidencia, crea únicamente:
+- proyectos/<tu-proyecto>/flujo.md: pasos del proceso, clasificados como IF, IA, herramienta o humano.
+- proyectos/<tu-proyecto>/alcance.md: qué significa terminado y qué queda fuera.
+
+Detente si no puedes justificar un dato con mi checkpoint o mis casos.
+```
+
+Revisa ambos archivos antes de continuar. Si todavía falta una decisión, una salida esperada o un límite, no ejecutes el loop: completa esa evidencia primero o usa el fallback documentado. `/cuatro-paradas` sigue siendo estricto y debe detenerse si el contexto no alcanza.
+
+---
+
 ### Paso 0 — Trae `/cuatro-paradas` y su plantilla a TU repo 📍 EN LA TERMINAL
 
 > Este comando se llamaba `/loop` en Q3. Se renombró porque Claude Code trae un `/loop` integrado (corre un prompt en intervalos) y los dos chocaban. Si en tu repo todavía tienes `.claude/commands/loop.md`, bórralo y trae el nuevo.
