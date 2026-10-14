@@ -2,13 +2,13 @@
 type: dependencias-y-preflight
 title: Dependencias y preflight por ruta
 description: Qué instalar para la primera medición en macOS, Windows y Linux sin convertir el onboarding en soporte técnico.
-tags: [instalacion, preflight, onboarding, dependencias]
+tags: [instalacion, preflight, onboarding, dependencias, rutas-1-2-3]
 timestamp: 2026-10-13T00:00:00Z
 ---
 
 # Dependencias y preflight por ruta
 
-**Propósito:** saber qué necesitas para participar sin instalar herramientas que todavía no vas a usar.
+**Propósito:** saber qué necesitas para participar sin instalar herramientas que todavía no vas a usar. Esta guía es referencia secundaria: primero elige Ruta 1, 2 o 3 en [`Rutas de entrada`](rutas-de-entrada.md).
 
 > **No instales todo.** Elige una ruta, verifica sus dependencias y conserva un fallback. Node/NPM no son requisitos generales del curso.
 
@@ -146,14 +146,14 @@ npm --version
 
 No instales Node/NPM para “hacer funcionar Claude Code”: la ruta nativa de Claude Code no los necesita.
 
-## 4. ¿Estoy listo?
+## 4. ¿Estoy listo para offline o live?
 
 | Estado | Significa | Qué hago |
 |---|---|---|
-| **Verde** | Tengo Claude Code o Cowork, acceso al repo y puedo seguir una ruta. | Continúo con la ruta de preparación y continuidad de la Sesión 2. |
+| **Verde** | Tengo Claude Code o Cowork, acceso al repo y puedo seguir una ruta. | Continúo con Ruta 1 o Ruta 2. |
 | **Amarillo** | Me falta Git o Python, pero tengo Cowork, el repo o `casos.json`. | Uso el fallback; llevo la falla documentada a office hours. |
 | **Azul** | Me falta Node/NPM, pero mi proyecto no usa JS/TS, n8n local ni MCP. | No hago nada todavía. No es bloqueo. |
-| **Rojo** | No tengo acceso al repo ni una ruta de trabajo. | Pido acceso o uso el camino dorado compartido antes de clase. |
+| **Rojo** | No tengo acceso al repo ni una ruta de trabajo. | Pido acceso o uso Ruta 3 como andamio compartido. |
 
 ## 5. Fallbacks sin detener el aprendizaje
 
@@ -166,7 +166,15 @@ No instales Node/NPM para “hacer funcionar Claude Code”: la ruta nativa de C
 | API/auth no funciona | No pegar claves; trabajar offline | Contrato y punto de integración |
 | La herramienta visual no responde | Usar formato local y el caso común | Evals y criterio de diseño |
 
-## 6. Qué no instalar todavía
+## 6. Diferencia entre preflight offline y live
+
+El preflight offline comprueba herramientas y archivos locales; no comprueba calidad de modelo, seguridad de producción ni readiness live.
+
+El preflight offline comprueba herramientas y archivos locales; no comprueba calidad de modelo, seguridad de producción ni readiness live.
+
+El preflight offline comprueba herramientas y archivos locales; no comprueba calidad de modelo, seguridad de producción ni readiness live.
+
+El preflight offline comprueba herramientas y archivos locales; no comprueba calidad de modelo, seguridad de producción ni readiness live.
 
 Para la primera medición todavía no necesitas:
 
@@ -183,7 +191,8 @@ Primero: proceso, decisión, contrato, seis casos y salida esperada.
 
 ## Referencias
 
-- [Ruta de preparación y continuidad de la Sesión 2](ruta-continuidad-s2.md)
+- [Rutas de continuidad de la Sesión 2](ruta-continuidad-s2.md)
+- [Rutas de entrada](rutas-de-entrada.md)
 - [Instalación y arranque](instalacion.md)
 - [Empieza aquí como Aprendedor(a)](../ALUMNO-EMPIEZA-AQUI.md)
 - [Setup oficial de Claude Code](https://code.claude.com/docs/en/setup)

@@ -12,6 +12,11 @@ Este repo existe porque un asistente genérico ya sabe qué es un webhook. Lo qu
 
 Una persona de una cohorte mixta. Puede traer una idea, un proceso, un prototipo o una automatización ya hecha en Cowork, Make, Zapier o Claude Code. Algunas personas conocen JSON, APIs y rate limits; otras son autodidactas y necesitan ver el mecanismo antes de defender una decisión.
 
+El primer paso es elegir una ruta, no ejecutar `/rumbo` automáticamente:
+- Ruta 1: ya existe sistema; trabaja sobre una falla o decisión difícil.
+- Ruta 2: existe proceso/idea; descubre qué decisión vale la pena agentizar.
+- Ruta 3: camino dorado opcional para calibrar cuando falta claridad o entorno; después regresa a Ruta 2.
+
 El cuello de botella puede ser la sintaxis, el diseño del sistema o no saber todavía qué evidencia falta. Trátala como una persona capaz: no infantilices, pero tampoco presupongas vocabulario. Ajusta la profundidad a la evidencia que demuestra.
 
 ## Cómo respondes
@@ -189,7 +194,7 @@ patrones/          plantillas que corren. Clona, no expliques.
 referencias/       hechos verificados y FECHADOS
 proyectos/         las automatizaciones de esta persona
 curso/             las guías de cada sesión (2 a 5)
-docs/              guías para personas: instalación, continuidad de la Sesión 2, doctrina, competencias, seguridad
+docs/              guías para personas: rutas de entrada, instalación, continuidad S2, doctrina, competencias, seguridad
 LICENSE            MIT
 rumbo.md           el assessment de esta persona; ACOMPANAMIENTO.md dice cómo usarlo
 ```

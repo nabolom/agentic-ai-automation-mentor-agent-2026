@@ -22,30 +22,19 @@
 
 **Primera sesión técnica de la cohorte · 150 minutos.** La reunión anterior fue de bienvenida y contexto. Aquí empieza el trabajo con el repositorio y el Agente Mentor.
 
-➡️ Empieza por la guía de [`Sesión 2 — Panorama y primera medición`](curso/S2-panorama-y-evals.md). Incluye la plenaria, la teoría, el break, el laboratorio con Claude Code y los entregables.
+➡️ Empieza por [`Sesión 2 — Panorama y primera medición`](curso/S2-panorama-y-evals.md).
 
-### Elige tu punto de entrada
+### Elige una ruta, en este orden
 
-| Si llegas con… | Trabajarás en… |
-|---|---|
-| Una idea o proceso, pero ninguna automatización | **Descubrir:** elegir un proceso acotado y una decisión |
-| Un prototipo o automatización personal | **Construir:** separar `if`, IA, herramienta y humano |
-| Una automatización que ya funciona, pero falla o no se mide | **Endurecer:** aislar una decisión difícil y una línea base |
-| Algo que ya corre para otras personas | **Productificar / escalar:** identificar cuello de botella, riesgo, costo o handoff |
+| Ruta | Si llegas con… | Haz primero |
+|---|---|---|
+| **1 — Ya tengo algo construido** | Automatización, prototipo o sistema existente | Trae una falla, cuello de botella o decisión difícil |
+| **2 — Quiero descubrir qué agentizar** | Proceso o idea real, pero sin diseño | Acota proceso, usuario, decisión y resultado |
+| **3 — Camino dorado opcional** | Ningún proceso claro o bloqueo técnico | Calibra el contrato en `ejemplo/` y vuelve a Ruta 2 |
 
-No necesitas llegar con un agente completo. El mínimo de la sesión es: **repositorio abierto o fallback documentado · una decisión de IA · tres casos ancla · salidas esperadas · siguiente paso**.
+La [guía completa de rutas](docs/rutas-de-entrada.md) explica el recorrido. **Ruta 2 es la ruta común; Ruta 3 es un andamio, no la entrada universal.**
 
-La suite de seis casos —4 típicos, 1 límite y 1 adversarial— cierra la primera medición después del laboratorio. Los diez casos son una extensión para quien termina antes.
-
-### Si no tienes entorno listo
-
-Abre el [`Camino dorado`](ejemplo/README.md) y trabaja offline o en papel. No necesitas una API real para aprender el contrato:
-
-```text
-if → IA → salida estructurada → validación → humano
-```
-
-La [ruta de preparación y continuidad](docs/ruta-continuidad-s2.md) deja los pasos técnicos disponibles, pero ya no es la puerta principal de entrada.
+El mínimo de la sesión es: **ruta elegida · proceso/caso · una decisión · tres casos ancla · salidas esperadas · siguiente paso**. La suite de seis casos, `/eval` y la línea base pertenecen a la continuidad posterior.
 
 ## Objetivo
 
@@ -75,29 +64,30 @@ Claude Code y Cowork son **herramientas y asistentes de ejecución bajo su direc
 | Ya tienes automatizaciones y quieres productificarlas o escalarlas | Un marco para medir, endurecer, gobernar y entregar tu sistema. |
 | Eres autodidacta o intermedio y ya sabes construir cosas | Una ruta que parte de tu experiencia y te pide la evidencia que falta, sin explicarte lo que ya sabes. |
 | Eres avanzado | Un núcleo común y extensiones de costos, harness, MCP, loops y multiagente. |
-| Todavía no tienes proyecto propio | Un camino dorado común para aprender el criterio antes de transferirlo a tu proceso. |
+| Todavía no tienes proceso claro | Ruta 3 opcional para calibrar y volver a Ruta 2. |
 
 No es un chatbot de curso ni una lista de tutoriales. Es una infraestructura de trabajo para pasar del proceso al sistema y del sistema al producto.
 
-## Elige tu puerta de entrada
+## Puertas de entrada
 
 | Soy… | Empiezo por… | Resultado inicial |
 |---|---|---|
-| Aprendedor(a) | [`Sesión 2`](curso/S2-panorama-y-evals.md) | Una decisión y tres casos ancla |
+| Aprendedor(a) con sistema | [Ruta 1](docs/rutas-de-entrada.md) | Falla, cuello de botella o decisión difícil |
+| Aprendedor(a) con proceso/idea | [Ruta 2](docs/rutas-de-entrada.md) | Proceso acotado y decisión candidata |
+| Aprendedor(a) sin claridad o bloqueado | [Ruta 3](docs/rutas-de-entrada.md) | Contrato entendido y transferencia a Ruta 2 |
+| Aprendedor(a) avanzado(a) | [Ruta 1 / fast lane](docs/ruta-continuidad-s2.md) | Evidencia existente y una extensión justificada |
 | Facilitador | [`facilitador/README.md`](facilitador/README.md) | Agenda, preguntas, rescates y extensiones |
-| Aprendedor(a) avanzado(a) | [`Sesión 2`](curso/S2-panorama-y-evals.md) + track Productificar/escalar | Más profundidad sin repetir el onboarding |
-| Sin entorno listo | [`ejemplo/README.md`](ejemplo/README.md) | Camino dorado offline o en papel |
 
-> Si algo falla, consulta [`Dependencias y preflight`](docs/dependencias-y-preflight.md) como referencia secundaria. No instales Node/NPM si tu ruta no los necesita.
+> Consulta [`Dependencias y preflight`](docs/dependencias-y-preflight.md) solo si necesitas resolver una instalación. No instales Node/NPM si tu ruta no los necesita.
 
-## Primeros 15 minutos de la sesión técnica
+## Primeros 15 minutos
 
-1. Crea tu copia privada con **Use this template** y clónala, o trabaja en la copia que ya tienes.
-2. Abre la carpeta en Claude Code o Cowork.
-3. Lee [`Empieza aquí como Aprendedor(a)`](ALUMNO-EMPIEZA-AQUI.md) para orientación ampliada.
-4. Abre el [`Camino dorado`](ejemplo/README.md) si todavía no tienes proceso propio.
+1. Abre [`Empieza aquí como Aprendedor(a)`](ALUMNO-EMPIEZA-AQUI.md).
+2. Elige Ruta 1, Ruta 2 o Ruta 3.
+3. Abre Claude Code/Cowork o activa el fallback de la Ruta 3.
+4. Produce el primer checkpoint de tu ruta; no leas todo el repositorio.
 
-No necesitas leer todo el repo, conectar una API real, usar n8n ni construir un agente autónomo para empezar.
+No necesitas conectar una API real, usar n8n ni construir un agente autónomo para empezar.
 
 ## Ruta del curso
 
@@ -116,13 +106,13 @@ Los **6 casos** son el requisito mínimo válido. Los **10 casos** son una suite
 
 ## Mapa del recorrido
 
-![Mapa visual del curso: Aprendedor(a), evals, diagnóstico, gobernanza y handoff](docs/visuales/mapa-del-curso.png)
+![Mapa del recorrido: Ruta 1 sistema existente, Ruta 2 descubrir qué agentizar, Ruta 3 camino dorado opcional, S2–S4 y S5 opcional](docs/visuales/mapa-del-curso.png)
 
 Fuente editable: [`docs/visuales/mapa-del-curso.mmd`](docs/visuales/mapa-del-curso.mmd).
 
-## Camino dorado
+## Ruta 3 — Camino dorado opcional
 
-El camino dorado ofrece un caso común antes de pedirte transferir el criterio a tu automatización:
+El camino dorado no es la entrada por defecto ni un producto que debas construir. Es un andamio para quien no tiene proceso claro o está bloqueado. Después de recorrerlo, vuelve a la Ruta 2 y decide qué quieres agentizar.
 
 ```text
 entrada → if determinista → IA solo si hay ambigüedad → salida estructurada → validación → humano
@@ -166,10 +156,11 @@ CLAUDE.md             instrucciones del asistente bajo tu dirección
 ACOMPANAMIENTO.md     cómo cambia el acompañamiento según tu evidencia
 facilitador/          checklist, guiones 2–4, rescates y debrief
 curso/                ruta de cohorte y guías de sesión
-ejemplo/              camino dorado, dataset y pruebas reproducibles
+docs/rutas-de-entrada.md fuente canónica de las tres rutas
+ejemplo/              camino dorado opcional, dataset y pruebas reproducibles
 proyectos/            plantillas, rúbrica, demo y handoff
 patrones/             siete patrones de automatización
-referencias/          hechos verificados y fechados
+referencias/          hechos verificados y fechados; gobernanza: 3 agosto 2026; gobernanza: 3 agosto 2026; gobernanza: 3 agosto 2026
 docs/                 instalación, doctrina, seguridad y visuales
 verificar.py          validación local de pruebas, fixtures, tasas y enlaces
 .github/workflows/    validación automática en cada push y pull request
@@ -209,7 +200,7 @@ La verificación cubre pruebas reproducibles, fixtures de `/rumbo`, tasas del ca
 
 ## Hechos y fechas
 
-El framing de la sesión es **Panorama de Agent Engineering Q4-2026**, con corte editorial del repositorio al 14 de octubre de 2026. Los archivos de [`referencias/`](referencias/) conservan la fecha de verificación de cada fuente: 9 de octubre de 2026 para Claude API, MCP, n8n, OKF, METR y multiagente; 13 de julio de 2026 para LangChain, harness y gobernanza.
+El framing de la sesión es **Panorama de Agent Engineering Q4-2026**, con corte editorial del repositorio al 14 de octubre de 2026. Los archivos de [`referencias/`](referencias/) conservan la fecha de verificación de cada fuente: 9 de octubre de 2026 para Claude API, MCP, n8n, OKF, METR y multiagente; 13 de julio de 2026 para LangChain y harness; 3 de agosto de 2026 para gobernanza.
 
 El conocimiento se pudre. Corre `/verificar` cada dos meses o antes de tomar una decisión de costos que importe. Para hechos sensibles a fecha, usa siempre la fuente oficial.
 

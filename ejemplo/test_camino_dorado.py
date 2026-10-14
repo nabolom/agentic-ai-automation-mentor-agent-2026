@@ -407,5 +407,39 @@ class ModoLiveSinRed(unittest.TestCase):
         urlopen_espia.assert_not_called()
 
 
+class MedicionEstrica(unittest.TestCase):
+    def test_error_de_api_bloquea_la_tasa_en_main(self):
+        with mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": CLAVE_DE_RELLENO}):
+            with mock.patch.object(cd, "urlopen", side_effect=URLError("API caída")):
+                codigo, out, err = correr_main("--modo", "live", "--confirm-live")
+        self.assertEqual(codigo, 2)
+        self.assertNotIn("TASA:", out)
+        self.assertIn("MEDICION BLOQUEADA", err)
+
+    def test_modelo_live_no_permitido_no_hace_llamada(self):
+        with mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": CLAVE_DE_RELLENO}, clear=False):
+            with mock.patch.object(cd, "urlopen") as urlopen_espia:
+                codigo, out, err = correr_main("--modo", "live", "--confirm-live", "--model", "modelo-no-permitido")
+        self.assertEqual(codigo, 2)
+        self.assertNotIn("TASA:", out)
+        self.assertIn("modelo no permitido", err)
+        urlopen_espia.assert_not_called()
+
+    def test_dataset_rechaza_id_y_remitente_invalidos(self):
+        caso = {"id": "", "suite": "nucleo", "tipo": "tipico", "remitente": [], "texto": "Hola", "salida_esperada": {"ruta": "ventas", "escalar": False}}
+        problemas = " | ".join(cd.check_dataset([caso]))
+        self.assertIn("id no vacío", problemas)
+        self.assertIn("remitente debe ser", problemas)
+
+    def test_dataset_rechaza_suite_incompleta_al_cargar(self):
+        with tempfile.TemporaryDirectory() as carpeta:
+            ruta = Path(carpeta) / "casos.json"
+            casos = [{"id": "X", "suite": "nucleo", "tipo": "tipico", "remitente": "x@example.test", "texto": "Hola", "salida_esperada": {"ruta": "ventas", "escalar": False}}]
+            ruta.write_text(json.dumps(casos), encoding="utf-8")
+            with mock.patch.object(cd, "CASES_PATH", ruta):
+                with self.assertRaises(ValueError) as ctx: cd.load_cases("nucleo")
+        self.assertIn("suite nucleo inválida", str(ctx.exception))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

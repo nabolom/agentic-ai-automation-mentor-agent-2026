@@ -1,103 +1,144 @@
 # Empieza aquí — Aprendedor(a)
 
-Esta página te lleva a tu **primera sesión técnica**. La reunión anterior fue de bienvenida y contexto; no necesitas asumir que ya sabes construir un agente.
+Esta página te ayuda a elegir **una ruta**, no a leer todo el repositorio. La primera decisión no es “¿qué herramienta instalo?”, sino “¿qué evidencia puedo producir hoy?”.
 
-## Tu objetivo de hoy
+## Paso 0 — Elige una ruta
 
-Vas a entrar al repositorio con Claude Code y el Agente Mentor para convertir una idea, un proceso o una automatización existente en **una decisión concreta que podamos observar y medir**.
+| Ruta | Si llegas con… | Empieza por… |
+|---|---|---|
+| **1. Ya tengo algo construido** | Automatización, prototipo o sistema existente | Tu falla, cuello de botella o decisión difícil |
+| **2. Quiero descubrir qué agentizar** | Proceso o idea real, pero todavía sin diseño | Definir el proceso y la decisión candidata |
+| **3. Camino dorado opcional** | Ningún proceso claro, bloqueo técnico o necesidad de ver un ejemplo | [`ejemplo/README.md`](ejemplo/README.md) |
 
-```text
-proceso → decisión → casos → medición → diagnóstico → límites → handoff
-```
+La **Ruta 2 es la ruta común principal**. La Ruta 3 sirve para calibrar y luego regresar a la Ruta 2.
 
-No necesitas construir un agente completo. Según lo que traigas, puedes descubrir, construir, endurecer o productificar/escalar.
+Para ver la decisión completa, abre [`docs/rutas-de-entrada.md`](docs/rutas-de-entrada.md).
 
-## Antes de abrir Claude Code
+## Paso 1 — Abre tu entorno
 
-1. Usa **Use this template** para crear tu copia privada o abre la copia que ya tienes.
-2. Abre una terminal en la carpeta de tu repositorio.
-3. Verifica que Claude Code exista:
+### EN TERMINAL
+
+Si ya tienes una copia del repositorio, abre la terminal en esa carpeta. Si trabajas en Cowork, abre la carpeta desde allí.
 
 ```bash
 claude --version
 ```
 
-4. Entra al repositorio:
+### EN TERMINAL
 
 ```bash
 claude
 ```
 
-Si algo falla, guarda el mensaje o una captura. No conviertas tu primera sesión en una batalla de instalación: usa el [Camino dorado](ejemplo/README.md) offline o en papel y lleva el bloqueo a office hours.
+Si algo falla, guarda el mensaje o una captura. No conviertas la primera sesión en soporte técnico: sigue con Cowork, ZIP, papel o la Ruta 3 offline.
 
-## Primer mensaje al Agente Mentor
+## Paso 2 — Habla con el Mentor
 
-Pega esto dentro de Claude Code:
-
-```text
-Lee CLAUDE.md y ACOMPANAMIENTO.md.
-Dime qué repositorio abrí, qué hace el Agente Mentor y qué comandos del proyecto están disponibles.
-No edites archivos todavía.
-```
-
-Después continúa con:
+### DENTRO DE CLAUDE CODE O COWORK
 
 ```text
+Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/rutas-de-entrada.md.
 Hazme una pregunta a la vez.
-Ayúdame a elegir entre descubrir, construir, endurecer o productificar/escalar.
+Primero ayúdame a elegir entre Ruta 1, Ruta 2 y Ruta 3.
+No edites archivos todavía.
 No inventes mi proceso, mis casos ni mis salidas esperadas.
-Si todavía no tengo un proceso acotado, usa el camino dorado como andamio.
 ```
 
-## Elige tu track
+## Paso 3 — Trabaja según tu ruta
 
-| Si… | Tu track | Tu salida de hoy |
-|---|---|---|
-| Tienes una idea o proceso, pero nada construido | **Descubrir** | Proceso acotado y decisión que vale la pena explorar |
-| Tienes un prototipo o automatización que solo tú corres | **Construir** | Mapa `if` / IA / herramienta / humano y una decisión |
-| Ya funciona, pero falla o no tiene número | **Endurecer** | Una falla, una decisión difícil y una línea base posible |
-| Ya corre para otras personas | **Productificar / escalar** | Cuello de botella, riesgo, costo o handoff que falta |
+### Ruta 1 — Ya tengo algo construido
 
-Después, si aplica, ejecuta `/rumbo`. El assessment fija una ruta; el acompañamiento te ayuda a trabajarla sin inventar evidencia.
+Responde:
 
-## El caso común
+- ¿Qué parte ya funciona?
+- ¿Qué falla, cuesta demasiado o depende de ti?
+- ¿Qué decisión es la más difícil de medir?
+- ¿Qué evidencia tienes hoy?
 
-Abre [`ejemplo/README.md`](ejemplo/README.md) y lee **Problema**, **Qué vas a hacer aquí** y **La secuencia que enseña**.
+No vuelvas a construir desde cero. Tu salida es una decisión difícil, tres casos ancla y una hipótesis de mejora.
 
-Si no tienes proyecto propio, el camino dorado es tu andamio válido. Si ya tienes automatización, úsalo para calibrar el criterio y luego transfiérelo a una sola decisión de tu sistema.
+### Ruta 2 — Quiero descubrir qué agentizar
+
+Dile al Mentor:
+
+```text
+Quiero descubrir qué parte de este proceso vale la pena agentizar.
+Hazme preguntas sobre usuario, entrada, pasos, decisión, riesgo y resultado.
+Ayúdame a elegir una sola decisión candidata.
+Clasifica cada paso como if, IA, herramienta o humano.
+No avances hasta que la salida esperada sea verificable.
+```
+
+Tu salida es: proceso acotado, decisión candidata, qué queda fuera y tres casos ancla.
+
+### Ruta 3 — Camino dorado opcional
+
+Abre [`ejemplo/README.md`](ejemplo/README.md) y lee solamente:
+
+1. Problema.
+2. Qué vas a hacer aquí.
+3. La secuencia que enseña.
+
+Después identifica:
 
 ```text
 if → IA → salida estructurada → validación → humano
 ```
 
-## Entregable mínimo de la sesión
+Si tienes Python:
 
-Guarda en una nota, en `rumbo.md` o en el archivo que el Mentor te indique:
+### EN TERMINAL — macOS/Linux
 
-- una frase de proceso o caso;
-- una sola decisión de IA;
-- tres casos ancla: uno típico, uno límite y uno adversarial;
-- la salida esperada de cada caso;
-- una duda concreta o siguiente paso.
+```bash
+python3 ejemplo/camino_dorado.py --modo offline --version v1 --suite nucleo
+```
 
-Después de la sesión completa la suite de seis casos: 4 típicos, 1 límite y 1 adversarial. Los diez casos son opcionales.
+### EN TERMINAL — Windows PowerShell
+
+```powershell
+py ejemplo/camino_dorado.py --modo offline --version v1 --suite nucleo
+```
+
+Si no tienes Python, abre `ejemplo/casos.json` y recorre los seis casos en una tabla. Luego vuelve a la Ruta 2: elige un proceso propio o declara que continuarás con el caso común.
+
+## Paso 4 — Usa `/rumbo` solo cuando aplique
+
+`/rumbo` no es la puerta universal.
+
+- Ruta 1: úsalo para fijar foco si ya tienes evidencia.
+- Ruta 2: úsalo después de acotar el proceso y la decisión.
+- Ruta 3: úsalo después de comprender el camino dorado y volver a la Ruta 2.
+
+### DENTRO DE CLAUDE CODE
+
+```text
+Ahora que ya elegimos la ruta y una decisión candidata,
+corre /rumbo sin inventar evidencia.
+Hazme una pregunta a la vez y guarda solo lo que realmente decidamos.
+```
+
+## Entregable mínimo
+
+Guarda en una nota, `rumbo.md` o el archivo que el Mentor indique:
+
+- ruta elegida;
+- proceso o caso en una frase;
+- una sola decisión;
+- qué queda fuera;
+- tres casos ancla: típico, límite y adversarial;
+- salida esperada de cada caso;
+- siguiente paso y fallback.
+
+Los seis casos y la línea base son continuidad posterior. Los diez casos y S5 son extensión.
 
 ## Qué no necesitas hacer hoy
 
-- No necesitas construir un agente autónomo.
+- No necesitas construir un agente completo.
 - No necesitas conectar una API real.
 - No necesitas instalar Node/NPM si tu ruta no los usa.
-- No necesitas exigir que tu automatización existente se vuelva un agente.
+- No necesitas convertir una automatización existente en agente.
 - No necesitas completar diez casos.
 - No necesitas pegar datos sensibles en el repo o en el chat.
-
-## Si algo falla
-
-- **Claude Code no inicia:** conserva el error y usa el camino dorado.
-- **Git no está listo:** trabaja con la copia disponible, Cowork, ZIP o papel; instala después.
-- **No tienes Python:** abre `ejemplo/casos.json` y recorre los casos manualmente.
-- **Tu automatización ya existe:** no vuelvas a empezar; elige una falla o cuello de botella.
-- **No tienes proceso propio:** usa el caso común y marca la transferencia como siguiente paso.
 
 ## Cómo sabrás que avanzaste
 
@@ -105,15 +146,15 @@ Puedes responder:
 
 1. ¿Qué parte es un `if`?
 2. ¿Qué parte necesita IA y por qué?
-3. ¿Qué salida esperas?
+3. ¿Cuál es la salida esperada?
 4. ¿Qué caso podría romper la decisión?
 5. ¿Qué acción nunca dejarías automática?
-6. ¿Qué vas a medir después?
+6. ¿Qué medirás después?
 
-## Referencias
+## Siguiente paso
 
-- [Sesión 2 — Panorama y primera medición](curso/S2-panorama-y-evals.md)
-- [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md)
-- [Camino dorado](ejemplo/README.md)
-- [Dependencias y preflight](docs/dependencias-y-preflight.md)
-- [Guía de instalación](docs/instalacion.md)
+- Si elegiste Ruta 1: lleva tu falla o cuello de botella a S3/S4 según corresponda.
+- Si elegiste Ruta 2: cierra tres casos ancla en S2 y seis casos en continuidad.
+- Si elegiste Ruta 3: vuelve a Ruta 2 o documenta qué aprendiste del caso común.
+
+Si estás bloqueado, consulta [`docs/dependencias-y-preflight.md`](docs/dependencias-y-preflight.md) como referencia secundaria.

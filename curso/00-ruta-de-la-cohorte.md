@@ -16,16 +16,19 @@ No es obligatorio construir un agente autónomo. **Justificar un workflow con un
 
 El mapa completo de salida está en [`Competencias de Agentic AI`](../docs/competencias.md). La guía de la primera sesión está en [`Sesión 2 — Panorama y primera medición`](S2-panorama-y-evals.md).
 
-## Cómo trabajarás
+## Cómo entrarás
 
-Hay dos rutas de implementación, con los mismos criterios de calidad:
+La herramienta no decide la ruta pedagógica. Primero elige una de estas tres entradas:
 
-| Ruta | Úsala si… | Debes demostrar |
+| Ruta | Úsala si… | Debes demostrar primero |
 |---|---|---|
-| **Visual** | Tu automatización vive en n8n, Make, CoWork u otra herramienta visual | Flujo, entradas/salidas, validación, evals y guardrails |
-| **Código/API** | Quieres trabajar con Claude Code, Python, TypeScript o una API directa | Contrato de entrada/salida, validación, pruebas, errores y límites |
+| **1 — Ya tengo algo construido** | Traes automatización, prototipo o sistema | Una falla, cuello de botella o decisión difícil |
+| **2 — Quiero descubrir qué agentizar** | Traes proceso o idea, pero no diseño | Proceso acotado, decisión candidata y salida verificable |
+| **3 — Camino dorado opcional** | Falta claridad, entorno o confianza | Comprensión del contrato y transferencia hacia Ruta 2 |
 
-La herramienta cambia. **El contrato no cambia.** Ambas rutas deben producir una salida estructurada, una suite de casos y un criterio de escalamiento.
+Después eliges el medio: **visual** (n8n, Make, Cowork) o **código/API** (Claude Code, Python, TypeScript). El contrato no cambia: entrada, decisión, salida, validación y escalamiento.
+
+La fuente canónica de las tres rutas es [`Rutas de entrada`](../docs/rutas-de-entrada.md).
 
 ## Núcleo y extensión
 
@@ -60,9 +63,9 @@ Si algún paso falla, lleva la captura o el mensaje de error; **no intentes reso
 
 Esta es la primera sesión técnica. La reunión anterior fue de bienvenida y contexto, así que aquí sí se presenta el panorama, se abre Claude Code y se usa el Agente Mentor. La sesión no presupone experiencia técnica ni exige que todas las personas construyan lo mismo.
 
-Consulta también la [guía técnica de evals](S2-evals.md) después de la guía principal.
+Consulta la [guía técnica de evals](S2-evals.md) solo para la continuidad posterior; no es una puerta de entrada ni un requisito para comenzar S2.
 
-**Objetivo:** salir con el repositorio abierto o un fallback documentado, un track elegido, una decisión de IA y tres casos ancla. La suite de seis casos cierra la primera medición inmediatamente después de la sesión.
+**Objetivo:** salir con una ruta elegida, el repositorio abierto o un fallback documentado, un proceso/caso, una decisión de IA y tres casos ancla. La suite de seis casos cierra la primera medición después de la sesión.
 
 | Tiempo | Actividad | Checkpoint |
 |---:|---|---|

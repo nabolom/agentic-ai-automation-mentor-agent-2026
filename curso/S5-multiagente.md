@@ -6,7 +6,7 @@
 
 **Qué juzgas:** tokens, costo estimado, duración y calidad bajo una rúbrica común. La atribución de `/usage` indica cuánto trabajo se ejecutó fuera del hilo líder; no equivale solo a coordinación.
 
-**Entregable:** dos tarjetas de veredicto (Tarea A y Tarea B) y una línea sobre la brecha entre tu predicción y los datos.
+**Entregable:** tarjetas de veredicto para la misma tarea bajo la arquitectura disponible, una comparación con agente único cuando sea posible y una línea sobre la brecha entre tu predicción y los datos. El resultado puede ser agente único, Nest, Swarm o comparación incompleta; no hay ganador prefijado.
 
 **Lectura de apoyo:** [`referencias/multiagente.md`](../referencias/multiagente.md).
 

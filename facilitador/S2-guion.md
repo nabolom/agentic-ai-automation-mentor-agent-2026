@@ -1,50 +1,33 @@
-# S2 — Guion del facilitador
+# S2 — Apoyo técnico posterior: evals
 
-**Objetivo:** que cada Aprendedor(a) salga con un caso acotado, una decisión de IA y una primera medición.
+> La agenda canónica está en [`S2-panorama-guion.md`](S2-panorama-guion.md). Esta página no es otra agenda: sirve para cerrar la continuidad de seis casos cuando ya existe una decisión acotada.
 
-**Guía técnica:** [`curso/S2-evals.md`](../curso/S2-evals.md)
-**Ruta:** [`curso/00-ruta-de-la-cohorte.md`](../curso/00-ruta-de-la-cohorte.md)
-**Ejemplo:** [`ejemplo/README.md`](../ejemplo/README.md)
+## Cuándo usarlo
 
-## Agenda de 150 minutos
+- Ruta 1: ya existe una falla o sistema medido.
+- Ruta 2: ya se definió proceso y decisión.
+- Ruta 3: solo después de comprender el camino dorado y regresar a Ruta 2.
 
-| Minutos | Tú haces | El Aprendedor(a) produce | Pregunta de transición |
-|---:|---|---|---|
-| 0–15 | Recuperas `if`, IA, herramienta y humano | Una decisión explicada | “¿Por qué esto no es solo un prompt?” |
-| 15–35 | Corres/enseñas el camino dorado, incluido un caso que escala | Lectura del recorrido | “¿Dónde no debe decidir el modelo?” |
-| 35–55 | Ayudas a elegir proceso propio o caso común | Un solo proceso | “¿Qué queda fuera hoy?” |
-| 55–80 | Pides mapear flujo y definición de terminado | `flujo.md` y `alcance.md` | “¿Cómo lo verificaría otra persona?” |
-| 80–100 | Ayudas a diseñar una decisión de IA | Contrato de salida | “¿Qué parte podría ser un `if`?” |
-| 100–120 | Pides fijar seis casos | Evals 4/1/1 | “¿Cuál es el caso que más te preocupa?” |
-| 120–140 | Corres la línea base | Tasa + salida cruda | “¿Qué falló exactamente?” |
-| 140–150 | Cierras con diagnóstico corto | Causa probable + exit ticket | “¿Qué vas a cambiar y qué no?” |
+No uses esta guía para bloquear la entrada a S2 ni para exigir `/eval` durante el laboratorio.
 
-## Frases útiles
+## Secuencia técnica
 
-- “No necesito que me digas que funciona; necesito que me enseñes cómo lo sabes.”
-- “La salida esperada la fija la persona que conoce la operación; el agente no la inventa.”
-- “Seis casos reales hoy valen más que diez inventados.”
-- “Primero medimos el sistema como está. Después decidimos qué tocar.”
+1. Confirmar ruta, proceso/caso y decisión.
+2. Escribir seis casos: 4 típicos, 1 límite y 1 adversarial.
+3. Fijar salidas esperadas antes de correr el sistema.
+4. Crear prompt v0 desde la decisión de S2, sin asumir una sesión técnica previa.
+5. Ejecutar `/eval` solo si el sistema está listo.
+6. Si no corre, registrar `BLOQUEADO`; no inventar una tasa.
+7. Llevar el caso fallido y la pregunta de diagnóstico a S3.
 
-## Señales de atasco
+## Cierre
 
-| Señal | Intervención |
-|---|---|
-| Está describiendo un agente que hace todo | Pide una sola decisión y cuatro categorías: `if`, IA, herramienta, humano |
-| No tiene proceso propio | Devuélvelo al camino dorado; la transferencia puede quedar para después |
-| Quiere escribir el prompt antes de los casos | Pide primero cuatro típicos, un límite y un adversarial |
-| No puede definir salida esperada | Reduce la decisión a un campo verificable |
-| Está instalando durante la clase | Mueve al fallback offline/papel y conserva el objetivo |
-| Quiere completar diez casos antes de medir | Recuérdale que seis es el núcleo válido |
+**Estás aquí:** continuidad de S2 y casos.
 
-## Cierre mínimo
+**Siguiente:** S3 para diagnóstico por capas y comparación v0 → v1.
 
-El Aprendedor(a) debe poder mostrar:
+**Si estás bloqueado:** usa el camino dorado offline o una tabla manual.
 
-- una decisión de IA acotada;
-- seis casos con salida esperada;
-- una tasa de línea base;
-- la salida cruda de un fallo;
-- una causa probable, sin culpar automáticamente al modelo.
+**Si terminaste antes:** suite extendida de diez casos o una extensión justificada.
 
-Si no llega al proyecto propio, el camino dorado sigue siendo un cierre válido para la sesión; documenta la transferencia como siguiente paso.
+La guía detallada está en [`curso/S2-evals.md`](../curso/S2-evals.md).

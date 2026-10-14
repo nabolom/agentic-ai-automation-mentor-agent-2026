@@ -17,7 +17,7 @@ La suite de seis casos —4 típicos, 1 límite y 1 adversarial— es la entrega
 | 0–5 | Da la bienvenida técnica y presenta el objetivo: pasar de idea a decisión medible | Escuchan la promesa y anotan qué traen | “¿Qué vienes a descubrir, construir, endurecer o escalar?” |
 | 5–15 | Explica el panorama Q4-2026: el modelo genera; el sistema organiza, verifica y limita | Vocabulario común | “¿Qué parte de tu problema no debería resolver un LLM?” |
 | 15–25 | Distingue workflow, chatbot y agente; introduce `if`, IA, herramienta y humano | Clasifican mentalmente un proceso | “¿Dónde decide realmente tu sistema?” |
-| 25–30 | Presenta las dos rutas: proceso propio o camino dorado | Eligen su punto de entrada | “¿Qué ruta te permite producir evidencia hoy?” |
+| 25–30 | Presenta las tres rutas: sistema existente, descubrir qué agentizar y camino dorado opcional | Eligen su punto de entrada | “¿Qué evidencia puedes producir hoy?” |
 | 30–40 | Define eval como input + salida esperada | Entienden qué significa medir | “¿Quién fija la salida correcta?” |
 | 40–50 | Presenta 4/1/1 y la regla de cambiar una cosa a la vez | Preparan el tipo de casos que buscarán | “¿Cuál sería tu caso límite?” |
 | 50–60 | Muestra el camino dorado: `if → IA → salida estructurada → validación → humano` | Identifican las capas | “¿Dónde se detiene el sistema?” |
@@ -36,7 +36,7 @@ Si la teoría ocupa 45 minutos, termina el bloque teórico en el minuto 75 y red
 
 ### Descubrir
 
-La persona tiene una idea o un proceso, pero no una automatización. Pide una frase de proceso, usuario, entrada y decisión. Si se dispersa, llévala al camino dorado.
+La persona tiene un proceso o idea, pero no una automatización. Esta es la Ruta 2: pide usuario, entrada, pasos, decisión y resultado. Si no puede acotar, ofrece el camino dorado como Ruta 3 y después regresa a Ruta 2.
 
 ### Construir
 
@@ -44,7 +44,7 @@ La persona tiene un prototipo o automatización personal. Pide que etiquete un f
 
 ### Endurecer
 
-La persona trae un sistema que ya funciona, pero no mide o falla. Pide una ejecución, una falla o un prompt actual. El resultado de hoy no es arreglarlo: es aislar qué decisión se va a medir.
+La persona trae un sistema que ya funciona, pero no mide o falla. Esta es la Ruta 1: pide una ejecución, una falla o un prompt actual. No la regreses al camino dorado salvo que lo necesite para explicar el contrato.
 
 ### Productificar / escalar
 
@@ -89,6 +89,26 @@ Si todavía no tengo un proceso acotado, usa el camino dorado como andamio.
 - No usar diez casos como puerta de entrada.
 - No dejar que el Mentor invente las salidas esperadas.
 - No resolver tú la decisión por la persona.
+
+## Cierre uniforme
+
+Antes de cerrar, verifica que cada persona pueda decir: **estoy en esta ruta · mi siguiente paso es este · si me bloqueo haré esto · si termino antes haré esta extensión**.
+
+## Cierre uniforme
+
+Antes de cerrar, verifica que cada persona pueda decir: **estoy en esta ruta · mi siguiente paso es este · si me bloqueo haré esto · si termino antes haré esta extensión**.
+
+## Cierre uniforme
+
+Antes de cerrar, verifica que cada persona pueda decir: **estoy en esta ruta · mi siguiente paso es este · si me bloqueo haré esto · si termino antes haré esta extensión**.
+
+## Cierre uniforme
+
+Antes de cerrar, verifica que cada persona pueda decir: **estoy en esta ruta · mi siguiente paso es este · si me bloqueo haré esto · si termino antes haré esta extensión**.
+
+## Cierre uniforme
+
+Antes de cerrar, verifica que cada persona pueda decir: **estoy en esta ruta · mi siguiente paso es este · si me bloqueo haré esto · si termino antes haré esta extensión**.
 
 ## Cierre mínimo
 
