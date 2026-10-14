@@ -1,6 +1,6 @@
 # Kit del facilitador
 
-Este kit acompaña las sesiones técnicas de la cohorte. La primera combina S1+S2: **Panorama de Agent Engineering Q4-2026 y primera medición**. No reemplaza las guías del curso: te ayuda a **facilitar la experiencia**, detectar atascos y mantener el foco en evidencia.
+Este kit acompaña las sesiones técnicas de la cohorte. La primera sesión de trabajo es la Sesión 2: **Panorama de Agent Engineering Q4-2026 y primera medición**. No reemplaza las guías del curso: te ayuda a **facilitar la experiencia**, detectar atascos y mantener el foco en evidencia.
 
 ## La historia que debes sostener
 
@@ -21,12 +21,12 @@ Usa [`antes-de-clase.md`](antes-de-clase.md).
 
 | Sesión | Objetivo | Guion |
 |---|---|---|
-| S1+S2 | Entrar al repositorio, entender el panorama y fijar una primera decisión medible | [`S1-S2-guion.md`](S1-S2-guion.md) |
-| S2 técnico | Convertir una decisión en una suite de evals | [`S2-guion.md`](S2-guion.md) |
+| S2 | Entrar al repositorio, entender el panorama y fijar una primera decisión medible | [`S2-panorama-guion.md`](S2-panorama-guion.md) |
+| S2 — Evals (detalle técnico) | Convertir una decisión en una suite de evals | [`S2-guion.md`](S2-guion.md) |
 | S3 | Diagnosticar y decidir si hace falta loop | [`S3-guion.md`](S3-guion.md) |
 | S4 | Gobernar, entregar y defender | [`S4-guion.md`](S4-guion.md) |
 
-Las tablas de estos guiones siguen bloques de 150 minutos de la [Ruta de la cohorte](../curso/00-ruta-de-la-cohorte.md). El guion S2 técnico queda como apoyo para cerrar los seis casos y la línea base después de la primera sesión.
+Las tablas de estos guiones siguen bloques de 150 minutos de la [Ruta de la cohorte](../curso/00-ruta-de-la-cohorte.md). El guion S2 — Evals (detalle técnico) queda como apoyo para cerrar los seis casos y la línea base después de la primera sesión.
 
 ## Rescates y extensiones
 

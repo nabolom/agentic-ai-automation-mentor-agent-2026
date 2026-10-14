@@ -1,8 +1,8 @@
 # Apéndice técnico: `/rumbo` para la primera medición
 
-> **Apéndice técnico:** la puerta de entrada del grupo es [`S1+S2 — Panorama y primera medición`](../curso/S1-S2-panorama-y-evals.md). Este archivo conserva los pasos técnicos del assessment `/rumbo`; la continuidad de los seis casos está en la [`Ruta de preparación y continuidad`](ruta-continuidad-s1-s2.md).
+> **Apéndice técnico:** la puerta de entrada del grupo es [`Sesión 2 — Panorama y primera medición`](../curso/S2-panorama-y-evals.md). Este archivo conserva los pasos técnicos del assessment `/rumbo`; la continuidad de los seis casos está en la [`Ruta de continuidad de la Sesión 2`](ruta-continuidad-s2.md).
 
-> **No es otra puerta de entrada.** Empieza por la sesión S1+S2. Usa este apéndice solo cuando necesites los pasos técnicos para actualizar o correr `/rumbo`.
+> **No es otra puerta de entrada.** Empieza por la sesión S2. Usa este apéndice solo cuando necesites los pasos técnicos para actualizar o correr `/rumbo`.
 
 El assessment mínimo toma aproximadamente **35 minutos**: fija qué vas a construir, mide con evidencia dónde estás y decide tu ruta. La continuidad completa después de la sesión toma **60–90 minutos** porque añade camino dorado, decisión, seis casos y fallback.
 

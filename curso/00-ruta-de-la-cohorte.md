@@ -1,6 +1,6 @@
 # Ruta de la cohorte
 
-Esta ruta convierte el repositorio en una experiencia de trabajo de 2.5 horas por sesión. La primera sesión técnica combina S1 y S2: **Panorama de Agent Engineering Q4-2026 y primera medición**. La doctrina sigue viviendo en `CLAUDE.md`; este archivo responde una pregunta distinta: **¿qué hacemos en clase, en qué orden y qué queda listo?**
+Esta ruta convierte el repositorio en una experiencia de trabajo de 2.5 horas por sesión. La primera sesión técnica de la cohorte es la **Sesión 2 — Panorama de Agent Engineering Q4-2026 y primera medición**. La doctrina sigue viviendo en `CLAUDE.md`; este archivo responde una pregunta distinta: **¿qué hacemos en clase, en qué orden y qué queda listo?**
 
 ## Resultado del curso
 
@@ -14,7 +14,7 @@ Al terminar, cada Aprendedor(a) debe poder tomar una automatización real y resp
 
 No es obligatorio construir un agente autónomo. **Justificar un workflow con un solo paso de IA, o decidir no automatizar todavía, también es un resultado válido.**
 
-El mapa completo de salida está en [`Competencias de Agentic AI`](../docs/competencias.md). La guía de la primera sesión está en [`S1+S2 — Panorama y primera medición`](S1-S2-panorama-y-evals.md).
+El mapa completo de salida está en [`Competencias de Agentic AI`](../docs/competencias.md). La guía de la primera sesión está en [`Sesión 2 — Panorama y primera medición`](S2-panorama-y-evals.md).
 
 ## Cómo trabajarás
 
@@ -52,11 +52,11 @@ La extensión no se usa para avanzar más rápido el calendario ni para converti
 
 ## Preflight antes de clase
 
-La continuidad técnica vive en la [Ruta de preparación y continuidad de S1+S2](../docs/ruta-continuidad-s1-s2.md). No repitas aquí la instalación: elige ruta, verifica solo sus dependencias y conserva un fallback.
+La continuidad técnica vive en la [Ruta de preparación y continuidad de la Sesión 2](../docs/ruta-continuidad-s2.md). No repitas aquí la instalación: elige ruta, verifica solo sus dependencias y conserva un fallback.
 
 Si algún paso falla, lleva la captura o el mensaje de error; **no intentes resolverlo durante los primeros minutos de clase**. El camino dorado offline o en papel conserva el aprendizaje sin credenciales reales.
 
-## Sesión S1+S2 — Panorama y primera medición
+## Sesión 2 — Panorama y primera medición
 
 Esta es la primera sesión técnica. La reunión anterior fue de bienvenida y contexto, así que aquí sí se presenta el panorama, se abre Claude Code y se usa el Agente Mentor. La sesión no presupone experiencia técnica ni exige que todas las personas construyan lo mismo.
 
