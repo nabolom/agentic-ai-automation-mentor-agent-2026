@@ -18,6 +18,23 @@
   <a href="ejemplo/README.md"><img alt="Núcleo de seis casos" src="https://img.shields.io/badge/Núcleo-6%20casos-172033.svg"></a>
 </p>
 
+## 🚦 Antes de S2 — haz esto hoy
+
+**Tiempo:** 60–90 minutos. **No necesitas construir un agente completo.**
+
+1. Elige Claude Code o Cowork y verifica solo las dependencias de tu ruta.
+2. Corre o recorre el camino dorado.
+3. Ejecuta `/rumbo` y elige un proceso o caso.
+4. Fija **una** decisión de IA.
+5. Prepara seis casos: 4 típicos, 1 límite y 1 adversarial.
+6. Escribe la salida esperada y tu fallback.
+
+Llegas listo(a) si puedes mostrar: **proceso/caso · una decisión · seis casos · salidas esperadas · fallback**.
+
+➡️ Sigue la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md).
+
+> **¿Ya tienes una automatización, seis casos y una falla documentada?** Usa la fast lane de 30–45 minutos dentro de la misma ruta.
+
 ## Objetivo
 
 Este repositorio te acompaña para:
@@ -54,29 +71,19 @@ No es un chatbot de curso ni una lista de tutoriales. Es una infraestructura de 
 
 | Soy… | Empiezo por… | Resultado inicial |
 |---|---|---|
-| Aprendedor(a) | [`ALUMNO-EMPIEZA-AQUI.md`](ALUMNO-EMPIEZA-AQUI.md) | Una decisión acotada y seis casos núcleo |
+| Aprendedor(a) | [`Ruta crítica antes de S2`](docs/ruta-critica-antes-de-s2.md) | Una decisión acotada y seis casos núcleo |
 | Facilitador | [`facilitador/README.md`](facilitador/README.md) | Agenda, preguntas, rescates y extensiones |
-| Aprendedor(a) avanzado(a) | Ruta núcleo + extensión opcional | Más profundidad sin frenar al grupo |
+| Aprendedor(a) avanzado(a) | Ruta crítica + fast lane | Más profundidad sin repetir el onboarding |
 | Sin entorno listo | [`ejemplo/README.md`](ejemplo/README.md) | Camino dorado offline o en papel |
 
-> **Si vas a S2 hoy:** sigue la [`Ruta crítica antes de S2`](docs/ruta-critica-antes-de-s2.md) en 60–90 minutos. Antes de instalar, revisa [`Dependencias y preflight`](docs/dependencias-y-preflight.md): Node/NPM son condicionales, no requisitos generales.
+> Si algo falla, consulta [`Dependencias y preflight`](docs/dependencias-y-preflight.md) como referencia secundaria. No instales Node/NPM si tu ruta no los necesita.
 
-## Primeros 15 minutos
+## Si todavía no vas a S2: primeros 15 minutos
 
-1. Crea tu copia privada con **Use this template** y clónala.
+1. Crea tu copia privada con **Use this template** y clónala, o trabaja en la copia que ya tienes.
 2. Abre la carpeta en Claude Code o Cowork.
-3. Comprueba tu entorno:
-
-   ```bash
-   claude --version
-   git --version
-   claude doctor
-   ```
-
-4. Lee [`ALUMNO-EMPIEZA-AQUI.md`](ALUMNO-EMPIEZA-AQUI.md).
-5. Si vas a S2, sigue la [`Ruta crítica antes de S2`](docs/ruta-critica-antes-de-s2.md).
-6. Entra a la [`Ruta de la cohorte`](curso/00-ruta-de-la-cohorte.md).
-7. Si algo falla, usa el [`Camino dorado`](ejemplo/README.md) sin credenciales.
+3. Lee [`Empieza aquí como Aprendedor(a)`](ALUMNO-EMPIEZA-AQUI.md) para orientación ampliada.
+4. Si no tienes entorno listo, abre el [`Camino dorado`](ejemplo/README.md) sin credenciales.
 
 No necesitas leer todo el repo, conectar una API real, usar n8n ni construir un agente autónomo para empezar.
 
