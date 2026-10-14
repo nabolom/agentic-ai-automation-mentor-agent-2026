@@ -6,6 +6,18 @@ Este ejemplo es el suelo común de la cohorte. No enseña una herramienta: ense�
 
 Llegan solicitudes de clientes. El sistema decide si cada una va a **soporte**, **ventas**, **facturación** o **revisión humana**.
 
+## Qué vas a hacer aquí
+
+Este es un ejemplo guiado, no un proyecto que tengas que construir. Hazlo en este orden:
+
+1. Lee **Problema** y **La secuencia que enseña**.
+2. Identifica qué se resuelve con un `if`, cuándo entra la IA, dónde se valida la salida y cuándo decide una persona.
+3. Ejecuta el ejemplo en modo offline, o recorre `casos.json` en papel si no tienes Python.
+4. Responde qué casos no llegan a la IA, qué ocurre si la salida no valida y por qué un caso termina en humano.
+5. Compara `v0` con `v1`: el objetivo es observar qué cambia cuando agregamos seguridad y criterio, no construir un agente.
+
+**Qué debe quedar:** una nota breve con tus respuestas y una comprensión común del contrato `if → IA → salida estructurada → validación → humano`. Después vuelve a la [Ruta crítica antes de S2](../docs/ruta-critica-antes-de-s2.md) para elegir tu foco.
+
 ## La secuencia que enseña
 
 ```text

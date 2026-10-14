@@ -51,7 +51,9 @@ Dentro de Claude Code o Cowork puedes decir:
 
 ```text
 Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/ruta-critica-antes-de-s2.md.
+Hazme una pregunta a la vez.
 Ayúdame a preparar una sola decisión de una automatización.
+No avances hasta que pueda explicar if, IA, validación y humano.
 No inventes mis salidas esperadas: ayúdame a fijarlas.
 Si no tengo un proceso acotado, usa el camino dorado como andamio.
 ```
