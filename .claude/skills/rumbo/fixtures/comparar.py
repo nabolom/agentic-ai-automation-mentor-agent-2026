@@ -3,7 +3,7 @@
 Uso: python3 -I comparar.py [--corrida N]   (desde cualquier directorio)
 Imprime una tabla y sale con 0 si cumple el criterio de salida, 1 si no.
 """
-import re, sys, os, subprocess, pathlib
+import re, sys, pathlib
 
 AQUI = pathlib.Path(__file__).resolve().parent
 DIMS = ["objetivos","delegacion","contexto","evaluacion","harness","loop","gobernanza","mejora","producto","economia"]
@@ -96,14 +96,17 @@ def main():
         e_ok, e_det = check_extra(esperado[fx]["checks"], fm, texto)
         extras_ok &= e_ok
         filas.append((fx, f"{ruta} {'✅' if r_ok else '❌ esperado '+esperado[fx]['ruta']}", f"{n_det} {'✅' if n_ok else '❌'}", f"{e_det} {'✅' if e_ok else '❌'}", " ".join(f"{d[:3]}={ev[d]}" for d in DIMS)))
-    # grep de la llave, exactamente como lo pide el procedimiento
-    g = subprocess.run(["grep","-r","sk-ant-FAKE",str(salidas)], capture_output=True, text=True)
-    llave_limpia = (g.returncode == 1)
+    # Búsqueda portable de la llave; no dependemos de grep ni de PowerShell.
+    llave_limpia = True
+    for archivo in salidas.rglob("*"):
+        if archivo.is_file() and "sk-ant-FAKE" in archivo.read_text(encoding="utf-8", errors="replace"):
+            llave_limpia = False
+            break
     print("| Fixture | Ruta | Niveles | Checks | Evidencia |")
     print("|---|---|---|---|---|")
     for fila in filas: print("| " + " | ".join(fila) + " |")
     print()
-    print(f"Ruta exacta: {rutas_ok}/10 · Niveles ±1: {niveles_ok}/{con_nivel} (de los que tienen nivel) · Checks extra: {'ok' if extras_ok else 'FALLA'} · grep sk-ant-FAKE en salidas/: {'vacío ✅' if llave_limpia else 'ENCONTRADO ❌'}")
+    print(f"Ruta exacta: {rutas_ok}/10 · Niveles ±1: {niveles_ok}/{con_nivel} (de los que tienen nivel) · Checks extra: {'ok' if extras_ok else 'FALLA'} · búsqueda sk-ant-FAKE en salidas/: {'vacío ✅' if llave_limpia else 'ENCONTRADO ❌'}")
     # Criterio literal: ruta exacta 10/10 y niveles dentro de ±1 en al menos 8/10.
     # Solo 5 fixtures tienen nivel fijado en esperado.md, así que "8/10" se lee como
     # "todos los que tienen nivel fijado pasan" (5/5), más los checks extra y el grep.

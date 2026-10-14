@@ -4,7 +4,7 @@ La primera sesión técnica es [`Sesión 2 — Panorama de Agent Engineering Q4-
 
 Si no puedes instalar o autenticar a tiempo, trabaja con el [Camino dorado offline](../ejemplo/README.md); el objetivo es aprender el contrato del sistema, no convertir la clase en soporte técnico.
 
-La [Ruta de la cohorte](00-ruta-de-la-cohorte.md) organiza la secuencia completa. La [ruta de preparación y continuidad](../docs/ruta-continuidad-s2.md) conserva los pasos técnicos de preflight, fast lane y cierre de los seis casos.
+La [Ruta de la cohorte](00-ruta-de-la-cohorte.md) organiza la secuencia completa. Las [Rutas de entrada](../docs/rutas-de-entrada.md) deciden cómo comenzar; la [continuidad de S2](../docs/ruta-continuidad-s2.md) conserva fast lane, seis casos y cierre técnico.
 
 | Sesión | Guía |
 |---|---|

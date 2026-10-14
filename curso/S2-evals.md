@@ -1,216 +1,132 @@
-## Guía técnica de S2 — Evals: mide tu decisión de IA
+# Continuidad técnica de S2 — Evals: mide tu decisión de IA
 
-Esta guía continúa [`Sesión 2 — Panorama de Agent Engineering Q4-2026 y primera medición`](S2-panorama-y-evals.md). No presupone que la sesión técnica anterior ya hubiera ocurrido: el proceso, la decisión y el track pueden definirse en el laboratorio. La pregunta de S2 es: **¿cuánto acierta esa decisión?** No "se ve bien". Un número.
+Esta página **no es una puerta de entrada**. Úsala después del laboratorio de S2, cuando ya tienes una ruta elegida, un proceso/caso y una decisión candidata. Si todavía estás descubriendo qué agentizar, vuelve a [`Rutas de entrada`](../docs/rutas-de-entrada.md) y trabaja la Ruta 2. Si estás bloqueado, usa la Ruta 3 como andamio.
 
-Esta guía tiene dos partes. **Parte A** son los conceptos para consultar después de la teoría aplicada. **Parte B** es la ejecución técnica de los seis casos y `/eval`. La primera sesión usa una versión mínima; aquí queda el detalle para cerrar la medición.
+La continuidad responde: **¿cuánto acierta una decisión que ya acotaste?** No exige una S1 técnica ni artefactos previos. Puedes crear los mínimos desde esta sesión: una decisión, una regla, una salida esperada y seis casos. La suite de seis casos es el núcleo; diez casos son extensión.
 
-### En clase: 150 minutos
+## En clase y después
 
-El núcleo es una medición con **6 casos reales: 4 típicos, 1 límite y 1 adversarial**. Es una medición válida, no una suite incompleta. La suite extendida de 10 casos es opcional. Si todavía no tienes un proceso, usa el [Camino dorado](../ejemplo/README.md) con la misma estructura.
+| Momento | Qué corresponde | Resultado |
+|---|---|---|
+| Laboratorio S2 | Ruta 1, 2 o 3; decisión y tres casos ancla | Evidencia mínima observable |
+| Continuidad S2 | Completar seis casos y salidas esperadas | Suite núcleo 4/1/1 |
+| S3 | Diagnóstico por capas, un cambio y nueva corrida | Comparación v0 → v1 |
 
-| Minutos | Bloque de la [Ruta de la cohorte](00-ruta-de-la-cohorte.md) | Paso de esta guía |
-|---:|---|---|
-| Antes | Preflight | Paso 0 |
-| 0–30 | Plenaria de Panorama Q4-2026 | Guía S2 |
-| 30–65 | Teoría aplicada y camino dorado | Parte A |
-| 65–75 | Break | — |
-| 75–115 | Abrir Claude Code, elegir track y fijar una decisión | Laboratorio S2 |
-| 115–135 | Fijar tres casos ancla | Paso 1, mínimo de sesión |
-| 135–150 | Extensión: tres casos restantes, `/eval` o cierre | Paso 1–2 |
+La línea base solo se corre si el sistema está listo. Si no, se registra `BLOQUEADO`; nunca se inventa una tasa.
 
-El arreglo (v1) y la nueva corrida del Paso 3 y el Paso 4 son el bloque 105–135 de [S3](S3-loops.md).
+**Ruta visual (n8n, Make u otra herramienta).** Escribe los mismos seis casos en `evals.md`. Córrelos en tu herramienta o a mano y pega la salida real. `/eval` puede trabajar en modo importado: comparar y contar sin volver a ejecutar nada.
 
-**Ruta visual (n8n, Make u otra).** Escribe los mismos seis casos en `evals.md`. Córrelos en tu herramienta (en n8n, con los nodos Evaluation Trigger y Evaluation, o a mano) y pega la salida real de cada uno. Después corre `/eval` en modo **importado**: compara y cuenta sin volver a correr nada.
+**Si falla instalación, autenticación o herramienta.** Corre el camino dorado offline con `python3`/`py`, o escribe los seis casos en papel. Conservas el contrato y la verdad esperada; la medición queda pendiente.
 
-**Si falla la instalación, la autenticación o la herramienta.** No conviertas la clase en soporte técnico. Corre el camino dorado offline (`python3 ejemplo/camino_dorado.py --modo offline --version v0`) y escribe igual tus seis casos con su salida esperada. La medición la haces cuando vuelva la herramienta, o a mano contra la tabla.
-
----
-
-## Parte A — Los conceptos (léelos antes de tocar nada)
+## Parte A — Conceptos
 
 ### ¿Qué es un eval?
 
-Un eval es **un caso de prueba con dos cosas. Nada más:**
+Un eval es un caso de prueba con dos cosas:
 
 | Parte | Qué es | Ejemplo |
 |---|---|---|
 | **Input** | Lo que entra a tu sistema | Correo: «su producto llegó roto» |
-| **Salida esperada** | Lo que DEBERÍA salir, escrito por ti antes de correr nada | `categoría: queja` |
+| **Salida esperada** | Lo que debería salir, escrito antes de ejecutar | `categoría: queja` |
 
-No es una herramienta cara ni un framework. Con seis casos reales ya tienes una medición válida; diez forman la suite extendida, opcional.
+La salida debe verificarse sin preguntarle al modelo si acertó: categoría, sí/no, valor o escalamiento.
 
-**La regla que lo vuelve real:** la salida esperada tiene que poder verificarse **sin preguntarle al modelo si acertó**. Un campo concreto: una categoría, un sí/no, un valor.
+### ¿Qué prompt se mide?
 
-| ✅ Salida esperada bien escrita | ❌ Mal escrita (no verificable) |
+Es la instrucción que el sistema usa para tomar **la decisión que acabas de acotar en S2**. Vive en `proyectos/<tu-proyecto>/prompts.md`. Si no existe, crea el mínimo desde la decisión, la regla y la salida esperada de S2. Si ya tienes `flujo.md`, `decisiones.md` o `reglas.md`, se usan; no son prerrequisitos narrativos.
+
+Cada cambio conserva la versión anterior: v0, v1, v2. Los prompts se miden como código.
+
+### Dónde se hace cada cosa
+
+| Lugar | Qué haces ahí |
 |---|---|
-| `categoría: queja` | "que clasifique bien el correo" |
-| `resultado: escalar` | "que se dé cuenta de que falta la OC" |
-| `monto: 14200` | "una respuesta razonable" |
+| **EN TERMINAL** | `git`, `python3`/`py`, `claude`, archivos y commits |
+| **DENTRO DE CLAUDE CODE/COWORK** | preguntas al Mentor, `/eval`, `/arrancar` y decisiones |
 
-Si para saber si acertó tendrías que opinar, el caso está mal escrito.
+Para salir de Claude Code escribe `/exit` o usa el mecanismo de tu terminal. No pegues comandos de shell dentro de la conversación ni prompts del Mentor en la shell.
 
-### ¿Qué es "el prompt" que vamos a medir?
+### Por qué los casos van antes que el prompt
 
-Es la instrucción que tu sistema le da a Claude para tomar SU decisión — la que quedó como IA en tu `flujo.md` de la Sesión 1. Vive en un archivo de tu proyecto: `proyectos/<tu-proyecto>/prompts.md`. Si aún no lo tienes, el agente te ayuda a crearlo en el **Paso 2**, justo antes de correr `/eval` — lo traduce desde tu diseño de la Sesión 1 (`decisiones.md` y `reglas.md`).
+> La verdad se fija antes de medir.
 
-Cada vez que lo cambies, la versión anterior se queda escrita (v0, v1, v2…). Nunca borres una versión: comparar los números entre versiones es justamente el punto.
+Si escribes el prompt primero, puedes construir casos que ya resuelve y obtener un número bonito pero mentiroso. Primero fija inputs y salidas esperadas; después crea el prompt mínimo.
 
-### Dónde se hace cada cosa (no te pierdas)
+## Parte B — Continuidad paso a paso
 
-Vas a alternar entre dos lugares que se ven parecidos pero no son lo mismo:
-
-| Lugar | Cómo se ve | Qué haces ahí |
-|---|---|---|
-| **Terminal** | El prompt de tu sistema (`%` o `$`) | Comandos como `ls`, `curl`, `git`, y arrancar `claude` |
-| **Claude Code** | Conversación con el agente (entraste con `claude`) | Hablar con el agente y correr `/eval`, `/arrancar`, etc. |
-
-Para salir de Claude Code y volver a la terminal: `Ctrl+C` (o escribe `/exit`). Para volver a entrar: `claude`.
-
-### ¿Por qué los casos van ANTES que el prompt?
-
-Pregunta justa — parecería natural escribir primero el prompt y luego probarlo. El orden es al revés a propósito:
-
-> **La verdad se fija antes de medir.** Si escribes el prompt primero, vas a escribir — sin darte cuenta — casos que tu prompt ya resuelve, y el número saldrá bonito y mentiroso. Si fijas los casos primero (con sus salidas esperadas), el prompt se enfrenta a una realidad que no puede acomodar. Es la misma razón por la que un examen se escribe antes de ver las respuestas del Aprendedor(a).
-
-Además, tu prompt v0 no nace de la nada: se traduce desde tu `decisiones.md` y `reglas.md` de la Sesión 1. El diseño ya existe; el prompt solo lo pone en palabras. Por eso escribirlo toma 2 minutos en el Paso 2, mientras que los casos — que sí requieren TU conocimiento de la operación — se llevan el Paso 1 completo.
-
----
-
-## Parte B — El taller, paso a paso
-
-La ruta completa, para que sepas siempre dónde estás:
-
-| Paso | Qué haces | Dónde | Qué queda en disco |
+| Paso | Qué haces | Dónde | Qué queda |
 |---|---|---|---|
-| **0** | Actualiza tu repo (trae `/eval` y la plantilla) | 📍 Terminal | `.claude/commands/eval.md`, `proyectos/PLANTILLA-evals.md` |
-| **1** | Escribe tus 6 casos del núcleo (los 10 de la extendida son opcionales) | 📍 Claude Code | `evals.md` con inputs y salidas esperadas |
-| **2** | Escribe tu prompt v0 y corre la línea base | 📍 Claude Code | `prompts.md` (v0) + tu primer número |
-| **3** | Diagnostica los fallos (S2); agrega SOLO el contexto pedido (S3) | 📍 Claude Code | Causa de cada ❌; en S3, `prompts.md` v1 sin borrar v0 |
-| **4** | Vuelve a correr y compara v0 vs v1 (S3) | 📍 Claude Code | `evals.md` con una columna por versión |
+| **0** | Comprueba si tienes `/eval` y la plantilla; actualiza solo si falta | EN TERMINAL | Comando disponible o fallback documentado |
+| **1** | Escribe seis casos: 4 típicos, 1 límite, 1 adversarial | Claude Code/Cowork | `evals.md` |
+| **2** | Escribe prompt v0 desde la decisión de S2 y mide si puedes | Claude Code/Cowork | `prompts.md` + número o `BLOQUEADO` |
+| **3** | Registra fallos y preguntas; reserva diagnóstico para S3 | Claude Code/Cowork | Observaciones, no arreglo especulativo |
+| **4** | En S3 cambia una cosa y compara v0 vs v1 | Claude Code/Cowork | Evidencia de mejora |
 
-Cada paso cierra con un commit. Al final del taller, tu `git log` cuenta la historia completa: la verdad → el número feo → el porqué → el número mejor.
+### Paso 0 — Comprueba si tienes `/eval`
 
----
-
-### Paso 0 — Trae el comando `/eval` y la plantilla a TU repo 📍 EN LA TERMINAL
-
-Si creaste tu repo desde esta plantilla **antes** de la Sesión 2, tu copia no tiene `/eval` ni la plantilla de evals (los repos creados desde template NO reciben actualizaciones automáticas — son una foto del día que los creaste).
-
-Abre la terminal y entra a tu repo (si no sabes dónde quedó, es la carpeta donde clonaste; corre `pwd` para ver dónde estás):
-
-```bash
-cd ~/proyectos-ia/TU-REPO   # ajusta la ruta a donde clonaste el tuyo
-```
-
-Verifica si ya tienes el comando:
+### EN TERMINAL — macOS/Linux
 
 ```bash
 ls .claude/commands/
 ```
 
-Si en la lista aparece `eval.md`, ya está: salta al Paso 1. Si NO aparece, copia y pega estas dos líneas (descargan el comando y la plantilla directo de este repo):
+### EN TERMINAL — Windows PowerShell
 
-```bash
-curl -o .claude/commands/eval.md https://raw.githubusercontent.com/nabolom/agentic-ai-automation-mentor-agent-2026/main/.claude/commands/eval.md
-curl -o proyectos/PLANTILLA-evals.md https://raw.githubusercontent.com/nabolom/agentic-ai-automation-mentor-agent-2026/main/proyectos/PLANTILLA-evals.md
+```powershell
+Get-ChildItem .claude/commands/
 ```
 
-Confirma que llegaron y guárdalos en tu repo:
+Si aparece `eval.md`, salta al Paso 1. Si falta, pide al Mentor que te indique cómo incorporar la plantilla según el estado de tu copia. No descargues archivos remotos a ciegas ni sobrescribas trabajo sin revisar el diff.
 
-```bash
-ls .claude/commands/          # debe aparecer eval.md
-ls proyectos/                 # debe aparecer PLANTILLA-evals.md
+### Paso 1 — Escribe seis casos antes de correr
 
-git add .claude/commands/eval.md proyectos/PLANTILLA-evals.md
-git commit -m "sesion 2: comando /eval y plantilla de evals"
-git push
+### DENTRO DE CLAUDE CODE/COWORK
+
+```text
+Copia proyectos/PLANTILLA-evals.md a proyectos/<tu-proyecto>/evals.md y ayúdame a llenarla.
+La decisión que quiero evaluar es la que acotamos en S2.
+Hazme preguntas sobre mi operación para construir los casos; no los inventes tú.
+Fija la salida esperada antes de hablar del prompt.
 ```
-
-**Importante:** si tenías Claude Code abierto, ciérralo (`Ctrl+C`) y vuelve a entrar (`claude`). Los comandos nuevos solo se detectan al arrancar.
-
----
-
-### Paso 1 — Escribe tus 6 casos núcleo ANTES de correr nada 📍 EN CLAUDE CODE
-
-> Primero la verdad, luego el prompt. Si te saltaste el porqué, está en la Parte A.
-
-El camino fácil: copia la plantilla a tu proyecto y llénala con ayuda del agente. Dentro de Claude Code, pégale esto (ajusta el nombre de tu proyecto):
-
-```
-Copia proyectos/PLANTILLA-evals.md a proyectos/<tu-proyecto>/evals.md y ayúdame
-a llenarla. La decisión que quiero evaluar es la más difícil de mi decisiones.md.
-Hazme preguntas sobre mi operación para construir los casos — no los inventes tú.
-```
-
-El reparto no es negociable, pero el tamaño sí: el núcleo basta para medir y avanzar.
 
 | Tipo | Núcleo (6) | Extendida (10, opcional) | Qué son |
 |---|---:|---:|---|
 | Típicos | 4 | 5 | El caso normal de todos los días |
-| Límite | 1 | 3 | Raros pero reales, sacados de TU operación (el redondeo, el caso fronterizo) |
-| Adversariales | 1 | 2 | Diseñados para romperla: input vacío, datos que faltan, un intento de manipulación |
+| Límite | 1 | 3 | Raro pero real, fronterizo o ambiguo |
+| Adversarial | 1 | 2 | Diseñado para romper la decisión |
 
-> Si los casos fueran del camino feliz, el número mentiría hacia arriba. Los casos límite y adversariales son los que te dicen la verdad.
+### Paso 2 — Prompt v0 y línea base
 
-Tú pones los casos reales y decides la salida esperada de cada uno. El agente arma la tabla. **No dejes que el agente invente los casos: un número construido con casos inventados es ficción.**
+### DENTRO DE CLAUDE CODE/COWORK
 
-**¿Se te dificulta escribir los casos?** Es normal — es la parte más difícil de la sesión. Lee [`proyectos/GUIA-escribir-evals.md`](../proyectos/GUIA-escribir-evals.md): tiene recetas por tipo de decisión (clasificar, extraer, decidir, redactar) con tablas completas para calcar, el truco de "no escribas casos, recuerda casos", y un prompt para llenar la tabla con el agente de uno en uno. En la cohorte, esos 6 casos son el núcleo; completa los otros 4 como extensión.
-
----
-
-### Paso 2 — Escribe tu prompt v0 y corre la línea base 📍 EN CLAUDE CODE
-
-Primero necesitas el prompt que vas a medir. Si aún no tienes `prompts.md`, pídeselo al agente — que lo arme desde tu diseño de la Sesión 1, **mínimo, sin adornos**:
-
-```
-Escribe la versión v0 del prompt para la decisión que estoy evaluando, usando mi
-decisiones.md y mi reglas.md. Que sea mínima: solo la instrucción y las reglas,
-sin contexto de negocio ni ejemplos. Guárdala en proyectos/<tu-proyecto>/prompts.md como v0.
+```text
+Escribe la versión v0 del prompt para la decisión que acotamos en S2.
+Usa la regla y salida esperada que fijamos; si falta un archivo, crea el mínimo.
+Que sea mínima: instrucción y reglas, sin adornos ni contexto especulativo.
+Guárdala como v0 en proyectos/<tu-proyecto>/prompts.md.
 ```
 
-Pelón a propósito: quieres medir el punto de partida más crudo, para que la mejora del contexto se note después. Con el v0 en su lugar, mídelo:
+Después usa `/eval` solo si los casos y el sistema están listos. El resultado puede ser `4/6`, `5/6` o `BLOQUEADO`; no maquilles la señal.
 
-```
-/eval
-```
+### Paso 3 — Registra fallos; no adelantes S3
 
-El agente toma tus casos, los corre contra tu prompt v0, compara cada salida contra la verdad que TÚ escribiste, y te da la tasa: `4/6`, `5/6`, `7/10`, lo que salga. **Ese número feo es tu línea base — tu punto de partida medido.** No lo maquilles.
+En continuidad S2 registra qué caso falló y qué pregunta deja. El diagnóstico por capas, el arreglo y la nueva corrida pertenecen a S3.
 
-Guárdalo con un commit 📍 EN LA TERMINAL (o pídele al agente que lo haga):
+No culpes automáticamente al modelo. Las capas de revisión son:
 
-```bash
-git add proyectos/
-git commit -m "eval: corrida v0 - <aciertos>/<casos>"
-git push
-```
+1. regla ambigua;
+2. dato o contexto faltante;
+3. `if` disfrazado;
+4. herramienta/harness;
+5. modelo, como último escalón.
 
----
+### Paso 4 — S3 compara
 
-### Paso 3 — Diagnostica y agrega SOLO el contexto que los fallos pidieron 📍 EN CLAUDE CODE
+En S3 agrega solo el cambio que la evidencia pidió, conserva v0 y vuelve a correr sobre los mismos casos. La mejora v0 → v1 es la evidencia; no basta decir que “se ve mejor”.
 
-En S2 haces solo el diagnóstico: nombra el escalón de cada ❌ y escribe la causa probable. El arreglo y la nueva corrida son el bloque 105–135 de S3.
+## Cierre uniforme
 
-Por cada caso que falló (❌), el agente te dice en qué nivel de la escalera cae, en este orden:
-
-| Nivel | Pregunta | Ejemplo de arreglo |
-|---|---|---|
-| 1 | ¿La regla está escrita ambigua? | Reescribir "si coincide" → "si la diferencia es menor a $0.50" |
-| 2 | ¿Le falta un dato? | Una lista de alias de proveedores, un catálogo, una tolerancia |
-| 3 | ¿Era un `if` disfrazado? | Sacarlo del prompt: eso se resuelve con código, no con IA |
-| 4 | ¿Es el modelo? | **Casi nunca es el modelo.** Es el último escalón, no el primero |
-
-La disciplina: agrega únicamente el contexto que un eval reprobado pidió. Nada especulativo, ni un documento más. El agente actualiza tu `prompts.md` con la versión nueva (v1) **sin borrar la v0**.
-
----
-
-### Paso 4 — Vuelve a correr y compara 📍 EN CLAUDE CODE
-
-```
-/eval
-```
-
-Cada versión del prompt deja su propia columna en tu `evals.md`. Ver el número subir de v0 a v1 — con el porqué escrito al lado — es tu evidencia de que el sistema mejoró. Commit y push otra vez.
-
-**Regla permanente desde hoy: cada vez que toques un prompt, corre `/eval`.** Arreglas un caso y sin querer rompes otros tres; sin la suite, te enteras en producción. Los prompts se rompen igual que el código, pero fallan más callados.
-
----
+- **Estás aquí:** continuidad S2 y suite de casos.
+- **Siguiente:** S3 para diagnóstico por capas y comparación v0 → v1.
+- **Si estás bloqueado:** camino dorado offline, Cowork o tabla manual.
+- **Si terminaste antes:** suite extendida de diez casos o una extensión justificada.

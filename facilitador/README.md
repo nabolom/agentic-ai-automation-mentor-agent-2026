@@ -22,11 +22,11 @@ Usa [`antes-de-clase.md`](antes-de-clase.md).
 | Sesión | Objetivo | Guion |
 |---|---|---|
 | S2 | Entrar al repositorio, entender el panorama y fijar una primera decisión medible | [`S2-panorama-guion.md`](S2-panorama-guion.md) |
-| S2 — Evals (detalle técnico) | Convertir una decisión en una suite de evals | [`S2-guion.md`](S2-guion.md) |
+| S2 — Evals (continuidad técnica) | Cerrar seis casos y, si hay suelo operativo, correr la línea base | [`S2-guion.md`](S2-guion.md) |
 | S3 | Diagnosticar y decidir si hace falta loop | [`S3-guion.md`](S3-guion.md) |
 | S4 | Gobernar, entregar y defender | [`S4-guion.md`](S4-guion.md) |
 
-Las tablas de estos guiones siguen bloques de 150 minutos de la [Ruta de la cohorte](../curso/00-ruta-de-la-cohorte.md). El guion S2 — Evals (detalle técnico) queda como apoyo para cerrar los seis casos y la línea base después de la primera sesión.
+La agenda canónica de 150 minutos es [`S2-panorama-guion.md`](S2-panorama-guion.md). `S2-guion.md` queda como apoyo técnico posterior para cerrar seis casos; no sustituye la agenda ni exige una tasa durante el laboratorio.
 
 ## Rescates y extensiones
 

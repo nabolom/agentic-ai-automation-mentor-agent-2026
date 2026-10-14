@@ -31,7 +31,7 @@ Esto es lo que hace que este repo valga más que un asistente a secas: **hechos 
 
 ## Estado
 
-**Última verificación: 9 de octubre de 2026** (Claude API, MCP, n8n, OKF, METR, multiagente). LangChain, harness y gobernanza siguen con fecha 13 de julio de 2026.
+**Última verificación: 9 de octubre de 2026** (Claude API, MCP, n8n, OKF, METR, multiagente). LangChain y harness siguen con fecha 13 de julio de 2026; gobernanza fue verificada el 3 de agosto de 2026.
 
 Se pudren. Corre `/verificar` cada dos meses, o antes de cualquier decisión de costos que importe.
 

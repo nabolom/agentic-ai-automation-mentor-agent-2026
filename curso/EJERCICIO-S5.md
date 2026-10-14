@@ -1,6 +1,6 @@
-# Ejercicio final S5 — Nest vs. Swarm
+# Ejercicio final S5 — Comparar antes de coordinar
 
-> **El objetivo no es usar más agentes. Es elegir la menor arquitectura que permite que la información circule como el caso lo necesita.**
+> **El objetivo no es usar más agentes. Es elegir la menor arquitectura que permite que la información circule como el caso lo necesita. El veredicto queda abierto hasta comparar evidencia.**
 
 ## 1. Primero descarga el ejercicio
 
@@ -30,14 +30,15 @@ No necesitas escribir `cat` ni abrir archivos desde la Terminal para entender el
 
 ## 3. Entiende los dos patrones y haz una predicción
 
-| Patrón | Qué hace |
+| Arquitectura | Qué hace |
 |---|---|
+| **Agente único** | Un agente resuelve el caso sin coordinación entre especialistas. Es el baseline. |
 | **Nest** | Cuatro especialistas reportan a un líder. El líder integra y decide. |
 | **Swarm** | Los agentes comparten tareas y pueden enviarse mensajes directos entre sí. |
 
 Después de leer el caso, responde:
 
-> “Para Cobranza Pro elegiría [Nest / Swarm] porque los especialistas [sí / no] necesitan comunicarse directamente para resolver las tensiones entre Ventas, Riesgo y Operaciones.”
+> “Para Cobranza Pro predigo que la menor arquitectura suficiente será [agente único / Nest / Swarm] porque [razón]. Si no puedo correr una alternativa, marcaré la comparación como incompleta en vez de inventar un veredicto.”
 
 ---
 
@@ -83,7 +84,7 @@ El archivo `resultados/reporte-swarm.md` deja la decisión, evidencia por rol, c
 
 ---
 
-## 6. Deja que Claude explique qué sucedió
+## 6. Compara con una rúbrica común y deja abierto el veredicto
 
 No necesitas terminar una entrevista larga durante el taller. Abre Claude Code dentro del repo:
 
@@ -91,15 +92,17 @@ No necesitas terminar una entrevista larga durante el taller. Abre Claude Code d
 claude
 ```
 
-Luego escribe:
+Luego pide un debrief que compare las corridas disponibles:
 
 ```text
-/explicar-swarm
+Compara el baseline de agente único, Nest y Swarm solo cuando exista evidencia.
+Usa la misma tarea y registra calidad, tiempo, costo/tokens, fallas y complejidad operativa.
+No presupongas que Nest o Swarm ganan.
+Si falta una corrida, marca la comparación como incompleta y no inventes datos.
+Escribe resultados/debrief-swarm.md con predicción, evidencia, limitaciones y veredicto abierto.
 ```
 
-Claude lee la conclusión del Nest, el reporte Swarm si existe y el caso. Crea `resultados/debrief-swarm.md`, donde compara qué resolvió el Nest contra qué capacidad adicional intentó agregar el Swarm y cierra con el veredicto de este caso: **Nest es suficiente**, porque un líder puede integrar reportes claros sin negociación iterativa entre pares.
-
-> Si el debrief concluye que Nest basta, no es una respuesta menor: significa que evitaste complejidad innecesaria.
+El veredicto válido puede ser: agente único suficiente, Nest justificado, Swarm justificado o comparación incompleta. La menor arquitectura suficiente gana; a veces esa arquitectura será no usar multiagente.
 
 `/decidir-arquitectura` queda como actividad opcional para quien quiera defender una decisión propia en más detalle.
 

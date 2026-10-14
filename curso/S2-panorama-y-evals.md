@@ -28,7 +28,7 @@ El repositorio, Claude Code y el Agente Mentor son el entorno de trabajo. No son
 
 | Minutos | Bloque | Qué ocurre | Evidencia de salida |
 |---:|---|---|---|
-| 0–30 | Plenaria de cohorte | Panorama, vocabulario, promesa y dos rutas de trabajo | Cada persona sabe qué trae y qué track le corresponde |
+| 0–30 | Plenaria de cohorte | Panorama, vocabulario, promesa y tres rutas de trabajo | Cada persona sabe qué trae y qué track le corresponde |
 | 30–65 | Teoría aplicada | Decisión, contrato, eval, salida esperada y diagnóstico | Todas las personas entienden el caso común |
 | 65–75 | Break | Pausa real; no se usa para instalar | Pregunta o bloqueo anotado |
 | 75–150 | Laboratorio con Claude Code | Abrir repo, cargar Mentor, definir foco y producir evidencia | Repo abierto, decisión, tres casos ancla y siguiente paso |
@@ -50,7 +50,7 @@ El mapa de la cohorte es:
 proceso → decisión → evals → diagnóstico → límites → handoff
 ```
 
-No se presenta como una clase de “estado del arte”. El nombre visible es **Panorama de Agent Engineering Q4-2026**, porque toda afirmación temporal debe entenderse con su fecha de corte.
+El framing visible es **Panorama de Agent Engineering Q4-2026**, con fecha de corte explícita para separar conceptos durables de hechos fechados.
 
 ## Bloque 2 — Teoría aplicada · 30–45 minutos
 
@@ -63,7 +63,7 @@ La teoría solo cubre lo que se usará inmediatamente:
 5. **La tasa es una señal, no una verdad total.** `aciertos / casos` permite ver un punto de partida y decidir qué diagnosticar.
 6. **Se cambia una cosa a la vez.** Se corren los mismos casos y se explica qué cambió.
 
-La demostración común usa el camino dorado:
+La demostración común usa el camino dorado como **Ruta 3 opcional**; no es requisito para quienes ya tienen proceso o sistema:
 
 ```text
 entrada → reglas/if → IA solo para ambigüedad → salida estructurada → validación → humano o ruta final
@@ -91,36 +91,35 @@ No edites archivos todavía.
 
 Claude Code carga los archivos del proyecto según los necesita; los comandos y skills del proyecto viven en `.claude/`. Si aparece una solicitud de permiso, lee qué acción se propone antes de aprobarla.
 
-### Paso 2 — Elige tu track
+### Paso 2 — Elige Ruta 1, 2 o 3
 
 No todas las personas deben hacer lo mismo.
 
-| Track | Si llegas con… | Tu objetivo en esta sesión |
+| Ruta | Si llegas con… | Tu objetivo en esta sesión |
 |---|---|---|
-| **Descubrir** | Una idea o proceso, pero ninguna automatización | Elegir un proceso acotado y una decisión que valga la pena explorar |
-| **Construir** | Un prototipo o automatización que solo tú puedes correr | Separar `if`, IA, herramienta y humano; definir una primera decisión |
-| **Endurecer** | Una automatización que ya funciona, pero falla o no tiene medición | Elegir una decisión difícil, una falla y una línea base posible |
-| **Productificar / escalar** | Algo que ya corre para otras personas | Identificar el cuello de botella, el costo, el riesgo o el handoff que falta |
+| **1 — Ya tengo algo construido** | Prototipo, automatización o sistema | Aislar una falla, cuello de botella o decisión difícil |
+| **2 — Quiero descubrir qué agentizar** | Idea o proceso, pero sin diseño | Acotar proceso, decisión, salida y qué queda fuera |
+| **3 — Camino dorado opcional** | Sin claridad o con bloqueo técnico | Entender el contrato y transferirlo a Ruta 2 |
 
-Pide al Mentor que te ayude con el track, sin que invente evidencia:
+Pide al Mentor que te haga una pregunta a la vez. No inventará tu proceso, casos ni salidas esperadas:
 
 ```text
-Lee CLAUDE.md y ACOMPANAMIENTO.md.
+Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/rutas-de-entrada.md.
 Hazme una pregunta a la vez.
-Ayúdame a elegir entre descubrir, construir, endurecer o productificar/escalar.
+Ayúdame a elegir Ruta 1, Ruta 2 o Ruta 3.
+Si elijo Ruta 1, trabaja sobre mi evidencia existente.
+Si elijo Ruta 2, ayúdame a descubrir una decisión que valga la pena agentizar.
+Si elijo Ruta 3, usa el camino dorado como andamio y después devuélveme a Ruta 2.
 No inventes mi proceso, mis casos ni mis salidas esperadas.
-Si todavía no tengo un proceso acotado, usa el camino dorado como andamio.
 ```
 
-Después puedes ejecutar `/rumbo` para fijar tu ruta formal. `/rumbo` mide; el acompañamiento ayuda a interpretar la evidencia después.
+Después usa `/rumbo` solo cuando la ruta y el foco ya estén suficientemente acotados.
 
-### Paso 3 — Usa el camino común
+### Paso 3 — Produce evidencia
 
-Abre [`ejemplo/README.md`](../ejemplo/README.md). Lee **Problema**, **Qué vas a hacer aquí** y **La secuencia que enseña**.
-
-Si todavía no tienes proceso propio, trabaja con este caso. No es una versión inferior del curso: es el andamio común para aprender el contrato.
-
-Si ya tienes automatización, usa el camino dorado durante cinco minutos y luego transfiere el criterio a **una sola** decisión de tu sistema.
+- Ruta 1: una falla o cuello de botella, una decisión y tres casos ancla.
+- Ruta 2: proceso, decisión candidata, qué queda fuera y tres casos ancla.
+- Ruta 3: comprensión del camino dorado, respuestas a las cinco preguntas y transferencia a Ruta 2.
 
 ### Paso 4 — Produce tu primera evidencia
 
@@ -134,7 +133,7 @@ El mínimo de la sesión es:
 
 No necesitas terminar los seis casos en el laboratorio. **Los tres casos ancla hacen visible que entendiste el método.** La suite de seis —4 típicos, 1 límite y 1 adversarial— queda como la entrega inmediata para cerrar S2.
 
-Para quien vaya más rápido, el laboratorio puede continuar con los seis casos, `/eval`, la línea base y el diagnóstico de un fallo.
+Para quien vaya más rápido, el laboratorio puede continuar con los seis casos o `/eval` **solo si ya existen los artefactos**. El diagnóstico por capas y la mejora v0 → v1 son trabajo de S3; en S2 basta registrar qué fallo observarías.
 
 ## Cierre de la sesión
 
@@ -144,7 +143,7 @@ Debes poder decir:
 
 ## Entrega inmediata después de la sesión
 
-Completa la suite núcleo de seis casos y guarda:
+Completa la suite núcleo de seis casos como continuidad posterior y guarda:
 
 - seis inputs recordados de tu operación o del camino dorado;
 - cuatro típicos, uno límite y uno adversarial;

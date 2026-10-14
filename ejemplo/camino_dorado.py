@@ -25,6 +25,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from collections import Counter
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -55,6 +56,8 @@ VALID_SUITES = {"nucleo", "extension"}
 REPARTO_NUCLEO = {"tipico": 4, "limite": 1, "adversarial": 1}
 REPARTO_EXTENDIDA = {"tipico": 5, "limite": 3, "adversarial": 2}
 SUITE_ALIASES = {"nucleo": "nucleo", "extendida": "extendida", "core": "nucleo", "all": "extendida"}
+DEFAULT_LIVE_MODEL = "claude-sonnet-5-5"
+LIVE_TIMEOUT_SECONDS = 45
 
 
 # ---------------------------------------------------------------------------
@@ -68,7 +71,10 @@ def check_dataset(cases: list) -> list[str]:
         if not isinstance(case, dict):
             problems.append("cada caso debe ser un objeto")
             continue
-        case_id = str(case.get("id", "?"))
+        raw_id = case.get("id")
+        case_id = raw_id if isinstance(raw_id, str) and raw_id.strip() else "?"
+        if case_id == "?":
+            problems.append("cada caso debe tener un id no vacío de texto")
         if case_id in seen:
             problems.append(f"{case_id}: id repetido")
         seen.add(case_id)
@@ -76,6 +82,8 @@ def check_dataset(cases: list) -> list[str]:
             problems.append(f"{case_id}: tipo debe ser tipico, limite o adversarial")
         if case.get("suite") not in VALID_SUITES:
             problems.append(f"{case_id}: suite debe ser nucleo o extension")
+        if not isinstance(case.get("remitente"), str) or not case.get("remitente", "").strip():
+            problems.append(f"{case_id}: remitente debe ser una cadena no vacía")
         if not isinstance(case.get("texto"), str):
             problems.append(f"{case_id}: texto debe ser una cadena")
         expected = case.get("salida_esperada")
@@ -103,9 +111,12 @@ def load_cases(suite: str) -> list[dict]:
     problems = check_dataset(cases)
     if problems:
         raise ValueError("; ".join(problems))
-    if suite == "nucleo":
-        cases = [case for case in cases if case["suite"] == "nucleo"]
-    return cases
+    selected = [case for case in cases if suite == "extendida" or case["suite"] == "nucleo"]
+    expected = REPARTO_EXTENDIDA if suite == "extendida" else REPARTO_NUCLEO
+    counts = Counter(case["tipo"] for case in selected)
+    if len(selected) != sum(expected.values()) or any(counts[kind] != amount for kind, amount in expected.items()):
+        raise ValueError(f"suite {suite} inválida: se esperaba {expected} y se recibió {dict(counts)} con {len(selected)} casos")
+    return selected
 
 
 def describe_reparto(cases: list[dict]) -> str:
@@ -232,7 +243,7 @@ def live_llm(text: str, model: str) -> dict:
         method="POST",
     )
     try:
-        with urlopen(request, timeout=45) as response:
+        with urlopen(request, timeout=LIVE_TIMEOUT_SECONDS) as response:
             body = json.loads(response.read().decode("utf-8"))
     except (HTTPError, URLError, TimeoutError) as exc:
         raise RuntimeError(f"falló la llamada a Claude: {exc}") from exc
@@ -345,13 +356,24 @@ def main() -> int:
         default="nucleo",
         help="nucleo = 6 casos (4/1/1); extendida = 10 casos (5/3/2). core y all se aceptan como alias.",
     )
-    parser.add_argument("--model", default=os.environ.get("CLAUDE_MODEL", "claude-sonnet-5-5"))
+    parser.add_argument("--model", default=os.environ.get("CLAUDE_MODEL", DEFAULT_LIVE_MODEL))
+    parser.add_argument("--confirm-live", action="store_true", help="confirma explícitamente el uso de red y gasto live")
+    parser.add_argument("--max-cases", type=int, default=6, help="límite de casos live")
+    parser.add_argument("--max-seconds", type=float, default=300, help="presupuesto temporal local")
     args = parser.parse_args()
     suite = SUITE_ALIASES[args.suite]
 
     if args.modo == "live" and not os.environ.get("ANTHROPIC_API_KEY"):
         print("ERROR: falta ANTHROPIC_API_KEY. Una falla de autenticación no es una medición.", file=sys.stderr)
         print("Fallback de clase: python3 ejemplo/camino_dorado.py --modo offline --version v1", file=sys.stderr)
+        return 2
+    if args.modo == "live" and not args.confirm_live:
+        print("ERROR: live requiere --confirm-live; la ruta offline es la predeterminada.", file=sys.stderr)
+        return 2
+
+    allowed_models = {model.strip() for model in os.environ.get("AGENTIC_ALLOWED_MODELS", DEFAULT_LIVE_MODEL).split(",") if model.strip()}
+    if args.modo == "live" and args.model not in allowed_models:
+        print(f"ERROR: modelo no permitido para live: {args.model}. Configura AGENTIC_ALLOWED_MODELS explícitamente.", file=sys.stderr)
         return 2
 
     try:
@@ -360,18 +382,27 @@ def main() -> int:
         print(f"ERROR: casos.json no es válido: {exc}", file=sys.stderr)
         return 2
 
+    if args.modo == "live" and len(cases) > args.max_cases:
+        print(f"ERROR: la suite tiene {len(cases)} casos y el límite live es {args.max_cases}.", file=sys.stderr)
+        return 2
     reparto = describe_reparto(cases)
     print(f"modo={args.modo} version={args.version} suite={suite} casos={len(cases)}")
     print(f"reparto: {reparto}")
     print("secuencia: entrada -> if determinista -> IA solo si hay ambigüedad -> salida estructurada -> validación -> humano")
     print("-" * 76)
+    started = time.monotonic()
     correct = 0
+    blocked = []
     for case in cases:
-        output, _errors, trace = run_case(case, args.modo, args.version, args.model)
+        if time.monotonic() - started > args.max_seconds:
+            print(f"BLOQUEADO {case['id']}: se agotó el presupuesto temporal", file=sys.stderr)
+            blocked.append(case["id"]); continue
+        output, errors, trace = run_case(case, args.modo, args.version, args.model)
         expected = case["salida_esperada"]
-        passed = output.get("ruta") == expected["ruta"] and output.get("escalar") == expected["escalar"]
+        passed = not errors and output.get("ruta") == expected["ruta"] and output.get("escalar") == expected["escalar"]
         correct += int(passed)
-        mark = "OK   " if passed else "FALLA"
+        if errors: blocked.append(case["id"])
+        mark = "OK   " if passed else ("BLOQUEADO" if errors else "FALLA")
         kind = case["tipo"] if case["suite"] == "nucleo" else f"{case['tipo']}, extensión"
         print(
             f"{mark} {case['id']} ({kind}) esperado={expected['ruta']} "
@@ -379,6 +410,10 @@ def main() -> int:
         )
         print("      camino: " + " -> ".join(trace))
     print("-" * 76)
+    if blocked:
+        print(f"MEDICION BLOQUEADA: {len(blocked)} caso(s) sin salida validable: {', '.join(blocked)}", file=sys.stderr)
+        print("VERIFICACION: no se calcula tasa cuando hay error de API, timeout, salida inválida o presupuesto agotado.")
+        return 2
     print(f"TASA: {correct}/{len(cases)} = {correct / len(cases):.0%} | {reparto}")
     print("VERIFICACION: se comparó ruta y escalar contra casos.json, sin preguntarle al modelo.")
     return 0 if correct == len(cases) else 1

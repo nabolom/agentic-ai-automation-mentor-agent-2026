@@ -9,7 +9,7 @@ timestamp: 2026-10-09T00:00:00Z
 
 # Panorama de Agent Engineering Q4-2026
 
-> **Corte editorial del repositorio: 14 octubre 2026.** Los hechos externos mantienen su propia fecha de verificación: 9 octubre 2026 (Claude API, MCP, n8n, OKF, METR y multiagente), 13 julio 2026 (LangChain, harness y gobernanza). Solo fuentes primarias. Lo que no se pudo verificar está marcado y **no se presenta en clase**.
+> **Corte editorial del repositorio: 14 octubre 2026.** Los hechos externos mantienen su propia fecha de verificación: 9 octubre 2026 (Claude API, MCP, n8n, OKF, METR y multiagente), 13 julio 2026 (LangChain y harness) y 3 agosto 2026 (gobernanza). Solo fuentes primarias. Lo que no se pudo verificar está marcado y **no se presenta en clase**.
 
 ## La tesis
 
