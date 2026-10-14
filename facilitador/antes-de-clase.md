@@ -1,9 +1,9 @@
-# Antes de clase — primera sesión técnica S1+S2
+# Antes de clase — primera sesión técnica: Sesión 2
 
 ## Un día antes
 
 - [ ] Compartí la copia correcta del repositorio o la plantilla de GitHub.
-- [ ] Compartí [`ALUMNO-EMPIEZA-AQUI.md`](../ALUMNO-EMPIEZA-AQUI.md) y la guía de [`S1+S2`](../curso/S1-S2-panorama-y-evals.md).
+- [ ] Compartí [`ALUMNO-EMPIEZA-AQUI.md`](../ALUMNO-EMPIEZA-AQUI.md) y la guía de [`S2`](../curso/S2-panorama-y-evals.md).
 - [ ] Aclaré que esta es la primera sesión técnica; la reunión anterior fue de bienvenida y contexto.
 - [ ] Pedí que traigan lo que tengan: idea/proceso, prototipo, automatización que falla o sistema que ya corre para otras personas.
 - [ ] No presenté instalación masiva como requisito. Node/NPM son condicionales.

@@ -188,8 +188,8 @@ Toda decisión de diseño, prompt, payload de ejemplo o caso límite que produzc
 patrones/          plantillas que corren. Clona, no expliques.
 referencias/       hechos verificados y FECHADOS
 proyectos/         las automatizaciones de esta persona
-curso/             las guías de cada sesión (S1+S2 a S5)
-docs/              guías para personas: instalación, continuidad de S1+S2, doctrina, competencias, seguridad
+curso/             las guías de cada sesión (2 a 5)
+docs/              guías para personas: instalación, continuidad de la Sesión 2, doctrina, competencias, seguridad
 LICENSE            MIT
 rumbo.md           el assessment de esta persona; ACOMPANAMIENTO.md dice cómo usarlo
 ```

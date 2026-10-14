@@ -82,7 +82,7 @@ Marca honestamente:
 - [ ] Puedo nombrar la capa rota cuando algo falla.
 - [ ] Puedo definir permisos, costo, aprobación y handoff.
 
-La primera sesión técnica está en la [`Sesión S1+S2 — Panorama y primera medición`](../curso/S1-S2-panorama-y-evals.md). La continuidad técnica de los seis casos está en la [`Ruta de preparación y continuidad`](ruta-continuidad-s1-s2.md).
+La primera sesión técnica está en la [`Sesión 2 — Panorama y primera medición`](../curso/S2-panorama-y-evals.md). La continuidad técnica de los seis casos está en la [`Ruta de continuidad de la Sesión 2`](ruta-continuidad-s2.md).
 
 ## La frase que las ordena
 

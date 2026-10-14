@@ -22,7 +22,7 @@
 
 **Primera sesión técnica de la cohorte · 150 minutos.** La reunión anterior fue de bienvenida y contexto. Aquí empieza el trabajo con el repositorio y el Agente Mentor.
 
-➡️ Empieza por la guía de [`S1+S2: Panorama y primera medición`](curso/S1-S2-panorama-y-evals.md). Incluye la plenaria, la teoría, el break, el laboratorio con Claude Code y los entregables.
+➡️ Empieza por la guía de [`Sesión 2 — Panorama y primera medición`](curso/S2-panorama-y-evals.md). Incluye la plenaria, la teoría, el break, el laboratorio con Claude Code y los entregables.
 
 ### Elige tu punto de entrada
 
@@ -45,7 +45,7 @@ Abre el [`Camino dorado`](ejemplo/README.md) y trabaja offline o en papel. No ne
 if → IA → salida estructurada → validación → humano
 ```
 
-La [ruta de preparación y continuidad](docs/ruta-continuidad-s1-s2.md) deja los pasos técnicos disponibles, pero ya no es la puerta principal de entrada.
+La [ruta de preparación y continuidad](docs/ruta-continuidad-s2.md) deja los pasos técnicos disponibles, pero ya no es la puerta principal de entrada.
 
 ## Objetivo
 
@@ -83,9 +83,9 @@ No es un chatbot de curso ni una lista de tutoriales. Es una infraestructura de 
 
 | Soy… | Empiezo por… | Resultado inicial |
 |---|---|---|
-| Aprendedor(a) | [`Sesión S1+S2`](curso/S1-S2-panorama-y-evals.md) | Una decisión y tres casos ancla |
+| Aprendedor(a) | [`Sesión 2`](curso/S2-panorama-y-evals.md) | Una decisión y tres casos ancla |
 | Facilitador | [`facilitador/README.md`](facilitador/README.md) | Agenda, preguntas, rescates y extensiones |
-| Aprendedor(a) avanzado(a) | [`Sesión S1+S2`](curso/S1-S2-panorama-y-evals.md) + track Productificar/escalar | Más profundidad sin repetir el onboarding |
+| Aprendedor(a) avanzado(a) | [`Sesión 2`](curso/S2-panorama-y-evals.md) + track Productificar/escalar | Más profundidad sin repetir el onboarding |
 | Sin entorno listo | [`ejemplo/README.md`](ejemplo/README.md) | Camino dorado offline o en papel |
 
 > Si algo falla, consulta [`Dependencias y preflight`](docs/dependencias-y-preflight.md) como referencia secundaria. No instales Node/NPM si tu ruta no los necesita.
@@ -107,7 +107,7 @@ proceso → decisión → evals → diagnóstico → límites → handoff
 
 | Sesión | Pregunta central | Evidencia |
 |---|---|---|
-| S1+S2 — Panorama Q4-2026 y primera medición | ¿Qué decisión quiero medir y cómo sabré si funciona? | Track, decisión, tres casos ancla y salidas esperadas; seis casos como continuidad |
+| Sesión 2 — Panorama Q4-2026 y primera medición | ¿Qué decisión quiero medir y cómo sabré si funciona? | Track, decisión, tres casos ancla y salidas esperadas; seis casos como continuidad |
 | S3 — Loops | ¿Qué capa está fallando y necesito iteración real? | Diagnóstico, checker o cuatro paradas, traza y comparación v0 → v1 |
 | S4 — Gobernanza | ¿Puede otra persona operar esto con límites claros? | Permisos, costo, aprobación, observabilidad, demo y handoff |
 | S5 — Multiagente | ¿La complejidad adicional está justificada? | Extensión opcional para quien terminó el núcleo |
@@ -160,11 +160,11 @@ Fuera de los comandos, habla normal con el asistente de ejecución. Pídele cód
 README.md             esta portada y las puertas de entrada
 ALUMNO-EMPIEZA-AQUI.md guía de primeros 15 minutos
 docs/competencias.md   mapa de competencias de salida
-docs/ruta-continuidad-s1-s2.md preparación accionable para S2
+docs/ruta-continuidad-s2.md preparación accionable para S2
 docs/dependencias-y-preflight.md matriz de dependencias por ruta y sistema operativo
 CLAUDE.md             instrucciones del asistente bajo tu dirección
 ACOMPANAMIENTO.md     cómo cambia el acompañamiento según tu evidencia
-facilitador/          checklist, guiones S2–S4, rescates y debrief
+facilitador/          checklist, guiones 2–4, rescates y debrief
 curso/                ruta de cohorte y guías de sesión
 ejemplo/              camino dorado, dataset y pruebas reproducibles
 proyectos/            plantillas, rúbrica, demo y handoff

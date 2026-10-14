@@ -112,7 +112,7 @@ Puedes responder:
 
 ## Referencias
 
-- [Sesión S1+S2 — Panorama y primera medición](curso/S1-S2-panorama-y-evals.md)
+- [Sesión 2 — Panorama y primera medición](curso/S2-panorama-y-evals.md)
 - [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md)
 - [Camino dorado](ejemplo/README.md)
 - [Dependencias y preflight](docs/dependencias-y-preflight.md)

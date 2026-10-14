@@ -1,4 +1,4 @@
-# Sesión de trabajo S1+S2 — Panorama de Agent Engineering Q4-2026 y primera medición
+# Sesión 2 — Panorama de Agent Engineering Q4-2026 y primera medición
 
 > **Esta es la primera sesión técnica de la cohorte.** La reunión anterior fue de bienvenida, contexto y orientación. Aquí empieza el trabajo con el repositorio y el Agente Mentor.
 

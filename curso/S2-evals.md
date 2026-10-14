@@ -1,6 +1,6 @@
 ## Guía técnica de S2 — Evals: mide tu decisión de IA
 
-Esta guía continúa [`S1+S2 — Panorama de Agent Engineering Q4-2026 y primera medición`](S1-S2-panorama-y-evals.md). No presupone que la sesión técnica anterior ya hubiera ocurrido: el proceso, la decisión y el track pueden definirse en el laboratorio. La pregunta de S2 es: **¿cuánto acierta esa decisión?** No "se ve bien". Un número.
+Esta guía continúa [`Sesión 2 — Panorama de Agent Engineering Q4-2026 y primera medición`](S2-panorama-y-evals.md). No presupone que la sesión técnica anterior ya hubiera ocurrido: el proceso, la decisión y el track pueden definirse en el laboratorio. La pregunta de S2 es: **¿cuánto acierta esa decisión?** No "se ve bien". Un número.
 
 Esta guía tiene dos partes. **Parte A** son los conceptos para consultar después de la teoría aplicada. **Parte B** es la ejecución técnica de los seis casos y `/eval`. La primera sesión usa una versión mínima; aquí queda el detalle para cerrar la medición.
 
@@ -11,10 +11,10 @@ El núcleo es una medición con **6 casos reales: 4 típicos, 1 límite y 1 adve
 | Minutos | Bloque de la [Ruta de la cohorte](00-ruta-de-la-cohorte.md) | Paso de esta guía |
 |---:|---|---|
 | Antes | Preflight | Paso 0 |
-| 0–30 | Plenaria de Panorama Q4-2026 | Guía S1+S2 |
+| 0–30 | Plenaria de Panorama Q4-2026 | Guía S2 |
 | 30–65 | Teoría aplicada y camino dorado | Parte A |
 | 65–75 | Break | — |
-| 75–115 | Abrir Claude Code, elegir track y fijar una decisión | Laboratorio S1+S2 |
+| 75–115 | Abrir Claude Code, elegir track y fijar una decisión | Laboratorio S2 |
 | 115–135 | Fijar tres casos ancla | Paso 1, mínimo de sesión |
 | 135–150 | Extensión: tres casos restantes, `/eval` o cierre | Paso 1–2 |
 

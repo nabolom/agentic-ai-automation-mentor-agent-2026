@@ -150,7 +150,7 @@ No instales Node/NPM para “hacer funcionar Claude Code”: la ruta nativa de C
 
 | Estado | Significa | Qué hago |
 |---|---|---|
-| **Verde** | Tengo Claude Code o Cowork, acceso al repo y puedo seguir una ruta. | Continúo con la ruta de preparación y continuidad de S1+S2. |
+| **Verde** | Tengo Claude Code o Cowork, acceso al repo y puedo seguir una ruta. | Continúo con la ruta de preparación y continuidad de la Sesión 2. |
 | **Amarillo** | Me falta Git o Python, pero tengo Cowork, el repo o `casos.json`. | Uso el fallback; llevo la falla documentada a office hours. |
 | **Azul** | Me falta Node/NPM, pero mi proyecto no usa JS/TS, n8n local ni MCP. | No hago nada todavía. No es bloqueo. |
 | **Rojo** | No tengo acceso al repo ni una ruta de trabajo. | Pido acceso o uso el camino dorado compartido antes de clase. |
@@ -183,7 +183,7 @@ Primero: proceso, decisión, contrato, seis casos y salida esperada.
 
 ## Referencias
 
-- [Ruta de preparación y continuidad de S1+S2](ruta-continuidad-s1-s2.md)
+- [Ruta de preparación y continuidad de la Sesión 2](ruta-continuidad-s2.md)
 - [Instalación y arranque](instalacion.md)
 - [Empieza aquí como Aprendedor(a)](../ALUMNO-EMPIEZA-AQUI.md)
 - [Setup oficial de Claude Code](https://code.claude.com/docs/en/setup)

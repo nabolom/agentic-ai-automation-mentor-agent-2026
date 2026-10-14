@@ -1,4 +1,4 @@
-# Guion del facilitador — S1+S2
+# Guion del facilitador — Sesión 2
 
 ## Propósito
 

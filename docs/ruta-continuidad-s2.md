@@ -1,14 +1,14 @@
 ---
 type: ruta-critica
-title: Ruta de preparación y continuidad de S1+S2
+title: Ruta de preparación y continuidad de la Sesión 2
 description: Preparación técnica y continuidad después de la primera sesión de trabajo: una decisión, seis casos y un fallback claro.
 tags: [ruta, s1-s2, onboarding, evals]
 timestamp: 2026-10-13T00:00:00Z
 ---
 
-# Ruta de preparación y continuidad de S1+S2
+# Ruta de preparación y continuidad de la Sesión 2
 
-> **Ruta principal de la primera sesión:** empieza por [`S1+S2 — Panorama de Agent Engineering Q4-2026`](../curso/S1-S2-panorama-y-evals.md). Esta página conserva el preflight, la fast lane y los pasos para cerrar los seis casos después del laboratorio.
+> **Ruta principal de la primera sesión:** empieza por [`Sesión 2 — Panorama de Agent Engineering Q4-2026`](../curso/S2-panorama-y-evals.md). Esta página conserva el preflight, la fast lane y los pasos para cerrar los seis casos después del laboratorio.
 
 **Duración independiente:** 60–90 minutos. **En clase:** forma parte del laboratorio de 75 minutos.
 
@@ -109,7 +109,7 @@ Responde:
 Ahora sí, ejecuta `/rumbo` o pide a Claude Code/Cowork:
 
 ```text
-Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/ruta-continuidad-s1-s2.md.
+Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/ruta-continuidad-s2.md.
 Hazme una pregunta a la vez.
 Ayúdame a elegir un solo proceso o caso.
 No avances hasta que pueda explicar if, IA, validación y humano.
@@ -129,7 +129,7 @@ Fija una decisión de IA, seis casos —4 típicos, 1 límite y 1 adversarial—
 Si solo vas a compartir una instrucción, comparte esta:
 
 ```text
-Después de la sesión S1+S2, no construyan un agente completo. Cierren la primera medición siguiendo estos pasos (60–90 min):
+Después de la sesión S2, no construyan un agente completo. Cierren la primera medición siguiendo estos pasos (60–90 min):
 
 1. Abran su copia y luego `ejemplo/README.md`.
 2. Lean “Problema” y “La secuencia que enseña”.
