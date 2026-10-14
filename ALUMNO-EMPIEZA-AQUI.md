@@ -1,103 +1,80 @@
 # Empieza aquí — Aprendedor(a)
 
-Esta página es tu **primer recorrido**. No necesitas leer todo el repositorio antes de empezar.
+Esta página es tu **orientación ampliada**. No necesitas leer todo el repositorio antes de empezar.
+
+> **Si tu siguiente actividad es S2, ve primero a la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md).** Esa es la única ruta canónica: 60–90 minutos, una decisión, seis casos y un fallback.
 
 ## Tu objetivo
 
-En las sesiones vas a convertir una automatización o una idea en un sistema que puedas explicar, medir y dejar operable por otra persona.
-
-La secuencia es:
+Vas a convertir una automatización o una idea en un sistema que puedas explicar, medir y dejar operable por otra persona.
 
 ```text
 proceso → decisión → evals → diagnóstico → límites → handoff
 ```
 
-## Primeros 15 minutos
+No es obligatorio construir un agente autónomo. Justificar un workflow con un solo paso de IA, o decidir no automatizar todavía, también es un resultado válido.
 
-### 1. Abre tu copia
-
-Usa la plantilla de GitHub para crear tu copia privada del repositorio. Después entra a la carpeta con Claude Code.
-
-Si ya tienes una copia del curso, trabaja en ella; no necesitas crear otra.
-
-### 2. Haz el preflight
-
-Primero lee [`Dependencias y preflight`](docs/dependencias-y-preflight.md). Elige Claude Code o Cowork y verifica solo lo que necesita tu ruta.
-
-Para Claude Code:
-
-```bash
-claude --version
-git --version
-claude doctor
-```
-
-Si tu proyecto usa Python, verifica también `python3 --version` en macOS/Linux o `py --version` en Windows. Node/NPM solo aplican a proyectos JS/TS, n8n local o MCP.
-
-No pegues API keys en archivos ni en mensajes. Las credenciales, si algún día hacen falta, viven fuera del repositorio.
-
-Si tu siguiente actividad es S2, sigue la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md): camino dorado, `/rumbo`, una decisión y seis casos.
-
-Si trabajas en **Cowork**, abre la misma carpeta y sigue esta guía; la interfaz cambia, pero el contrato, los casos y la evidencia son los mismos. Cuando una actividad pida un comando de terminal, ejecútalo en la terminal disponible o usa el fallback offline/papel.
-
-### 3. Elige tu ruta de trabajo
+## 1. Elige tu ruta
 
 | Si… | Empieza por… |
 |---|---|
-| Ya tienes una automatización o un proceso propio | `curso/00-ruta-de-la-cohorte.md` y `/rumbo` |
-| Tienes una idea, pero todavía no un proceso acotado | `/rumbo` y después `/arrancar` |
-| Claude Code o la autenticación no funcionan | `ejemplo/README.md` y el camino dorado offline |
-| Trabajas en n8n, Make, CoWork u otra herramienta visual | La ruta visual de la sesión correspondiente; el contrato es el mismo |
+| Tu siguiente actividad es S2 | [`Ruta crítica antes de S2`](docs/ruta-critica-antes-de-s2.md) |
+| Ya tienes proceso, automatización, seis casos y una falla documentada | La **fast lane** dentro de la ruta crítica |
+| Tienes una idea, pero todavía no un proceso acotado | La ruta crítica y después `/arrancar` |
+| No tienes entorno o la herramienta no funciona | [`Camino dorado`](ejemplo/README.md), offline o en papel |
+| Trabajas en n8n, Make, Cowork u otra herramienta visual | Ruta crítica; el contrato y la evidencia son los mismos |
 
-### 4. Corre el camino dorado
+## 2. Primera entrada: 15 minutos
 
-Si quieres un suelo común o tu entorno no está listo, usa el ejemplo:
+1. Usa la plantilla de GitHub para crear tu copia privada, o trabaja en la copia que ya tienes.
+2. Elige **Claude Code o Cowork**. No necesitas ambas herramientas.
+3. Consulta [`Dependencias y preflight`](docs/dependencias-y-preflight.md) solo para verificar la ruta que elegiste o resolver un bloqueo.
+4. Ve a la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md) y sigue su checklist.
 
-```bash
-python3 ejemplo/camino_dorado.py --modo offline --version v1
-```
+Si no tienes Python, Git o autenticación lista, no detengas el aprendizaje: abre [`ejemplo/casos.json`](ejemplo/casos.json), recorre los seis casos y conserva la evidencia para office hours.
 
-Si no tienes Python, abre `ejemplo/casos.json` y recorre los seis casos núcleo en papel. El aprendizaje es el mismo:
+## 3. Qué debes traer a S2
 
-```text
-if → IA → salida estructurada → validación → humano
-```
+La preparación mínima es:
 
-### 5. Entra a Claude Code
-
-Dile:
-
-```text
-Lee CLAUDE.md, ACOMPANAMIENTO.md y curso/00-ruta-de-la-cohorte.md.
-Ayúdame a trabajar una sola decisión de una automatización.
-Si todavía no tengo un proceso acotado, llévame primero por el camino dorado.
-No inventes mis salidas esperadas: ayúdame a fijarlas.
-```
-
-## Qué debes traer a la siguiente sesión
-
-Para el núcleo de la cohorte:
-
-- un proceso o el camino dorado;
+- un proceso propio o el caso común;
 - una sola decisión de IA;
 - seis casos: 4 típicos, 1 límite y 1 adversarial;
 - la salida esperada de cada caso;
-- cualquier export, prompt o nota que ya tengas.
+- una ruta de fallback si la herramienta falla.
 
-Los diez casos son una **extensión**, no un requisito para avanzar.
+No necesitas crear todavía todos los archivos del proyecto. `flujo.md`, `alcance.md`, `decisiones.md`, `reglas.md` y `evals.md` se construyen o completan durante S2.
 
-## Qué no necesitas hacer todavía
+## 4. Cómo pedir acompañamiento
+
+Dentro de Claude Code o Cowork puedes decir:
+
+```text
+Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/ruta-critica-antes-de-s2.md.
+Ayúdame a preparar una sola decisión de una automatización.
+No inventes mis salidas esperadas: ayúdame a fijarlas.
+Si no tengo un proceso acotado, usa el camino dorado como andamio.
+```
+
+El acompañamiento cambia según tu evidencia:
+
+- **Nivel 0–1:** explicación breve, ejemplo y una pregunta.
+- **Nivel 2:** reto y evidencia faltante: número, archivo o criterio.
+- **Nivel 3:** revisión como par: riesgos y contradicciones.
+
+## 5. Qué no necesitas hacer todavía
 
 - No necesitas construir un agente autónomo.
 - No necesitas conectar una API real.
+- No necesitas instalar Node/NPM si tu proyecto no los usa.
 - No necesitas usar n8n si tu proceso vive en otra herramienta.
 - No necesitas construir un loop.
-- No necesitas leer todas las referencias.
-- No necesitas traer datos sensibles reales: usa datos sintéticos o anonimizados.
+- No necesitas completar diez casos.
+- No necesitas traer datos sensibles reales.
 
-## Cómo sabrás que avanzaste
+## 6. Cómo sabrás que avanzaste
 
-Al terminar el núcleo deberás poder responder:
+Puedes responder:
 
 1. ¿Qué parte es un `if`?
 2. ¿Qué parte necesita IA y por qué?
@@ -106,6 +83,11 @@ Al terminar el núcleo deberás poder responder:
 5. ¿Qué acción nunca dejarías automática?
 6. Si tú desapareces mañana, ¿quién lo corre?
 
-## Punto de entrada completo
+## Referencias bajo demanda
 
-Después de estos 15 minutos, sigue la [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md). El resto del repositorio es referencia bajo demanda; no es una lista de lectura obligatoria.
+- [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md)
+- [Camino dorado](ejemplo/README.md)
+- [Mapa de competencias](docs/competencias.md)
+- [Guía de instalación](docs/instalacion.md)
+
+El resto del repositorio es referencia bajo demanda; no es una lista de lectura obligatoria.

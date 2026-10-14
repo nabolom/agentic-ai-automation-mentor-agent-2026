@@ -1,8 +1,10 @@
-## Antes de S2: /rumbo
+# Apéndice técnico: `/rumbo` antes de S2
 
 > **Ruta recomendada para el grupo:** [`Ruta crítica antes de S2`](ruta-critica-antes-de-s2.md), de 60–90 minutos. Este archivo conserva los pasos técnicos del assessment `/rumbo`.
 
-Antes de la segunda sesión, cada Aprendedor(a) corre el assessment de entrada. Fija qué va a construir, mide con evidencia dónde está y decide su ruta. No se enseña: se mide. El assessment mínimo toma unos 35 minutos; la preparación completa añade camino dorado, decisión y casos núcleo.
+> **No es otra puerta de entrada.** Si vas a S2, empieza por la ruta crítica. Usa este apéndice solo cuando necesites los pasos técnicos para actualizar o correr `/rumbo`.
+
+El assessment mínimo toma aproximadamente **35 minutos**: fija qué vas a construir, mide con evidencia dónde estás y decide tu ruta. La preparación completa antes de S2 toma **60–90 minutos** porque añade camino dorado, decisión, seis casos y fallback.
 
 **Caso 1 · Vas a empezar tu repo hoy:**
 

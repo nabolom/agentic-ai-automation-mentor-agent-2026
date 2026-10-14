@@ -1,8 +1,8 @@
 # Sesiones del curso
 
-Empieza por la [Ruta de la cohorte](00-ruta-de-la-cohorte.md). Si no puedes instalar o autenticar a tiempo, trabaja con el [Camino dorado offline](../ejemplo/README.md); el objetivo es aprender el contrato del sistema, no convertir la clase en soporte técnico.
+Empieza por la [Ruta crítica antes de S2](../docs/ruta-critica-antes-de-s2.md). Si no puedes instalar o autenticar a tiempo, trabaja con el [Camino dorado offline](../ejemplo/README.md); el objetivo es aprender el contrato del sistema, no convertir la clase en soporte técnico.
 
-Antes de la segunda sesión corre el assessment de entrada: [Antes de S2: /rumbo](../docs/antes-de-s2.md).
+La [Ruta de la cohorte](00-ruta-de-la-cohorte.md) organiza las sesiones. Para actualizar o correr técnicamente `/rumbo`, consulta el [apéndice técnico](../docs/antes-de-s2.md).
 
 | Sesión | Guía |
 |---|---|

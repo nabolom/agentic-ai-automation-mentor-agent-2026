@@ -8,6 +8,8 @@ timestamp: 2026-10-13T00:00:00Z
 
 # Ruta crítica antes de S2
 
+> **Fuente canónica:** si tu siguiente actividad es S2, esta es la única ruta que necesitas seguir. Las demás guías son apoyo o referencia técnica.
+
 **Duración:** 60–90 minutos
 
 **Resultado:** llegar a S2 con una decisión acotada, seis casos núcleo y una ruta de fallback.
@@ -18,13 +20,32 @@ timestamp: 2026-10-13T00:00:00Z
 
 ## Dependencias antes de empezar
 
-No instales todo el ecosistema. Consulta la [`Guía de dependencias y preflight`](dependencias-y-preflight.md) y elige una ruta:
+No instales todo el ecosistema. Elige una ruta y consulta la [`Guía de dependencias y preflight`](dependencias-y-preflight.md) solo si necesitas instalar algo o resolver un bloqueo:
 
 - **Código/API:** Git + Claude Code + Python son la combinación recomendada.
 - **Cowork/visual:** Cowork + acceso al repo bastan para comenzar.
 - **JavaScript/TypeScript, n8n local o MCP:** Node.js + NPM solo si tu proyecto los necesita.
 
 La ruta nativa de Claude Code **no necesita Node ni NPM**. Las API keys tampoco son requisito antes de S2.
+
+## Si ya tienes una automatización: fast lane de 30–45 minutos
+
+No repitas todo el onboarding. Usa el camino dorado solo como calibración del contrato y pasa a tu proceso propio si ya puedes mostrar:
+
+- un proceso acotado;
+- una sola decisión de IA;
+- seis casos con salidas esperadas;
+- una falla, traza o resultado que puedas discutir.
+
+Hazlo así:
+
+1. Recorre el diagrama del camino dorado y confirma que distingues `if`, IA, validación y humano.
+2. Corre `/rumbo` solo para fijar foco, alcance y qué llevarás a S2.
+3. Transfiere el criterio a tu proceso propio.
+4. Revisa tus seis casos 4/1/1 y marca el caso que más te preocupa.
+5. Elige una extensión, no varias: costo, harness, loop, MCP o multiagente.
+
+La fast lane produce la misma llegada: proceso, decisión, seis casos, salidas esperadas y fallback.
 
 ## Mensaje corto para hoy
 
@@ -49,7 +70,7 @@ No necesitan conectar una API real, usar n8n, construir un loop, completar diez 
 
 ## Resultado esperado
 
-En 60–90 minutos, el Aprendedor(a) debe llegar a S2 con:
+En 60–90 minutos —o en 30–45 minutos si aplica la fast lane— el Aprendedor(a) debe llegar a S2 con:
 
 1. entorno comprobado o un fallback claro;
 2. el camino dorado recorrido o entendido;

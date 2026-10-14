@@ -52,23 +52,9 @@ La extensión no se usa para avanzar más rápido el calendario ni para converti
 
 ## Preflight antes de clase
 
-Hazlo antes de la siguiente sesión. Si algún paso falla, lleva la captura o el mensaje de error; **no intentes resolverlo durante los primeros minutos de clase**.
+La preparación previa vive en la [Ruta crítica antes de S2](../docs/ruta-critica-antes-de-s2.md). No repitas aquí la instalación: elige ruta, verifica solo sus dependencias y conserva un fallback.
 
-```bash
-claude --version
-git --version
-claude doctor
-```
-
-También verifica que puedes abrir tu copia del repositorio y que tienes acceso a Claude Code. Si usarás la ruta visual, verifica que puedes abrir tu instancia o workspace de automatización.
-
-Si no puedes completar el preflight, trabaja con el camino dorado offline:
-
-```bash
-python3 ejemplo/camino_dorado.py --modo offline --version v1
-```
-
-No necesitas credenciales reales para aprender el diseño. Las conectaremos solo cuando el contrato ya esté claro.
+Si algún paso falla, lleva la captura o el mensaje de error; **no intentes resolverlo durante los primeros minutos de clase**. El camino dorado offline o en papel conserva el aprendizaje sin credenciales reales.
 
 ## Sesión 2 — De automatización a sistema medible
 
