@@ -18,22 +18,79 @@
   <a href="ejemplo/README.md"><img alt="Núcleo de seis casos" src="https://img.shields.io/badge/Núcleo-6%20casos-172033.svg"></a>
 </p>
 
-## 🚦 Antes de S2 — haz esto hoy
+## 🚦 Antes de S2 — paso a paso
 
-**Tiempo:** 60–90 minutos. **No necesitas construir un agente completo.**
+**Tiempo orientativo:** 60–90 minutos. **Hoy no vas a construir un agente completo.**
 
-1. Elige Claude Code o Cowork y verifica solo las dependencias de tu ruta.
-2. Corre o recorre el camino dorado.
-3. Ejecuta `/rumbo` y elige un proceso o caso.
-4. Fija **una** decisión de IA.
-5. Prepara seis casos: 4 típicos, 1 límite y 1 adversarial.
-6. Escribe la salida esperada y tu fallback.
+> **¿Ya tienes una automatización, seis casos y una falla documentada?** Usa la [fast lane de 30–45 minutos](docs/ruta-critica-antes-de-s2.md) dentro de la misma ruta. Si no, empieza por el Paso 0.
 
-Llegas listo(a) si puedes mostrar: **proceso/caso · una decisión · seis casos · salidas esperadas · fallback**.
+### Paso 0 — Abre tu copia
 
-➡️ Sigue la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md).
+Crea tu copia privada con **Use this template** o abre la copia que ya tienes. Entra a la carpeta con Claude Code o Cowork. **No instales nada adicional todavía.**
 
-> **¿Ya tienes una automatización, seis casos y una falla documentada?** Usa la fast lane de 30–45 minutos dentro de la misma ruta.
+### Paso 1 — Mira el ejemplo común
+
+Abre [`ejemplo/README.md`](ejemplo/README.md) y lee solo estas dos secciones:
+
+- **Problema**
+- **La secuencia que enseña**
+
+El camino dorado es un caso común de solicitudes que van a soporte, ventas, facturación o revisión humana. **No es un producto que tengas que construir:** es el ejemplo que usaremos para aprender el criterio.
+
+### Paso 2 — Identifica qué ocurre en cada etapa
+
+Antes de ejecutar nada, responde en una nota:
+
+1. ¿Qué se resuelve con un `if`?
+2. ¿Cuándo entra la IA?
+3. ¿Dónde se valida la salida?
+4. ¿Cuándo decide una persona?
+
+### Paso 3 — Ejecuta el ejemplo offline
+
+En macOS/Linux:
+
+```bash
+python3 ejemplo/camino_dorado.py --modo offline --version v1
+```
+
+En Windows:
+
+```powershell
+py ejemplo/camino_dorado.py --modo offline --version v1
+```
+
+Si no tienes Python, abre [`ejemplo/casos.json`](ejemplo/casos.json), recorre los seis casos núcleo con el diagrama y anótalos en una tabla. **No necesitas API key ni conexión a una API.**
+
+### Paso 4 — Comprueba que entendiste
+
+Escribe una respuesta breve para estas preguntas:
+
+- ¿Qué casos no llegan a la IA?
+- ¿Qué hace la IA cuando sí entra?
+- ¿Qué pasa si la salida no valida?
+- ¿Por qué un caso termina en humano?
+- ¿Qué mejora `v1` respecto a `v0`?
+
+### Paso 5 — Ahora sí, define tu foco
+
+En Claude Code o Cowork, pega esto:
+
+```text
+Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/ruta-critica-antes-de-s2.md.
+Hazme una pregunta a la vez.
+Ayúdame a elegir un solo proceso o caso.
+No avances hasta que pueda explicar if, IA, validación y humano.
+No inventes mis salidas esperadas.
+```
+
+### Paso 6 — Prepara tu llegada a S2
+
+Fija **una decisión de IA**, seis casos —4 típicos, 1 límite y 1 adversarial—, la salida esperada de cada caso y un fallback.
+
+Llegas listo(a) si puedes enseñar: **proceso/caso · una decisión · seis casos · salidas esperadas · fallback**.
+
+➡️ Cuando termines, usa la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md) como checklist completo.
 
 ## Objetivo
 

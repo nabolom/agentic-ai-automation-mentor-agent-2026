@@ -47,21 +47,97 @@ Hazlo así:
 
 La fast lane produce la misma llegada: proceso, decisión, seis casos, salidas esperadas y fallback.
 
+## Ruta común, paso a paso
+
+Si todavía no tienes una automatización, no empieces por `/rumbo`. Primero mira y entiende el caso común.
+
+### Paso 0 — Abre tu copia
+
+Crea tu copia privada con **Use this template** o abre la copia que ya tienes. Entra a la carpeta con Claude Code o Cowork. No instales nada adicional todavía.
+
+**Checkpoint:** puedes abrir el repositorio y sabes dónde está la carpeta `ejemplo/`.
+
+### Paso 1 — Mira el ejemplo común
+
+Abre [`ejemplo/README.md`](../ejemplo/README.md) y lee solamente **Problema** y **La secuencia que enseña**. El camino dorado es un caso común de solicitudes que van a soporte, ventas, facturación o revisión humana; no es un producto que tengas que construir.
+
+**Checkpoint:** puedes explicar en una frase qué decide el sistema.
+
+### Paso 2 — Identifica las cuatro etapas
+
+Antes de ejecutar, escribe una respuesta breve:
+
+1. ¿Qué se resuelve con un `if`?
+2. ¿Cuándo entra la IA?
+3. ¿Dónde se valida la salida?
+4. ¿Cuándo decide una persona?
+
+**Checkpoint:** tienes una nota con las cuatro respuestas.
+
+### Paso 3 — Ejecuta el ejemplo offline
+
+En macOS/Linux:
+
+```bash
+python3 ejemplo/camino_dorado.py --modo offline --version v1
+```
+
+En Windows:
+
+```powershell
+py ejemplo/camino_dorado.py --modo offline --version v1
+```
+
+Si no tienes Python, abre [`ejemplo/casos.json`](../ejemplo/casos.json), recorre los seis casos núcleo con el diagrama y anótalos en una tabla. No necesitas API key ni conexión a una API.
+
+**Checkpoint:** tienes una corrida de `v1` o una tabla manual de los seis casos.
+
+### Paso 4 — Comprueba que entendiste
+
+Responde:
+
+- ¿Qué casos no llegan a la IA?
+- ¿Qué hace la IA cuando sí entra?
+- ¿Qué pasa si la salida no valida?
+- ¿Por qué un caso termina en humano?
+- ¿Qué mejora `v1` respecto a `v0`?
+
+**Checkpoint:** puedes explicar el recorrido sin leer el diagrama.
+
+### Paso 5 — Define tu foco con acompañamiento
+
+Ahora sí, ejecuta `/rumbo` o pide a Claude Code/Cowork:
+
+```text
+Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/ruta-critica-antes-de-s2.md.
+Hazme una pregunta a la vez.
+Ayúdame a elegir un solo proceso o caso.
+No avances hasta que pueda explicar if, IA, validación y humano.
+No inventes mis salidas esperadas.
+```
+
+**Checkpoint:** tienes `rumbo.md` o una nota equivalente con foco, alcance y qué llevarás a S2.
+
+### Paso 6 — Prepara tu llegada a S2
+
+Fija una decisión de IA, seis casos —4 típicos, 1 límite y 1 adversarial—, la salida esperada de cada caso y un fallback.
+
+**Checkpoint final:** puedes enseñar proceso/caso, decisión, seis casos, salidas esperadas y fallback.
+
 ## Mensaje corto para hoy
 
 Si solo vas a compartir una instrucción, comparte esta:
 
 ```text
-Antes de S2, no construyan un agente completo. Hagan esta ruta en orden (60–90 min):
+Antes de S2, no construyan un agente completo. Sigan los pasos de esta ruta (60–90 min):
 
-1. Consulten la guía de dependencias y elijan Claude Code o Cowork.
-2. Instalen/verifiquen solo lo que necesita su ruta; Node/NPM son opcionales.
-3. Abran su copia del repo en Claude Code o Cowork.
-4. Corran el camino dorado offline v1; si no tienen Python, recorran `ejemplo/casos.json` en papel.
-5. Ejecuten `/rumbo` y guarden `rumbo.md`.
-6. Elijan UN proceso propio o quédense con el caso común.
-7. Escriban UNA decisión de IA; no diseñen todo el agente.
-8. Traigan seis casos: 4 típicos, 1 límite y 1 adversarial, con su salida esperada.
+1. Abran su copia y luego `ejemplo/README.md`.
+2. Lean “Problema” y “La secuencia que enseña”.
+3. Identifiquen `if`, IA, validación y humano.
+4. Corran el ejemplo offline; si no tienen Python, usen `casos.json` en papel.
+5. Respondan las cinco preguntas de comprensión.
+6. Ejecuten `/rumbo` con acompañamiento, una pregunta a la vez.
+7. Fijen una decisión, seis casos, salidas esperadas y fallback.
 
 Para S2 deben poder mostrar: proceso/caso, una decisión, seis casos, salidas esperadas y una ruta de fallback.
 
@@ -81,23 +157,26 @@ En 60–90 minutos —o en 30–45 minutos si aplica la fast lane— el Aprended
 
 ## Orden obligatorio
 
-1. **Dependencias y preflight** — elegir ruta; verificar solo Git, Claude Code/Cowork y Python cuando correspondan.
-2. **Camino dorado** — primero el caso común, sin credenciales.
-3. **Rumbo** — qué quieres construir, qué puedes demostrar y qué ruta te conviene.
-4. **Transferencia** — elegir un proceso propio o quedarse conscientemente con el caso común.
-5. **Contrato** — fijar una sola decisión y su salida esperada.
-6. **Evals** — 4 típicos, 1 límite y 1 adversarial.
-7. **Paquete de llegada** — guardar `rumbo.md` y llevar evidencia, no promesas.
+1. **Abrir la copia** — elegir Claude Code o Cowork; no instalar todo el ecosistema.
+2. **Leer el ejemplo** — abrir `ejemplo/README.md` y entender el problema.
+3. **Observar el contrato** — identificar `if`, IA, validación y humano.
+4. **Ejecutar o simular** — correr `v1` offline o usar `casos.json` en papel.
+5. **Comprobar comprensión** — responder las cinco preguntas antes de transferir.
+6. **Rumbo y transferencia** — elegir un proceso propio o quedarse con el caso común.
+7. **Contrato y evals** — fijar una decisión, seis casos y sus salidas esperadas.
+8. **Paquete de llegada** — guardar `rumbo.md` y llevar evidencia, no promesas.
 
 ## Timebox recomendado
 
 | Minutos | Acción | Salida |
 |---:|---|---|
-| 0–10 | Consultar la matriz de dependencias, ejecutar el preflight de la ruta elegida y documentar cualquier falla. | Entorno listo o fallback seleccionado. |
-| 10–25 | Correr el camino dorado offline v1, o recorrer `casos.json` en papel. | Vocabulario común: `if` → IA → validación → humano. |
-| 25–60 | Ejecutar `/rumbo` y completar sus decisiones de entrada. | `rumbo.md` y sección “Qué llevo a S2”. |
-| 60–75 | Elegir un proceso propio o el caso común y escribir una sola decisión de IA. | Una frase de alcance y contrato inicial. |
-| 75–90 | Escribir seis casos núcleo y su salida esperada. | Tabla 4/1/1; si no termina, lleva el borrador y marca el hueco. |
+| 0–5 | Abrir la copia y elegir Claude Code o Cowork. | Repositorio accesible. |
+| 5–15 | Leer `ejemplo/README.md`: Problema y secuencia. | Una frase que explique el sistema. |
+| 15–25 | Identificar `if`, IA, validación y humano. | Nota con cuatro respuestas. |
+| 25–35 | Correr `v1` offline o recorrer `casos.json` en papel. | Corrida o tabla de seis casos. |
+| 35–45 | Responder las cinco preguntas de comprensión. | Explicación propia del contrato. |
+| 45–65 | Ejecutar `/rumbo` con una pregunta a la vez. | `rumbo.md`, foco y alcance. |
+| 65–90 | Fijar una decisión, seis casos y sus salidas esperadas. | Tabla 4/1/1 y fallback. |
 
 ## Qué debe poder mostrar el Aprendedor(a)
 
