@@ -1,6 +1,6 @@
 # Ruta de la cohorte
 
-Esta ruta convierte el repositorio en una experiencia de tres sesiones de 2.5 horas. La doctrina sigue viviendo en `CLAUDE.md`; este archivo responde una pregunta distinta: **¿qué hacemos en clase, en qué orden y qué queda listo?**
+Esta ruta convierte el repositorio en una experiencia de trabajo de 2.5 horas por sesión. La primera sesión técnica combina S1 y S2: **Panorama de Agent Engineering Q4-2026 y primera medición**. La doctrina sigue viviendo en `CLAUDE.md`; este archivo responde una pregunta distinta: **¿qué hacemos en clase, en qué orden y qué queda listo?**
 
 ## Resultado del curso
 
@@ -14,7 +14,7 @@ Al terminar, cada Aprendedor(a) debe poder tomar una automatización real y resp
 
 No es obligatorio construir un agente autónomo. **Justificar un workflow con un solo paso de IA, o decidir no automatizar todavía, también es un resultado válido.**
 
-El mapa completo de salida está en [`Competencias de Agentic AI`](../docs/competencias.md). La preparación inmediata para S2 está en la [`Ruta crítica antes de S2`](../docs/ruta-critica-antes-de-s2.md).
+El mapa completo de salida está en [`Competencias de Agentic AI`](../docs/competencias.md). La guía de la primera sesión está en [`S1+S2 — Panorama y primera medición`](S1-S2-panorama-y-evals.md).
 
 ## Cómo trabajarás
 
@@ -52,32 +52,33 @@ La extensión no se usa para avanzar más rápido el calendario ni para converti
 
 ## Preflight antes de clase
 
-La preparación previa vive en la [Ruta crítica antes de S2](../docs/ruta-critica-antes-de-s2.md). No repitas aquí la instalación: elige ruta, verifica solo sus dependencias y conserva un fallback.
+La continuidad técnica vive en la [Ruta de preparación y continuidad de S1+S2](../docs/ruta-critica-antes-de-s2.md). No repitas aquí la instalación: elige ruta, verifica solo sus dependencias y conserva un fallback.
 
 Si algún paso falla, lleva la captura o el mensaje de error; **no intentes resolverlo durante los primeros minutos de clase**. El camino dorado offline o en papel conserva el aprendizaje sin credenciales reales.
 
-## Sesión 2 — De automatización a sistema medible
+## Sesión S1+S2 — Panorama y primera medición
 
-Esta es la sesión que recupera el puente perdido de la primera clase. No intenta reconstruir toda la teoría: usa el camino dorado para recordar el vocabulario y deja un caso acotado listo para medir. Si ya tienes un proceso, puedes saltar del ejemplo común al tuyo; si no, termina la sesión con el caso común.
+Esta es la primera sesión técnica. La reunión anterior fue de bienvenida y contexto, así que aquí sí se presenta el panorama, se abre Claude Code y se usa el Agente Mentor. La sesión no presupone experiencia técnica ni exige que todas las personas construyan lo mismo.
 
-Consulta también la [guía completa de S2](S2-evals.md).
+Consulta también la [guía técnica de evals](S2-evals.md) después de la guía principal.
 
-**Objetivo:** salir con un caso acotado, una decisión de IA y una primera medición.
+**Objetivo:** salir con el repositorio abierto o un fallback documentado, un track elegido, una decisión de IA y tres casos ancla. La suite de seis casos cierra la primera medición inmediatamente después de la sesión.
 
 | Tiempo | Actividad | Checkpoint |
 |---:|---|---|
-| 0–15 min | Recuperación: clasificar pasos como `if`, IA, herramienta o humano | Cada persona explica una decisión |
-| 15–35 min | Demo del camino dorado, incluido un caso que escala | Se identifica dónde no debe decidir el modelo |
-| 35–55 min | Elegir un proceso propio o usar el caso común | Un solo proceso, no dos |
-| 55–80 min | Mapear el flujo actual y definir “terminado” | `flujo.md` y `alcance.md` |
-| 80–100 min | Diseñar una sola decisión de IA | Contrato de salida |
-| 100–120 min | Fijar seis evals | Salida esperada escrita antes de correr |
-| 120–140 min | Correr la línea base | Tasa + salida cruda |
-| 140–150 min | Diagnosticar un fallo y cerrar | Causa probable + exit ticket |
+| 0–30 min | Plenaria: Panorama Q4-2026, vocabulario y rutas según experiencia | Cada persona sabe qué track le corresponde |
+| 30–65 min | Teoría aplicada: decisión, contrato, eval, 4/1/1 y diagnóstico | Todas las personas entienden el caso común |
+| 65–75 min | Break | Bloqueos anotados, no soporte improvisado |
+| 75–85 min | Abrir repositorio y Claude Code; confirmar Mentor | Repo abierto o fallback activo |
+| 85–100 min | Elegir track y proceso/caso | Una ruta y un proceso |
+| 100–115 min | Definir una decisión de IA y qué queda fuera | Contrato inicial |
+| 115–135 min | Fijar tres casos ancla | Típico, límite y adversarial con salida esperada |
+| 135–145 min | Extensión para quien va rápido: tres casos restantes o `/eval` | Suite parcial o línea base |
+| 145–150 min | Cierre y siguiente paso | Entregable mínimo y fecha de los seis casos |
 
-**Entregable:** `proyecto.md`, `flujo.md`, `alcance.md`, `decisiones.md`, `reglas.md` y `evals.md` con seis casos.
+**Entregable de la sesión:** track, proceso/caso, una decisión, tres casos ancla con salidas esperadas y siguiente paso. `proyecto.md`, `flujo.md`, `alcance.md`, `decisiones.md`, `reglas.md` y `evals.md` se completan según la ruta, no como requisito uniforme de los primeros 150 minutos.
 
-**Evidencia, no solo archivos:** la tasa `aciertos/6` con su modo (escritorio), la salida cruda de al menos un caso fallido y una línea con la causa probable.
+**Evidencia, no solo archivos:** la persona puede explicar por qué la decisión es `if`, IA, herramienta o humana, y qué salida esperaría en cada caso ancla. Quien termine la suite añade la tasa `aciertos/6` y la salida cruda de un fallo.
 
 ## Sesión 3 — Fallas, verificación y loops
 

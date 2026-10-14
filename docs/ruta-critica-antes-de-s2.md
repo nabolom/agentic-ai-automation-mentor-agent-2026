@@ -1,20 +1,20 @@
 ---
 type: ruta-critica
-title: Ruta crítica antes de S2
-description: Preparación de 60–90 minutos para llegar a S2 con una decisión, seis casos y un fallback claro.
-tags: [ruta, pre-s2, onboarding, evals]
+title: Ruta de preparación y continuidad de S1+S2
+description: Preparación técnica y continuidad después de la primera sesión de trabajo: una decisión, seis casos y un fallback claro.
+tags: [ruta, s1-s2, onboarding, evals]
 timestamp: 2026-10-13T00:00:00Z
 ---
 
-# Ruta crítica antes de S2
+# Ruta de preparación y continuidad de S1+S2
 
-> **Fuente canónica:** si tu siguiente actividad es S2, esta es la única ruta que necesitas seguir. Las demás guías son apoyo o referencia técnica.
+> **Ruta principal de la primera sesión:** empieza por [`S1+S2 — Panorama de Agent Engineering Q4-2026`](../curso/S1-S2-panorama-y-evals.md). Esta página conserva el preflight, la fast lane y los pasos para cerrar los seis casos después del laboratorio.
 
-**Duración:** 60–90 minutos
+**Duración independiente:** 60–90 minutos. **En clase:** forma parte del laboratorio de 75 minutos.
 
-**Resultado:** llegar a S2 con una decisión acotada, seis casos núcleo y una ruta de fallback.
+**Resultado de continuidad:** cerrar una decisión acotada, seis casos núcleo y una ruta de fallback. En la sesión, el mínimo observable es una decisión y tres casos ancla.
 
-**Orden:** camino dorado primero; proyecto propio después.
+**Orden:** repositorio y Claude Code; camino dorado primero; proyecto propio después.
 
 > **Regla:** antes de construir un agente, fija el proceso, la decisión, la salida esperada y cómo sabrás si funcionó.
 
@@ -124,12 +124,12 @@ Fija una decisión de IA, seis casos —4 típicos, 1 límite y 1 adversarial—
 
 **Checkpoint final:** puedes enseñar proceso/caso, decisión, seis casos, salidas esperadas y fallback.
 
-## Mensaje corto para hoy
+## Mensaje corto para cerrar la primera medición
 
 Si solo vas a compartir una instrucción, comparte esta:
 
 ```text
-Antes de S2, no construyan un agente completo. Sigan los pasos de esta ruta (60–90 min):
+Después de la sesión S1+S2, no construyan un agente completo. Cierren la primera medición siguiendo estos pasos (60–90 min):
 
 1. Abran su copia y luego `ejemplo/README.md`.
 2. Lean “Problema” y “La secuencia que enseña”.
@@ -210,7 +210,7 @@ No necesitas que todos los archivos del proyecto estén completos antes de S2. N
 | No tienes tiempo para seis casos | Termina `/rumbo`, fija una decisión y lleva los casos incompletos marcados; S2 los completa. |
 | Te tienta construir un agente completo | Detente: primero contrato, casos y criterio de éxito. |
 
-## Qué NO hacer antes de S2
+## Qué NO hacer para cerrar la primera medición
 
 - No conectes una API real por demostrar que puedes.
 - No uses datos sensibles reales.

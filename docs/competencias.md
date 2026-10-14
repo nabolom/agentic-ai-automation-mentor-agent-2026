@@ -82,7 +82,7 @@ Marca honestamente:
 - [ ] Puedo nombrar la capa rota cuando algo falla.
 - [ ] Puedo definir permisos, costo, aprobación y handoff.
 
-La ruta crítica de preparación está en la [`Ruta crítica antes de S2`](ruta-critica-antes-de-s2.md).
+La primera sesión técnica está en la [`Sesión S1+S2 — Panorama y primera medición`](../curso/S1-S2-panorama-y-evals.md). La continuidad técnica de los seis casos está en la [`Ruta de preparación y continuidad`](ruta-critica-antes-de-s2.md).
 
 ## La frase que las ordena
 

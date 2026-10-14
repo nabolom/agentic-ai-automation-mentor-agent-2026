@@ -1,6 +1,6 @@
 # Apéndice técnico: `/rumbo` antes de S2
 
-> **Ruta recomendada para el grupo:** [`Ruta crítica antes de S2`](ruta-critica-antes-de-s2.md), de 60–90 minutos. Este archivo conserva los pasos técnicos del assessment `/rumbo`.
+> **Apéndice técnico:** la puerta de entrada del grupo es [`S1+S2 — Panorama y primera medición`](../curso/S1-S2-panorama-y-evals.md). Este archivo conserva los pasos técnicos del assessment `/rumbo`; la continuidad de los seis casos está en la [`Ruta de preparación y continuidad`](ruta-critica-antes-de-s2.md).
 
 > **No es otra puerta de entrada.** Si vas a S2, empieza por la ruta crítica. Usa este apéndice solo cuando necesites los pasos técnicos para actualizar o correr `/rumbo`.
 
