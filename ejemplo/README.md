@@ -16,7 +16,7 @@ Este es un ejemplo guiado, no un proyecto que tengas que construir. Hazlo en est
 4. Responde qué casos no llegan a la IA, qué ocurre si la salida no valida y por qué un caso termina en humano.
 5. Compara `v0` con `v1`: el objetivo es observar qué cambia cuando agregamos seguridad y criterio, no construir un agente.
 
-**Qué debe quedar:** una nota breve con tus respuestas y una comprensión común del contrato `if → IA → salida estructurada → validación → humano`. Después vuelve a la [Ruta de preparación y continuidad de S1+S2](../docs/ruta-critica-antes-de-s2.md) para elegir tu foco.
+**Qué debe quedar:** una nota breve con tus respuestas y una comprensión común del contrato `if → IA → salida estructurada → validación → humano`. Después vuelve a la [Ruta de preparación y continuidad de S1+S2](../docs/ruta-continuidad-s1-s2.md) para elegir tu foco.
 
 ## La secuencia que enseña
 

@@ -14,7 +14,7 @@ timestamp: 2026-10-13T00:00:00Z
 
 ## 1. Matriz rápida
 
-| Elemento | Ruta estándar de código | Ruta visual/Cowork | ¿Es requisito antes de S2? |
+| Elemento | Ruta estándar de código | Ruta visual/Cowork | ¿Es requisito para la primera medición? |
 |---|---|---|---|
 | Cuenta de GitHub y acceso al repo | Sí | Sí | Sí |
 | Git | Sí, para clonar y guardar evidencia | Recomendado; puede esperar si trabajarás en Cowork o ZIP | Sí para la ruta estándar |
@@ -183,7 +183,7 @@ Primero: proceso, decisión, contrato, seis casos y salida esperada.
 
 ## Referencias
 
-- [Ruta de preparación y continuidad de S1+S2](ruta-critica-antes-de-s2.md)
+- [Ruta de preparación y continuidad de S1+S2](ruta-continuidad-s1-s2.md)
 - [Instalación y arranque](instalacion.md)
 - [Empieza aquí como Aprendedor(a)](../ALUMNO-EMPIEZA-AQUI.md)
 - [Setup oficial de Claude Code](https://code.claude.com/docs/en/setup)

@@ -52,7 +52,7 @@ La extensión no se usa para avanzar más rápido el calendario ni para converti
 
 ## Preflight antes de clase
 
-La continuidad técnica vive en la [Ruta de preparación y continuidad de S1+S2](../docs/ruta-critica-antes-de-s2.md). No repitas aquí la instalación: elige ruta, verifica solo sus dependencias y conserva un fallback.
+La continuidad técnica vive en la [Ruta de preparación y continuidad de S1+S2](../docs/ruta-continuidad-s1-s2.md). No repitas aquí la instalación: elige ruta, verifica solo sus dependencias y conserva un fallback.
 
 Si algún paso falla, lleva la captura o el mensaje de error; **no intentes resolverlo durante los primeros minutos de clase**. El camino dorado offline o en papel conserva el aprendizaje sin credenciales reales.
 

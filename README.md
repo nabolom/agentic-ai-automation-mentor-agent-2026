@@ -45,7 +45,7 @@ Abre el [`Camino dorado`](ejemplo/README.md) y trabaja offline o en papel. No ne
 if → IA → salida estructurada → validación → humano
 ```
 
-La [ruta de preparación y continuidad](docs/ruta-critica-antes-de-s2.md) deja los pasos técnicos disponibles, pero ya no es la puerta principal de entrada.
+La [ruta de preparación y continuidad](docs/ruta-continuidad-s1-s2.md) deja los pasos técnicos disponibles, pero ya no es la puerta principal de entrada.
 
 ## Objetivo
 
@@ -160,7 +160,7 @@ Fuera de los comandos, habla normal con el asistente de ejecución. Pídele cód
 README.md             esta portada y las puertas de entrada
 ALUMNO-EMPIEZA-AQUI.md guía de primeros 15 minutos
 docs/competencias.md   mapa de competencias de salida
-docs/ruta-critica-antes-de-s2.md preparación accionable para S2
+docs/ruta-continuidad-s1-s2.md preparación accionable para S2
 docs/dependencias-y-preflight.md matriz de dependencias por ruta y sistema operativo
 CLAUDE.md             instrucciones del asistente bajo tu dirección
 ACOMPANAMIENTO.md     cómo cambia el acompañamiento según tu evidencia
