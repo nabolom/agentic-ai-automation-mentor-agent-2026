@@ -126,10 +126,16 @@ Solo si ya tienes una credencial fuera del repositorio y un tope de gasto config
 ```bash
 export ANTHROPIC_API_KEY="..."
 export CLAUDE_MODEL="claude-sonnet-5-5"
-python3 ejemplo/camino_dorado.py --modo live
+python3 ejemplo/camino_dorado.py --modo live --confirm-live
 ```
 
-El script usa solo la biblioteca estándar. Pide salida estructurada con JSON Schema y aplica las mismas cinco etapas. Sin `ANTHROPIC_API_KEY` se detiene con código 2: **una falla de autenticación no es una medición**. Si la API falla a media corrida, el caso escala con `fuente=harness`.
+El script usa solo la biblioteca estándar. `--confirm-live` confirma explícitamente que aceptas red y posible gasto; sin esa bandera no se hace ninguna llamada. Para la suite extendida, declara también el límite de diez casos:
+
+```bash
+python3 ejemplo/camino_dorado.py --modo live --confirm-live --suite extendida --max-cases 10
+```
+
+Pide salida estructurada con JSON Schema y aplica las mismas cinco etapas. Sin `ANTHROPIC_API_KEY` se detiene con código 2: **una falla de autenticación no es una medición**. Si la API falla a media corrida, el caso escala con `fuente=harness`. El modo live es opcional y no sustituye la validación offline.
 
 ## Probar el harness sin red
 

@@ -10,7 +10,7 @@ El assessment mínimo toma aproximadamente **35 minutos**: fija qué vas a const
 
 1. Entra a https://github.com/nabolom/agentic-ai-automation-mentor-agent-2026 y usa "Use this template" → "Create a new repository", márcalo como Private y créalo.
 2. Clónalo en tu computadora, entra a la carpeta y abre Claude Code con `claude`.
-3. Escribe `/rumbo`.
+3. Abre [`ALUMNO-EMPIEZA-AQUI.md`](../ALUMNO-EMPIEZA-AQUI.md), elige Ruta 1, Ruta 2 o Ruta 3 y produce el checkpoint mínimo. Usa `/rumbo` solo después de elegir ruta, si necesitas fijar formalmente el foco.
 
 **Caso 2 · Ya tienes tu repo del curso (creado desde ai-automation-expert):**
 
@@ -23,9 +23,9 @@ El assessment mínimo toma aproximadamente **35 minutos**: fija qué vas a const
    echo "@ACOMPANAMIENTO.md" >> CLAUDE.md
    ```
 
-2. Cierra y vuelve a abrir Claude Code, y escribe `/rumbo`.
+2. Cierra y vuelve a abrir Claude Code. Elige primero la ruta correspondiente; después escribe `/rumbo` solo si necesitas fijar formalmente el foco con evidencia.
 
 **En ambos casos:**
 
-1. Haz commit de tu `rumbo.md` y entrega su frontmatter a León 48 horas para la primera medición.
-2. Lleva a S2 lo que dice la sección "Qué llevo a S2" de tu `rumbo.md`.
+1. Haz commit de tu `rumbo.md` y entrega su frontmatter a León cuando cierres el assessment y antes de la primera medición.
+2. Si estás preparando S2, lleva lo que dice la sección "Qué llevo a S2" de tu `rumbo.md`: decisión y tres casos ancla como mínimo; los seis casos pertenecen a la continuidad posterior.

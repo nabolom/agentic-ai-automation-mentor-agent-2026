@@ -82,12 +82,12 @@ Al entrar al directorio y correr `claude`, el agente lee automáticamente `CLAUD
 
 Los repos creados desde template **no reciben actualizaciones automáticas**: son una foto del día que los creaste. Cada sesión del curso trae su propio paso para traer lo nuevo con `curl`.
 
-### Paso 3 — Arranca tu primera automatización
+### Paso 3 — Elige tu ruta antes de usar un comando
 
-Dentro de Claude Code, escribe:
+No escribas `/arrancar` automáticamente. Primero abre [`ALUMNO-EMPIEZA-AQUI.md`](../ALUMNO-EMPIEZA-AQUI.md) y elige:
 
-```
-/arrancar
-```
+- **Ruta 1:** ya tienes algo construido; lleva una falla, cuello de botella o decisión difícil.
+- **Ruta 2:** tienes un proceso o idea; acótalo y elige una decisión candidata.
+- **Ruta 3:** no tienes proceso claro o estás bloqueado; recorre el camino dorado offline y vuelve a Ruta 2.
 
-El agente te va a conducir paso a paso: elegir un proceso, mapearlo, clasificar cada paso, identificar el patrón, medir la línea base y definir el alcance. Al terminar tendrás cinco archivos de tu proyecto en `proyectos/`. O un veredicto honesto de "no automatizar todavía", que también cuenta.
+Usa `/rumbo` solo después de elegir la ruta, cuando necesites fijar formalmente el foco con evidencia. Usa `/arrancar` únicamente en Ruta 2 o cuando el Mentor confirme que necesitas convertir un proceso acotado en diseño de automatización. En todos los casos, empieza con una pregunta de solo lectura y no inventes tu proceso.

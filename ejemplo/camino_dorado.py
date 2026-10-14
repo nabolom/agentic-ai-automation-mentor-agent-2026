@@ -12,7 +12,7 @@ Uso desde la raíz del repo:
   python3 ejemplo/camino_dorado.py --modo offline --version v0
   python3 ejemplo/camino_dorado.py --modo offline --version v1
   python3 ejemplo/camino_dorado.py --modo offline --version v1 --suite extendida
-  ANTHROPIC_API_KEY=... python3 ejemplo/camino_dorado.py --modo live   (opcional)
+  ANTHROPIC_API_KEY=... python3 ejemplo/camino_dorado.py --modo live --confirm-live   (opcional)
 
 La salida esperada vive en casos.json y nunca se regenera a partir de la
 respuesta del sistema. El modo offline usa un stub determinista en lugar de un
@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import sys
 import time
@@ -78,9 +79,11 @@ def check_dataset(cases: list) -> list[str]:
         if case_id in seen:
             problems.append(f"{case_id}: id repetido")
         seen.add(case_id)
-        if case.get("tipo") not in VALID_TYPES:
+        tipo = case.get("tipo")
+        if not isinstance(tipo, str) or tipo not in VALID_TYPES:
             problems.append(f"{case_id}: tipo debe ser tipico, limite o adversarial")
-        if case.get("suite") not in VALID_SUITES:
+        suite = case.get("suite")
+        if not isinstance(suite, str) or suite not in VALID_SUITES:
             problems.append(f"{case_id}: suite debe ser nucleo o extension")
         if not isinstance(case.get("remitente"), str) or not case.get("remitente", "").strip():
             problems.append(f"{case_id}: remitente debe ser una cadena no vacía")
@@ -90,7 +93,8 @@ def check_dataset(cases: list) -> list[str]:
         if not isinstance(expected, dict):
             problems.append(f"{case_id}: falta salida_esperada")
             continue
-        if expected.get("ruta") not in FINAL_ROUTES:
+        ruta = expected.get("ruta")
+        if not isinstance(ruta, str) or ruta not in FINAL_ROUTES:
             problems.append(
                 f"{case_id}: la ruta esperada es la salida final del sistema y debe ser soporte, ventas, "
                 "facturacion o escalar_humano; 'otro' solo es una ruta intermedia que puede proponer "
@@ -199,7 +203,7 @@ def offline_llm(text: str, version: str) -> dict:
     return {"ruta": "otro", "confianza": "baja", "razon": "No se encontró una categoría suficientemente clara.", "fuente": "ia", "escalar": True}
 
 
-def live_llm(text: str, model: str) -> dict:
+def live_llm(text: str, model: str, timeout: float = LIVE_TIMEOUT_SECONDS) -> dict:
     """2. IA real (opcional): Claude con salida estructurada por JSON Schema."""
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
@@ -243,15 +247,26 @@ def live_llm(text: str, model: str) -> dict:
         method="POST",
     )
     try:
-        with urlopen(request, timeout=LIVE_TIMEOUT_SECONDS) as response:
+        with urlopen(request, timeout=timeout) as response:
             body = json.loads(response.read().decode("utf-8"))
     except (HTTPError, URLError, TimeoutError) as exc:
         raise RuntimeError(f"falló la llamada a Claude: {exc}") from exc
 
     try:
-        text_block = next(block["text"] for block in body["content"] if block.get("type") == "text")
+        if not isinstance(body, dict) or not isinstance(body.get("content"), list):
+            raise ValueError("la respuesta no contiene una lista content")
+        text_block = next(
+            (
+                block.get("text")
+                for block in body["content"]
+                if isinstance(block, dict) and block.get("type") == "text" and isinstance(block.get("text"), str)
+            ),
+            None,
+        )
+        if text_block is None:
+            raise ValueError("la respuesta no contiene un bloque de texto")
         return json.loads(text_block)
-    except (KeyError, StopIteration, TypeError, json.JSONDecodeError) as exc:
+    except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
         raise ValueError("Claude devolvió una salida que no es JSON parseable") from exc
 
 
@@ -266,17 +281,20 @@ def validate_output(output: object) -> list[str]:
     extra = output.keys() - REQUIRED_FIELDS
     if extra:
         errors.append(f"campos no previstos: {sorted(extra)}")
-    if output.get("ruta") not in MODEL_ROUTES:
+    ruta = output.get("ruta")
+    if not isinstance(ruta, str) or ruta not in MODEL_ROUTES:
         errors.append("ruta inválida")
-    if output.get("confianza") not in ALLOWED_CONFIDENCE:
+    confianza = output.get("confianza")
+    if not isinstance(confianza, str) or confianza not in ALLOWED_CONFIDENCE:
         errors.append("confianza inválida")
     if not isinstance(output.get("razon"), str) or not output.get("razon", "").strip():
         errors.append("razon vacía")
-    if output.get("fuente") not in ALLOWED_SOURCES:
+    fuente = output.get("fuente")
+    if not isinstance(fuente, str) or fuente not in ALLOWED_SOURCES:
         errors.append("fuente inválida")
     if not isinstance(output.get("escalar"), bool):
         errors.append("escalar debe ser booleano")
-    if output.get("ruta") == "escalar_humano" and output.get("escalar") is not True:
+    if ruta == "escalar_humano" and output.get("escalar") is not True:
         errors.append("escalar debe ser true cuando la ruta es escalar_humano")
     return errors
 
@@ -305,7 +323,13 @@ def stage_human(output: dict) -> tuple[dict, str]:
     return final, "humano: escala (" + ", ".join(reasons) + ")"
 
 
-def run_case(case: dict, mode: str, version: str, model: str) -> tuple[dict, list[str], list[str]]:
+def run_case(
+    case: dict,
+    mode: str,
+    version: str,
+    model: str,
+    request_timeout: float | None = None,
+) -> tuple[dict, list[str], list[str]]:
     trace: list[str] = []
     errors: list[str] = []
     text = case.get("texto", "")
@@ -320,7 +344,11 @@ def run_case(case: dict, mode: str, version: str, model: str) -> tuple[dict, lis
     if output is None:
         label = "IA (simulada)" if mode == "offline" else "IA"
         try:
-            output = offline_llm(text, version) if mode == "offline" else live_llm(text, model)
+            output = (
+                offline_llm(text, version)
+                if mode == "offline"
+                else live_llm(text, model, LIVE_TIMEOUT_SECONDS if request_timeout is None else request_timeout)
+            )
         except (RuntimeError, ValueError) as exc:
             errors.append(str(exc))
             trace.append(f"{label}: error")
@@ -363,6 +391,13 @@ def main() -> int:
     args = parser.parse_args()
     suite = SUITE_ALIASES[args.suite]
 
+    if args.max_cases <= 0:
+        print("ERROR: --max-cases debe ser un entero positivo.", file=sys.stderr)
+        return 2
+    if not math.isfinite(args.max_seconds) or args.max_seconds <= 0:
+        print("ERROR: --max-seconds debe ser un número finito y positivo.", file=sys.stderr)
+        return 2
+
     if args.modo == "live" and not os.environ.get("ANTHROPIC_API_KEY"):
         print("ERROR: falta ANTHROPIC_API_KEY. Una falla de autenticación no es una medición.", file=sys.stderr)
         print("Fallback de clase: python3 ejemplo/camino_dorado.py --modo offline --version v1", file=sys.stderr)
@@ -394,10 +429,16 @@ def main() -> int:
     correct = 0
     blocked = []
     for case in cases:
-        if time.monotonic() - started > args.max_seconds:
+        remaining = args.max_seconds - (time.monotonic() - started)
+        if remaining <= 0:
             print(f"BLOQUEADO {case['id']}: se agotó el presupuesto temporal", file=sys.stderr)
             blocked.append(case["id"]); continue
-        output, errors, trace = run_case(case, args.modo, args.version, args.model)
+        request_timeout = min(LIVE_TIMEOUT_SECONDS, remaining) if args.modo == "live" else None
+        output, errors, trace = run_case(case, args.modo, args.version, args.model, request_timeout)
+        exceeded = time.monotonic() - started > args.max_seconds
+        if exceeded:
+            errors = [*errors, "se agotó el presupuesto temporal antes de validar este caso"]
+            trace.append("presupuesto: fuera de tiempo -> medición bloqueada")
         expected = case["salida_esperada"]
         passed = not errors and output.get("ruta") == expected["ruta"] and output.get("escalar") == expected["escalar"]
         correct += int(passed)

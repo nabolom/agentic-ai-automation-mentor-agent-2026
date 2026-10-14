@@ -33,4 +33,6 @@ Comparación hecha por `comparar.py` contra `esperado.md`, sin preguntarle a nin
 
 ## Actualización pedagógica posterior
 
-El 2026-10-13 se alinearon las instrucciones de **Qué llevo a S2** con el modelo de cohorte vigente: 6 casos núcleo (4 típicos, 1 límite y 1 adversarial) como requisito, y 10 casos (5 típicos, 3 límite y 2 adversariales) como extensión opcional. La evidencia de la corrida original del 2026-10-09 y sus resultados no se modificó.
+El 2026-10-14 se alinearon las instrucciones de **Qué llevo a S2** con el modelo de cohorte vigente: 3 casos ancla (típico, límite y adversarial) como mínimo de la sesión, 6 casos núcleo (4 típicos, 1 límite y 1 adversarial) como continuidad posterior y 10 casos (5 típicos, 3 límite y 2 adversariales) como extensión opcional. La evidencia de la corrida original del 2026-10-09 y sus resultados no se modificó.
+
+El comparador actual añade checks estructurales para impedir que una salida con frontmatter incompleto, tabla de dimensiones ausente o notas vacías reciba el mismo aprobado que un assessment completo.

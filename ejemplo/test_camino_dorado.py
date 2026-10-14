@@ -108,12 +108,14 @@ class _RespuestaFalsa:
         return self._cuerpo
 
 
-def api_falsa(texto_del_modelo: str, solicitudes: list):
+def api_falsa(texto_del_modelo: str, solicitudes: list, tiempos: list | None = None):
     """Ocupa el lugar de urlopen: guarda la solicitud y devuelve lo que diría la API."""
     cuerpo = json.dumps({"content": [{"type": "text", "text": texto_del_modelo}]}).encode("utf-8")
 
     def responder(request, timeout=None):
         solicitudes.append(request)
+        if tiempos is not None:
+            tiempos.append(timeout)
         return _RespuestaFalsa(cuerpo)
 
     return responder
@@ -209,6 +211,9 @@ class Casos(unittest.TestCase):
             dict(base, id="X3", salida_esperada={"ruta": "otro", "escalar": True}),
             dict(base, id="X4", salida_esperada={"ruta": "escalar_humano", "escalar": False}),
             dict(base, id="X5"),
+            dict(base, id="X6", tipo=[], salida_esperada={"ruta": "ventas", "escalar": False}),
+            dict(base, id="X7", suite=[], salida_esperada={"ruta": "ventas", "escalar": False}),
+            dict(base, id="X8", salida_esperada={"ruta": [], "escalar": False}),
         ]
         problemas = " | ".join(cd.check_dataset(malos))
         self.assertIn("X1: id repetido", problemas)
@@ -217,6 +222,9 @@ class Casos(unittest.TestCase):
         self.assertIn("'otro' solo es una ruta intermedia que puede proponer el modelo", problemas)
         self.assertIn("X4: escalar_humano y escalar=true van juntos", problemas)
         self.assertIn("X5: falta salida_esperada", problemas)
+        self.assertIn("X6: tipo debe ser", problemas)
+        self.assertIn("X7: suite debe ser", problemas)
+        self.assertIn("X8: la ruta esperada es la salida final del sistema", problemas)
 
     def test_casos_invalidos_no_producen_una_tasa(self):
         with tempfile.TemporaryDirectory() as carpeta:
@@ -320,6 +328,13 @@ class Contrato(unittest.TestCase):
                     any(esperado in error for error in cd.validate_output(candidata)),
                     f"no se detectó: {esperado}",
                 )
+        for candidata, esperado in (
+            (salida(ruta=[]), "ruta inválida"),
+            (salida(confianza=[]), "confianza inválida"),
+            (salida(fuente=[]), "fuente inválida"),
+        ):
+            with self.subTest(tipo_invalido=esperado):
+                self.assertTrue(any(esperado in error for error in cd.validate_output(candidata)))
 
     def test_salida_invalida_no_pasa_al_siguiente_paso(self):
         with mock.patch.object(cd, "offline_llm", return_value=salida(ruta="legal")):
@@ -347,6 +362,14 @@ class ModoLiveSinRed(unittest.TestCase):
             resultado = cd.run_case(self.CASO, "live", "v1", "modelo-de-prueba")
         return resultado, solicitudes
 
+    def test_el_timeout_restante_se_pasa_al_transporte(self):
+        solicitudes, tiempos = [], []
+        with mock.patch.object(cd, "urlopen", side_effect=api_falsa(json.dumps(salida()), solicitudes, tiempos)):
+            final, errores, _ = cd.run_case(self.CASO, "live", "v1", "modelo-de-prueba", request_timeout=2.5)
+        self.assertEqual(final["ruta"], "soporte")
+        self.assertEqual(errores, [])
+        self.assertEqual(tiempos, [2.5])
+
     def test_ninguna_prueba_sale_a_internet(self):
         with self.assertRaises(AssertionError):
             cd.urlopen("https://api.anthropic.com/v1/messages")
@@ -373,6 +396,13 @@ class ModoLiveSinRed(unittest.TestCase):
         self.assertEqual((final["ruta"], final["fuente"], final["escalar"]), ("escalar_humano", "harness", True))
         self.assertIn("no es JSON parseable", errores[0])
         self.assertIn("validación: sin salida que validar", traza)
+
+    def test_bloque_de_contenido_no_objeto_escala_sin_traceback(self):
+        cuerpo = json.dumps({"content": [7]}).encode("utf-8")
+        with mock.patch.object(cd, "urlopen", return_value=_RespuestaFalsa(cuerpo)):
+            final, errores, _ = cd.run_case(self.CASO, "live", "v1", "modelo-de-prueba")
+        self.assertEqual((final["ruta"], final["fuente"], final["escalar"]), ("escalar_humano", "harness", True))
+        self.assertIn("no es JSON parseable", errores[0])
 
     def test_ruta_fuera_del_contrato_escala(self):
         (final, errores, _), _ = self.correr_live(json.dumps(salida(ruta="legal")))
@@ -408,6 +438,21 @@ class ModoLiveSinRed(unittest.TestCase):
 
 
 class MedicionEstrica(unittest.TestCase):
+    def test_presupuesto_no_finito_no_hace_medicion(self):
+        codigo, out, err = correr_main("--max-seconds", "nan")
+        self.assertEqual(codigo, 2)
+        self.assertNotIn("TASA:", out)
+        self.assertIn("finito y positivo", err)
+
+    def test_caso_que_termina_fuera_de_presupuesto_bloquea_la_tasa(self):
+        relojes = [0.0, 0.0, 1.0] + [1.0] * 20
+        with mock.patch.object(cd, "run_case", return_value=(salida(), [], [])):
+            with mock.patch.object(cd.time, "monotonic", side_effect=relojes):
+                codigo, out, err = correr_main("--max-seconds", "0.5")
+        self.assertEqual(codigo, 2)
+        self.assertNotIn("TASA:", out)
+        self.assertIn("MEDICION BLOQUEADA", err)
+
     def test_error_de_api_bloquea_la_tasa_en_main(self):
         with mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": CLAVE_DE_RELLENO}):
             with mock.patch.object(cd, "urlopen", side_effect=URLError("API caída")):
