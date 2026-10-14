@@ -166,11 +166,11 @@ Escríbelo así: `Enseñar: objetivos, contexto, …` · `Retar: …` · `Revisa
 
 Según la ruta:
 
-- `construir` → **6 casos recordados, no inventados** (4 típicos, 1 límite, 1 adversarial), de su proceso, con la salida esperada de cada uno. Los 10 de la suite extendida son opcionales.
-- `endurecer` → el **export o prompt actual** y **6 casos reales** (4/1/1); 10 si quiere la extendida.
-- `productificar` → el **export** y el **nombre de quien lo va a correr** sin la persona.
-- `escalar` → el **costo real de un mes** (consola o factura) y **6 casos de producción** (4/1/1); 10 si quiere la extendida.
-- `todavia-no` → el **mapa del proceso** con hechos, inferencias y faltantes separados.
+- `construir` → proceso o caso acotado, una decisión candidata y **3 casos ancla recordados, no inventados** (típico, límite y adversarial), con la salida esperada de cada uno. Los 6 casos núcleo son continuidad posterior; los 10 de la suite extendida son opcionales.
+- `endurecer` → el **export o prompt actual**, una decisión difícil y **3 casos reales** (típico, límite y adversarial); 6 si quiere cerrar el núcleo y 10 si quiere la extendida.
+- `productificar` → el **export**, el **nombre de quien lo va a correr** sin la persona y una decisión concreta que esa persona pueda verificar con 3 casos ancla.
+- `escalar` → el **costo real de un mes** (consola o factura), una decisión de producción y **3 casos ancla**; 6 para el núcleo y 10 para la extendida.
+- `todavia-no` → el **mapa del proceso** con hechos, inferencias y faltantes separados; después vuelve a Ruta 2 para elegir una decisión y tres casos ancla.
 
 ### Al cerrar
 

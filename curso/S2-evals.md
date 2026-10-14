@@ -44,6 +44,8 @@ Cada cambio conserva la versión anterior: v0, v1, v2. Los prompts se miden como
 | **EN TERMINAL** | `git`, `python3`/`py`, `claude`, archivos y commits |
 | **DENTRO DE CLAUDE CODE/COWORK** | preguntas al Mentor, `/eval`, `/arrancar` y decisiones |
 
+`/arrancar` es una herramienta condicional para convertir un proceso acotado en diseño; no es la puerta universal. Primero elige Ruta 1, Ruta 2 o Ruta 3 y fija una decisión.
+
 Para salir de Claude Code escribe `/exit` o usa el mecanismo de tu terminal. No pegues comandos de shell dentro de la conversación ni prompts del Mentor en la shell.
 
 ### Por qué los casos van antes que el prompt

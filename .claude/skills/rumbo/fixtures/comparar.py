@@ -14,6 +14,9 @@ except AttributeError:
 
 AQUI = pathlib.Path(__file__).resolve().parent
 DIMS = ["objetivos","delegacion","contexto","evaluacion","harness","loop","gobernanza","mejora","producto","economia"]
+REQUIRED_FRONTMATTER = ("nombre", "fecha", "ruta", "usuario_final", "estado_actual", "prediccion", "evidencia", "brecha_mayor")
+REQUIRED_HEADINGS = ("# Mi rumbo", "## Mapa: predicción contra evidencia", "## Cómo me va a acompañar el agente", "## Qué llevo a S2", "## Notas del assessment")
+REQUIRED_NOTES = ("**Hechos**", "**Inferencias**", "**Faltantes**")
 
 def leer_esperado():
     filas = {}
@@ -84,14 +87,51 @@ def check_extra(spec, fm, cuerpo):
             ok &= bool(r); resultados.append(f"nota '{clave}': {'ok' if r else 'FALTA'}")
     return ok, "; ".join(resultados)
 
+def check_structure(texto, fm):
+    """Valida que la salida no sea solo frontmatter o unas frases sueltas."""
+    problemas = []
+    missing_fm = [key for key in REQUIRED_FRONTMATTER if not fm.get(key, "").strip()]
+    if missing_fm:
+        problemas.append("frontmatter incompleto: " + ", ".join(missing_fm))
+    for campo in ("prediccion", "evidencia"):
+        valores = dict_niveles(fm.get(campo, ""))
+        if any(valor is None for valor in valores.values()):
+            problemas.append(f"{campo} debe contener las diez dimensiones")
+    for heading in REQUIRED_HEADINGS:
+        if heading not in texto:
+            problemas.append(f"falta encabezado: {heading}")
+    for note in REQUIRED_NOTES:
+        if note not in texto:
+            problemas.append(f"falta sección de notas: {note}")
+
+    mapa = re.search(r"^## Mapa: predicción contra evidencia\s*$\n(.*?)(?=^## |\Z)", texto, re.M | re.S)
+    dimensiones = []
+    if mapa:
+        for linea in mapa.group(1).splitlines():
+            m = re.match(r"^\|\s*([^|]+?)\s*\|", linea)
+            if m and m.group(1).strip() in DIMS:
+                dimensiones.append(m.group(1).strip())
+        if len(dimensiones) != len(DIMS) or set(dimensiones) != set(DIMS):
+            problemas.append(f"la tabla del mapa debe tener exactamente diez dimensiones; tiene {len(dimensiones)}")
+    else:
+        problemas.append("no se pudo localizar la tabla del mapa")
+
+    rumbo = re.search(r"^# Mi rumbo\s*$\n(.*?)(?=^## |\Z)", texto, re.M | re.S)
+    if not rumbo or not rumbo.group(1).strip():
+        problemas.append("cuerpo de Mi rumbo vacío")
+    llevar = re.search(r"^## Qué llevo a S2\s*$\n(.*?)(?=^## |\Z)", texto, re.M | re.S)
+    if not llevar or not llevar.group(1).strip():
+        problemas.append("Qué llevo a S2 vacío")
+    return not problemas, "; ".join(problemas) if problemas else "estructura mínima OK"
+
 def main():
     esperado = leer_esperado()
     salidas = AQUI/"salidas"
-    filas = []; rutas_ok = 0; niveles_ok = 0; con_nivel = 0; extras_ok = True
+    filas = []; rutas_ok = 0; niveles_ok = 0; con_nivel = 0; extras_ok = True; estructura_ok = True
     for fx in sorted(esperado):
         f = salidas/f"{fx}.md"
         if not f.exists():
-            filas.append((fx, "SIN SALIDA", "", "", "")); continue
+            filas.append((fx, "SIN SALIDA", "", "", "", "")); continue
         texto = f.read_text(encoding="utf-8")
         fm = frontmatter(texto)
         ev = dict_niveles(fm.get("evidencia",""))
@@ -101,23 +141,24 @@ def main():
         if esperado[fx]["niveles"].strip() not in ("","—","-"):
             con_nivel += 1; niveles_ok += n_ok
         e_ok, e_det = check_extra(esperado[fx]["checks"], fm, texto)
+        s_ok, s_det = check_structure(texto, fm)
         extras_ok &= e_ok
-        filas.append((fx, f"{ruta} {'✅' if r_ok else '❌ esperado '+esperado[fx]['ruta']}", f"{n_det} {'✅' if n_ok else '❌'}", f"{e_det} {'✅' if e_ok else '❌'}", " ".join(f"{d[:3]}={ev[d]}" for d in DIMS)))
+        estructura_ok &= s_ok
+        filas.append((fx, f"{ruta} {'✅' if r_ok else '❌ esperado '+esperado[fx]['ruta']}", f"{n_det} {'✅' if n_ok else '❌'}", f"{e_det} {'✅' if e_ok else '❌'}", f"{s_det} {'✅' if s_ok else '❌'}", " ".join(f"{d[:3]}={ev[d]}" for d in DIMS)))
     # Búsqueda portable de la llave; no dependemos de grep ni de PowerShell.
     llave_limpia = True
     for archivo in salidas.rglob("*"):
         if archivo.is_file() and "sk-ant-FAKE" in archivo.read_text(encoding="utf-8", errors="replace"):
             llave_limpia = False
             break
-    print("| Fixture | Ruta | Niveles | Checks | Evidencia |")
-    print("|---|---|---|---|---|")
+    print("| Fixture | Ruta | Niveles | Checks | Estructura | Evidencia |")
+    print("|---|---|---|---|---|---|")
     for fila in filas: print("| " + " | ".join(fila) + " |")
     print()
-    print(f"Ruta exacta: {rutas_ok}/10 · Niveles ±1: {niveles_ok}/{con_nivel} (de los que tienen nivel) · Checks extra: {'ok' if extras_ok else 'FALLA'} · búsqueda sk-ant-FAKE en salidas/: {'vacío ✅' if llave_limpia else 'ENCONTRADO ❌'}")
-    # Criterio literal: ruta exacta 10/10 y niveles dentro de ±1 en al menos 8/10.
-    # Solo 5 fixtures tienen nivel fijado en esperado.md, así que "8/10" se lee como
-    # "todos los que tienen nivel fijado pasan" (5/5), más los checks extra y el grep.
-    pasa = rutas_ok == 10 and extras_ok and llave_limpia and niveles_ok == con_nivel
+    print(f"Ruta exacta: {rutas_ok}/10 · Niveles ±1: {niveles_ok}/{con_nivel} (dimensiones fijadas) · Checks extra: {'ok' if extras_ok else 'FALLA'} · Estructura: {'ok' if estructura_ok else 'FALLA'} · búsqueda sk-ant-FAKE en salidas/: {'vacío ✅' if llave_limpia else 'ENCONTRADO ❌'}")
+    # Criterio explícito: ruta exacta 10/10, todas las dimensiones fijadas (5/5),
+    # checks extra, estructura mínima completa y ausencia de una clave ficticia.
+    pasa = rutas_ok == 10 and extras_ok and estructura_ok and llave_limpia and niveles_ok == con_nivel
     print("CRITERIO DE SALIDA:", "PASA" if pasa else "NO PASA")
     sys.exit(0 if pasa else 1)
 

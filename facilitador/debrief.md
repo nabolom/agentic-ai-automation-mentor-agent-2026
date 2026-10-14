@@ -24,7 +24,7 @@ Clasifica cada respuesta en una de estas señales:
 | Tiene casos, pero no salida esperada | Medición no fijada | Ayudar a escribir la verdad |
 | Quiere loop sin criterio de parada | Complejidad prematura | Tomar ruta no-loop |
 | Tiene número, pero no sabe qué mide | Modo confundido | Separar escritorio/sistema/importado |
-| No tiene proceso acotado | Alcance difuso | Camino dorado o `/arrancar` |
+| No tiene proceso acotado | Alcance difuso | Camino dorado → Ruta 2; `/arrancar` solo después de acotar una decisión |
 
 ## Preguntas para mejorar el curso
 

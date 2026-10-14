@@ -45,6 +45,7 @@ def main():
     python = sys.executable
     checks = [
         ('pruebas reproducibles', [python,'-m','unittest','ejemplo.test_camino_dorado','-q'], 0, 'OK'),
+        ('pruebas estructurales de /rumbo', [python,'-m','unittest','test_rumbo_comparar','-q'], 0, 'OK'),
         ('fixtures de /rumbo', [python,'-I','.claude/skills/rumbo/fixtures/comparar.py'], 0, 'CRITERIO DE SALIDA: PASA'),
         ('camino dorado v0 núcleo', [python,'ejemplo/camino_dorado.py','--modo','offline','--version','v0','--suite','nucleo'], 1, 'TASA: 4/6'),
         ('camino dorado v1 núcleo', [python,'ejemplo/camino_dorado.py','--modo','offline','--version','v1','--suite','nucleo'], 0, 'TASA: 6/6'),
