@@ -5,6 +5,13 @@ Imprime una tabla y sale con 0 si cumple el criterio de salida, 1 si no.
 """
 import re, sys, pathlib
 
+# GitHub Actions en Windows puede iniciar Python con cp1252; los reportes usan
+# indicadores Unicode, así que normalizamos la salida sin depender de la consola.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except AttributeError:
+    pass
+
 AQUI = pathlib.Path(__file__).resolve().parent
 DIMS = ["objetivos","delegacion","contexto","evaluacion","harness","loop","gobernanza","mejora","producto","economia"]
 
