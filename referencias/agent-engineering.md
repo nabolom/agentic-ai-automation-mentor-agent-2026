@@ -1,15 +1,15 @@
 ---
 type: referencia-campo
-title: Agent Engineering — estado del arte 2026
+title: Panorama de Agent Engineering Q4-2026
 description: Hechos verificados sobre el estado del campo. Solo fuentes primarias. Lo no verificable está marcado como tal.
 resource: https://www.langchain.com/state-of-agent-engineering
-tags: [agent-engineering, estado-del-arte, verificado]
+tags: [agent-engineering, panorama-q4-2026, verificado]
 timestamp: 2026-10-09T00:00:00Z
 ---
 
-# Agent Engineering — estado del arte
+# Panorama de Agent Engineering Q4-2026
 
-> **Verificado: 9 octubre 2026** (METR y multiagente) y 13 julio 2026 (LangChain). Solo fuentes primarias. Lo que no se pudo verificar está marcado y **no se presenta en clase**.
+> **Corte editorial del repositorio: 14 octubre 2026.** Los hechos externos mantienen su propia fecha de verificación: 9 octubre 2026 (Claude API, MCP, n8n, OKF, METR y multiagente), 13 julio 2026 (LangChain, harness y gobernanza). Solo fuentes primarias. Lo que no se pudo verificar está marcado y **no se presenta en clase**.
 
 ## La tesis
 

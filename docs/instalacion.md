@@ -43,10 +43,9 @@ Haz estas comprobaciones antes de la sesión:
 ```bash
 claude --version
 git --version
-claude doctor
 ```
 
-`claude doctor` muestra diagnósticos de instalación y configuración sin iniciar una sesión, según la [guía oficial de setup](https://code.claude.com/docs/en/setup). Si algún paso falla, conserva el mensaje o una captura y lleva el problema a office hours; no necesitas resolverlo para participar en la actividad.
+Después entra con `claude` y, dentro de la sesión, usa `/doctor` si necesitas un diagnóstico de configuración. La [guía oficial de Claude Code](https://code.claude.com/docs/en/quickstart) también ofrece `/help` y `/exit` para orientarte. Si algún paso falla, conserva el mensaje o una captura y lleva el problema a office hours; no necesitas resolverlo para participar en la actividad.
 
 El preflight de Python, Node.js y NPM es condicional a la ruta del proyecto. No instales Node/NPM solo para hacer funcionar Claude Code: el instalador nativo no los necesita.
 

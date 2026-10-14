@@ -1,7 +1,7 @@
 ---
 type: dependencias-y-preflight
 title: Dependencias y preflight por ruta
-description: Qué instalar antes de S2 en macOS, Windows y Linux sin convertir el onboarding en soporte técnico.
+description: Qué instalar para la primera medición en macOS, Windows y Linux sin convertir el onboarding en soporte técnico.
 tags: [instalacion, preflight, onboarding, dependencias]
 timestamp: 2026-10-13T00:00:00Z
 ---
@@ -14,7 +14,7 @@ timestamp: 2026-10-13T00:00:00Z
 
 ## 1. Matriz rápida
 
-| Elemento | Ruta estándar de código | Ruta visual/Cowork | ¿Es requisito antes de S2? |
+| Elemento | Ruta estándar de código | Ruta visual/Cowork | ¿Es requisito para la primera medición? |
 |---|---|---|---|
 | Cuenta de GitHub y acceso al repo | Sí | Sí | Sí |
 | Git | Sí, para clonar y guardar evidencia | Recomendado; puede esperar si trabajarás en Cowork o ZIP | Sí para la ruta estándar |
@@ -48,8 +48,9 @@ Confirma que tienes:
 ```bash
 claude --version
 git --version
-claude doctor
 ```
+
+Después entra con `claude` y, dentro de la sesión, usa `/doctor` si necesitas un diagnóstico de configuración.
 
 Para Python:
 
@@ -149,7 +150,7 @@ No instales Node/NPM para “hacer funcionar Claude Code”: la ruta nativa de C
 
 | Estado | Significa | Qué hago |
 |---|---|---|
-| **Verde** | Tengo Claude Code o Cowork, acceso al repo y puedo seguir una ruta. | Continúo con la ruta crítica antes de S2. |
+| **Verde** | Tengo Claude Code o Cowork, acceso al repo y puedo seguir una ruta. | Continúo con la ruta de preparación y continuidad de S1+S2. |
 | **Amarillo** | Me falta Git o Python, pero tengo Cowork, el repo o `casos.json`. | Uso el fallback; llevo la falla documentada a office hours. |
 | **Azul** | Me falta Node/NPM, pero mi proyecto no usa JS/TS, n8n local ni MCP. | No hago nada todavía. No es bloqueo. |
 | **Rojo** | No tengo acceso al repo ni una ruta de trabajo. | Pido acceso o uso el camino dorado compartido antes de clase. |
@@ -167,7 +168,7 @@ No instales Node/NPM para “hacer funcionar Claude Code”: la ruta nativa de C
 
 ## 6. Qué no instalar todavía
 
-Antes de S2 no necesitas:
+Para la primera medición todavía no necesitas:
 
 - Node.js/NPM si tu ruta no los usa;
 - Docker;
@@ -182,7 +183,7 @@ Primero: proceso, decisión, contrato, seis casos y salida esperada.
 
 ## Referencias
 
-- [Ruta crítica antes de S2](ruta-critica-antes-de-s2.md)
+- [Ruta de preparación y continuidad de S1+S2](ruta-continuidad-s1-s2.md)
 - [Instalación y arranque](instalacion.md)
 - [Empieza aquí como Aprendedor(a)](../ALUMNO-EMPIEZA-AQUI.md)
 - [Setup oficial de Claude Code](https://code.claude.com/docs/en/setup)

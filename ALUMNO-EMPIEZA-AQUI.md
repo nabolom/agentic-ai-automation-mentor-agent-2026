@@ -1,95 +1,119 @@
 # Empieza aquí — Aprendedor(a)
 
-Esta página es tu **orientación ampliada**. No necesitas leer todo el repositorio antes de empezar.
+Esta página te lleva a tu **primera sesión técnica**. La reunión anterior fue de bienvenida y contexto; no necesitas asumir que ya sabes construir un agente.
 
-> **Si tu siguiente actividad es S2, ve primero a la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md).** Esa es la única ruta canónica: 60–90 minutos, una decisión, seis casos y un fallback.
+## Tu objetivo de hoy
 
-## Tu objetivo
-
-Vas a convertir una automatización o una idea en un sistema que puedas explicar, medir y dejar operable por otra persona.
+Vas a entrar al repositorio con Claude Code y el Agente Mentor para convertir una idea, un proceso o una automatización existente en **una decisión concreta que podamos observar y medir**.
 
 ```text
-proceso → decisión → evals → diagnóstico → límites → handoff
+proceso → decisión → casos → medición → diagnóstico → límites → handoff
 ```
 
-No es obligatorio construir un agente autónomo. Justificar un workflow con un solo paso de IA, o decidir no automatizar todavía, también es un resultado válido.
+No necesitas construir un agente completo. Según lo que traigas, puedes descubrir, construir, endurecer o productificar/escalar.
 
-## 1. Elige tu ruta
+## Antes de abrir Claude Code
 
-| Si… | Empieza por… |
-|---|---|
-| Tu siguiente actividad es S2 | [`Ruta crítica antes de S2`](docs/ruta-critica-antes-de-s2.md) |
-| Ya tienes proceso, automatización, seis casos y una falla documentada | La **fast lane** dentro de la ruta crítica |
-| Tienes una idea, pero todavía no un proceso acotado | La ruta crítica y después `/arrancar` |
-| No tienes entorno o la herramienta no funciona | [`Camino dorado`](ejemplo/README.md), offline o en papel |
-| Trabajas en n8n, Make, Cowork u otra herramienta visual | Ruta crítica; el contrato y la evidencia son los mismos |
+1. Usa **Use this template** para crear tu copia privada o abre la copia que ya tienes.
+2. Abre una terminal en la carpeta de tu repositorio.
+3. Verifica que Claude Code exista:
 
-## 2. Primera entrada: 15 minutos
+```bash
+claude --version
+```
 
-1. Usa la plantilla de GitHub para crear tu copia privada, o trabaja en la copia que ya tienes.
-2. Elige **Claude Code o Cowork**. No necesitas ambas herramientas.
-3. Consulta [`Dependencias y preflight`](docs/dependencias-y-preflight.md) solo para verificar la ruta que elegiste o resolver un bloqueo.
-4. Ve a la [Ruta crítica antes de S2](docs/ruta-critica-antes-de-s2.md) y sigue su checklist.
+4. Entra al repositorio:
 
-Si no tienes Python, Git o autenticación lista, no detengas el aprendizaje: abre [`ejemplo/casos.json`](ejemplo/casos.json), recorre los seis casos y conserva la evidencia para office hours.
+```bash
+claude
+```
 
-## 3. Qué debes traer a S2
+Si algo falla, guarda el mensaje o una captura. No conviertas tu primera sesión en una batalla de instalación: usa el [Camino dorado](ejemplo/README.md) offline o en papel y lleva el bloqueo a office hours.
 
-La preparación mínima es:
+## Primer mensaje al Agente Mentor
 
-- un proceso propio o el caso común;
-- una sola decisión de IA;
-- seis casos: 4 típicos, 1 límite y 1 adversarial;
-- la salida esperada de cada caso;
-- una ruta de fallback si la herramienta falla.
-
-No necesitas crear todavía todos los archivos del proyecto. `flujo.md`, `alcance.md`, `decisiones.md`, `reglas.md` y `evals.md` se construyen o completan durante S2.
-
-## 4. Cómo pedir acompañamiento
-
-Dentro de Claude Code o Cowork puedes decir:
+Pega esto dentro de Claude Code:
 
 ```text
-Lee CLAUDE.md, ACOMPANAMIENTO.md y docs/ruta-critica-antes-de-s2.md.
+Lee CLAUDE.md y ACOMPANAMIENTO.md.
+Dime qué repositorio abrí, qué hace el Agente Mentor y qué comandos del proyecto están disponibles.
+No edites archivos todavía.
+```
+
+Después continúa con:
+
+```text
 Hazme una pregunta a la vez.
-Ayúdame a preparar una sola decisión de una automatización.
-No avances hasta que pueda explicar if, IA, validación y humano.
-No inventes mis salidas esperadas: ayúdame a fijarlas.
-Si no tengo un proceso acotado, usa el camino dorado como andamio.
+Ayúdame a elegir entre descubrir, construir, endurecer o productificar/escalar.
+No inventes mi proceso, mis casos ni mis salidas esperadas.
+Si todavía no tengo un proceso acotado, usa el camino dorado como andamio.
 ```
 
-El acompañamiento cambia según tu evidencia:
+## Elige tu track
 
-- **Nivel 0–1:** explicación breve, ejemplo y una pregunta.
-- **Nivel 2:** reto y evidencia faltante: número, archivo o criterio.
-- **Nivel 3:** revisión como par: riesgos y contradicciones.
+| Si… | Tu track | Tu salida de hoy |
+|---|---|---|
+| Tienes una idea o proceso, pero nada construido | **Descubrir** | Proceso acotado y decisión que vale la pena explorar |
+| Tienes un prototipo o automatización que solo tú corres | **Construir** | Mapa `if` / IA / herramienta / humano y una decisión |
+| Ya funciona, pero falla o no tiene número | **Endurecer** | Una falla, una decisión difícil y una línea base posible |
+| Ya corre para otras personas | **Productificar / escalar** | Cuello de botella, riesgo, costo o handoff que falta |
 
-## 5. Qué no necesitas hacer todavía
+Después, si aplica, ejecuta `/rumbo`. El assessment fija una ruta; el acompañamiento te ayuda a trabajarla sin inventar evidencia.
+
+## El caso común
+
+Abre [`ejemplo/README.md`](ejemplo/README.md) y lee **Problema**, **Qué vas a hacer aquí** y **La secuencia que enseña**.
+
+Si no tienes proyecto propio, el camino dorado es tu andamio válido. Si ya tienes automatización, úsalo para calibrar el criterio y luego transfiérelo a una sola decisión de tu sistema.
+
+```text
+if → IA → salida estructurada → validación → humano
+```
+
+## Entregable mínimo de la sesión
+
+Guarda en una nota, en `rumbo.md` o en el archivo que el Mentor te indique:
+
+- una frase de proceso o caso;
+- una sola decisión de IA;
+- tres casos ancla: uno típico, uno límite y uno adversarial;
+- la salida esperada de cada caso;
+- una duda concreta o siguiente paso.
+
+Después de la sesión completa la suite de seis casos: 4 típicos, 1 límite y 1 adversarial. Los diez casos son opcionales.
+
+## Qué no necesitas hacer hoy
 
 - No necesitas construir un agente autónomo.
 - No necesitas conectar una API real.
-- No necesitas instalar Node/NPM si tu proyecto no los usa.
-- No necesitas usar n8n si tu proceso vive en otra herramienta.
-- No necesitas construir un loop.
+- No necesitas instalar Node/NPM si tu ruta no los usa.
+- No necesitas exigir que tu automatización existente se vuelva un agente.
 - No necesitas completar diez casos.
-- No necesitas traer datos sensibles reales.
+- No necesitas pegar datos sensibles en el repo o en el chat.
 
-## 6. Cómo sabrás que avanzaste
+## Si algo falla
+
+- **Claude Code no inicia:** conserva el error y usa el camino dorado.
+- **Git no está listo:** trabaja con la copia disponible, Cowork, ZIP o papel; instala después.
+- **No tienes Python:** abre `ejemplo/casos.json` y recorre los casos manualmente.
+- **Tu automatización ya existe:** no vuelvas a empezar; elige una falla o cuello de botella.
+- **No tienes proceso propio:** usa el caso común y marca la transferencia como siguiente paso.
+
+## Cómo sabrás que avanzaste
 
 Puedes responder:
 
 1. ¿Qué parte es un `if`?
 2. ¿Qué parte necesita IA y por qué?
-3. ¿Cuánto acierta sobre tus seis casos?
-4. ¿Cómo sabes que funcionó sin preguntarle al modelo?
+3. ¿Qué salida esperas?
+4. ¿Qué caso podría romper la decisión?
 5. ¿Qué acción nunca dejarías automática?
-6. Si tú desapareces mañana, ¿quién lo corre?
+6. ¿Qué vas a medir después?
 
-## Referencias bajo demanda
+## Referencias
 
+- [Sesión S1+S2 — Panorama y primera medición](curso/S1-S2-panorama-y-evals.md)
 - [Ruta de la cohorte](curso/00-ruta-de-la-cohorte.md)
 - [Camino dorado](ejemplo/README.md)
-- [Mapa de competencias](docs/competencias.md)
+- [Dependencias y preflight](docs/dependencias-y-preflight.md)
 - [Guía de instalación](docs/instalacion.md)
-
-El resto del repositorio es referencia bajo demanda; no es una lista de lectura obligatoria.

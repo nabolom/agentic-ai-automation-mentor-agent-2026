@@ -1,8 +1,8 @@
-## Sesión 2 — Evals: mide tu decisión de IA, desde cero
+## Guía técnica de S2 — Evals: mide tu decisión de IA
 
-Llegas con un proceso y **una** decisión en manos de la IA. Si todavía no los tienes, los defines en clase con `/arrancar` (bloques 35–100 de la tabla de abajo). La Sesión 2 responde una sola pregunta: **¿cuánto acierta esa decisión?** No "se ve bien". Un número.
+Esta guía continúa [`S1+S2 — Panorama de Agent Engineering Q4-2026 y primera medición`](S1-S2-panorama-y-evals.md). No presupone que la sesión técnica anterior ya hubiera ocurrido: el proceso, la decisión y el track pueden definirse en el laboratorio. La pregunta de S2 es: **¿cuánto acierta esa decisión?** No "se ve bien". Un número.
 
-Esta sección tiene dos partes. **Parte A** son los conceptos — léela con calma, idealmente antes del taller. **Parte B** es el taller paso a paso — ahí vas a copiar y pegar. No las mezcles: primero entiende, luego ejecuta.
+Esta guía tiene dos partes. **Parte A** son los conceptos para consultar después de la teoría aplicada. **Parte B** es la ejecución técnica de los seis casos y `/eval`. La primera sesión usa una versión mínima; aquí queda el detalle para cerrar la medición.
 
 ### En clase: 150 minutos
 
@@ -11,11 +11,12 @@ El núcleo es una medición con **6 casos reales: 4 típicos, 1 límite y 1 adve
 | Minutos | Bloque de la [Ruta de la cohorte](00-ruta-de-la-cohorte.md) | Paso de esta guía |
 |---:|---|---|
 | Antes | Preflight | Paso 0 |
-| 0–35 | Recuperación y demo del camino dorado | Parte A y [`ejemplo/`](../ejemplo/README.md) |
-| 35–100 | Elegir proceso, mapear y diseñar una sola decisión de IA | `/arrancar` (si no traes `flujo.md`, `alcance.md` y `decisiones.md`) |
-| 100–120 | Fijar seis evals | Paso 1 |
-| 120–140 | Correr la línea base | Paso 2 |
-| 140–150 | Diagnosticar un fallo | Paso 3, solo el diagnóstico |
+| 0–30 | Plenaria de Panorama Q4-2026 | Guía S1+S2 |
+| 30–65 | Teoría aplicada y camino dorado | Parte A |
+| 65–75 | Break | — |
+| 75–115 | Abrir Claude Code, elegir track y fijar una decisión | Laboratorio S1+S2 |
+| 115–135 | Fijar tres casos ancla | Paso 1, mínimo de sesión |
+| 135–150 | Extensión: tres casos restantes, `/eval` o cierre | Paso 1–2 |
 
 El arreglo (v1) y la nueva corrida del Paso 3 y el Paso 4 son el bloque 105–135 de [S3](S3-loops.md).
 
